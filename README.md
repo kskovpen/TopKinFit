@@ -1,5 +1,5 @@
 # TopKinFit
 
-[![Build Status](https://travis-ci.com/kskovpen/TopKinFit.svg?branch=master)](https://travis-ci.com/kskovpen/TopKinFit)
+[![GitHub release](https://img.shields.io/github/release/kskovpen/TopKinFit.svg)](https://github.com/kskovpen/TopKinFit/releases)
 
 Kinematic reconstruction of top quark decays
