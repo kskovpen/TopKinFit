@@ -26,7 +26,7 @@ make
 ./buildPyLib.sh
 ```
 
-The latter command is used to build the Python wrapper (if needed).
+The last command is used to build the Python wrapper (if needed).
 
 How to use (in C++):
 
