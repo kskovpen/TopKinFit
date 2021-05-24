@@ -74,8 +74,7 @@ kf->SetPhoton(PhotonPt, PhotonEta, PhotonPhi, PhotonE);
 // Run the tool
 kf->Run();
 
-// Get the minimized log-likelihood value corresponding to the
-best permutation
+// Get the minimized log-likelihood value corresponding to the best permutation
 float disc = kf->GetDisc(0);
 
 // Get the reconstructed top quark (with leptonic W boson decay) pT
