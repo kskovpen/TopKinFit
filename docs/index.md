@@ -1,9 +1,3 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/kskovpen/TopKinFit/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
 ### Installation
 
 ```
@@ -12,3 +6,7 @@ cd TopKinFit
 make
 ./buildPyLib.sh
 ```
+
+### Transfer functions
+
+The transfer functions (TFs) are defined as a relative difference between reconstructed and generated kinematic variables for leptons, jets, transverse missing energy and photons. The exact definition is (gen-rec)/gen. The TFs can be provided as ROOT TH1 histograms in a single input file.
