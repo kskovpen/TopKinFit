@@ -29,7 +29,7 @@ The latter command is used to build the Python wrapper (if needed).
 
 How to use (in C++):
 
-```
+```c++
 #include "include/kinfit.h"
 
 KINFIT::kfit *kf = new KINFIT::kfit();
@@ -60,8 +60,7 @@ kf->SetPDF("MuonPz", pdfFileName, "muon_pz_tf");
 # Set signal hypothesis (ttbar semileptonic)
 kf->Init(HYPO::TOPTOPLEPHAD);
 
-# Pass the four-momenta of reconstructed objects in event (example:
-BJetPt refers to pT of a all permutated b jets as std::vector<float>)
+# Pass the four-momenta of reconstructed objects in event
 kf->SetBJet(BJetPt, BJetEta, BJetPhi, BJetE);
 kf->SetNonBJet(NonBJetPt, NonBJetEta, NonBJetPhi, NonBJetE);
 kf->SetElectron(ElectronPt, ElectronEta, ElectronPhi, ElectronE, ElectronCharge);
@@ -85,8 +84,7 @@ float top1Pt = kf->GetTopPt(0, 0);
 # Get the reconstructed top quark (with hadronic W boson decay) pT
 float top2Pt = kf->GetTopPt(0, 1);
 
-# All other permutations in event can be accessed with e.g. (for
-the second-best permutation):
+# Get the minimized log-likelihood value for the second-best permutation
 float disc = kf->GetDisc(1);
 
 # Total number of permutations
