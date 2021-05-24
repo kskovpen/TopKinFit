@@ -12,7 +12,7 @@ the following signal hypotheses:
 The kinematic fit can also account for the photon radiation from any
 charged hard-process particle in the aforementioned processes.
 Implementation is realized as a C++ shared library. A Python [SWIG](https://github.com/swig/swig) wrapper
-is also provided.
+is also provided. An external [ROOT](https://root.cern.ch) library is used.
 
 The full API documentation is available at [this
 page](https://kskovpen.github.io/TopKinFit/).
