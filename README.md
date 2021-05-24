@@ -14,7 +14,8 @@ charged hard-process particle in the aforementioned processes.
 Implementation is realized as a C++ shared library. A Python wrapper
 is also provided.
 
-The full API documentation is available at [this page](io).
+The full API documentation is available at [this
+page](https://kskovpen.github.io/TopKinFit/).
 
 Installation:
 
