@@ -24,6 +24,7 @@ The reconstruction algorithm is implemented for:
 - **TOPTOPLEPHAD**: semileptonic ttbar
 - **TOPTOPLEPLEP**: dilepton ttbar
 - **TOPLEP**: single-lepton top quark decay
+
 and is specified with:
 ```c++
 kf->Init(HYPO::TOPTOPLEPHAD);
