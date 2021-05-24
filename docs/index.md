@@ -1,3 +1,7 @@
+## About
+
+The implemented algorithm represents a kinematic fit that reconstructs neutrino momentum in events with top quark decays.
+
 ## Installation
 
 ```
@@ -9,10 +13,23 @@ make
 ## Main tool
 
 An instance of the main class can be added with:
-```
+```c++
 #include "include/kinfit.h"
 KINFIT::kfit *kf = new KINFIT::kfit();
 ```
+
+## Signal hypothesis
+
+The reconstruction algorithm is implemented for:
+- **TOPTOPLEPHAD**: semileptonic ttbar
+- **TOPTOPLEPLEP**: dilepton ttbar
+- **TOPLEP**: single-lepton top quark decay
+and is specified with:
+```c++
+kf->Init(HYPO::TOPTOPLEPHAD);
+```
+
+The decaying top quarks and W bosons can also be defined for non standard model particles, provided the decay chain is the same.
 
 ## Transfer functions
 
