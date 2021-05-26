@@ -1,4 +1,4 @@
-# TopKinFit
+# TopPhit
 
 ![C++ version](https://img.shields.io/badge/C++-11-blue.svg)
 
@@ -15,13 +15,13 @@ Implementation is realized as a C++ shared library. A Python [SWIG](https://gith
 is also provided. An external [ROOT](https://root.cern.ch) library is used.
 
 The full API documentation is available at [this
-page](https://kskovpen.github.io/TopKinFit/).
+page](https://kskovpen.github.io/TopPhit/).
 
 Installation:
 
 ```
-git clone https://github.com/kskovpen/TopKinFit
-cd TopKinFit
+git clone https://github.com/kskovpen/TopPhit
+cd TopPhit
 make
 ./buildPyLib.sh
 ```
