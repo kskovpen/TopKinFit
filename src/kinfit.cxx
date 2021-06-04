@@ -39,6 +39,9 @@ std::shared_ptr<double> KINFIT::kfit::PxLepton1;
 std::shared_ptr<double> KINFIT::kfit::PyLepton1;
 std::shared_ptr<double> KINFIT::kfit::PzLepton1;
 std::shared_ptr<double> KINFIT::kfit::ELepton1;
+std::shared_ptr<double> KINFIT::kfit::PtLepton1;
+std::shared_ptr<double> KINFIT::kfit::EtaLepton1;
+std::shared_ptr<double> KINFIT::kfit::PhiLepton1;
 std::shared_ptr<double> KINFIT::kfit::MassLepton1;
 std::shared_ptr<int> KINFIT::kfit::LabelLepton1;
 
@@ -46,6 +49,9 @@ std::shared_ptr<double> KINFIT::kfit::PxLepton2;
 std::shared_ptr<double> KINFIT::kfit::PyLepton2;
 std::shared_ptr<double> KINFIT::kfit::PzLepton2;
 std::shared_ptr<double> KINFIT::kfit::ELepton2;
+std::shared_ptr<double> KINFIT::kfit::PtLepton2;
+std::shared_ptr<double> KINFIT::kfit::EtaLepton2;
+std::shared_ptr<double> KINFIT::kfit::PhiLepton2;
 std::shared_ptr<double> KINFIT::kfit::MassLepton2;
 std::shared_ptr<int> KINFIT::kfit::LabelLepton2;
 
@@ -53,30 +59,45 @@ std::shared_ptr<double> KINFIT::kfit::PxBJet1;
 std::shared_ptr<double> KINFIT::kfit::PyBJet1;
 std::shared_ptr<double> KINFIT::kfit::PzBJet1;
 std::shared_ptr<double> KINFIT::kfit::EBJet1;
+std::shared_ptr<double> KINFIT::kfit::PtBJet1;
+std::shared_ptr<double> KINFIT::kfit::EtaBJet1;
+std::shared_ptr<double> KINFIT::kfit::PhiBJet1;
 std::shared_ptr<double> KINFIT::kfit::MassBJet1;
 
 std::shared_ptr<double> KINFIT::kfit::PxBJet2;
 std::shared_ptr<double> KINFIT::kfit::PyBJet2;
 std::shared_ptr<double> KINFIT::kfit::PzBJet2;
 std::shared_ptr<double> KINFIT::kfit::EBJet2;
+std::shared_ptr<double> KINFIT::kfit::PtBJet2;
+std::shared_ptr<double> KINFIT::kfit::EtaBJet2;
+std::shared_ptr<double> KINFIT::kfit::PhiBJet2;
 std::shared_ptr<double> KINFIT::kfit::MassBJet2;
 
 std::shared_ptr<double> KINFIT::kfit::PxNonBJet1;
 std::shared_ptr<double> KINFIT::kfit::PyNonBJet1;
 std::shared_ptr<double> KINFIT::kfit::PzNonBJet1;
 std::shared_ptr<double> KINFIT::kfit::ENonBJet1;
+std::shared_ptr<double> KINFIT::kfit::PtNonBJet1;
+std::shared_ptr<double> KINFIT::kfit::EtaNonBJet1;
+std::shared_ptr<double> KINFIT::kfit::PhiNonBJet1;
 std::shared_ptr<double> KINFIT::kfit::MassNonBJet1;
 
 std::shared_ptr<double> KINFIT::kfit::PxNonBJet2;
 std::shared_ptr<double> KINFIT::kfit::PyNonBJet2;
 std::shared_ptr<double> KINFIT::kfit::PzNonBJet2;
 std::shared_ptr<double> KINFIT::kfit::ENonBJet2;
+std::shared_ptr<double> KINFIT::kfit::PtNonBJet2;
+std::shared_ptr<double> KINFIT::kfit::EtaNonBJet2;
+std::shared_ptr<double> KINFIT::kfit::PhiNonBJet2;
 std::shared_ptr<double> KINFIT::kfit::MassNonBJet2;
 
 std::shared_ptr<double> KINFIT::kfit::PxPhoton;
 std::shared_ptr<double> KINFIT::kfit::PyPhoton;
 std::shared_ptr<double> KINFIT::kfit::PzPhoton;
 std::shared_ptr<double> KINFIT::kfit::EPhoton;
+std::shared_ptr<double> KINFIT::kfit::PtPhoton;
+std::shared_ptr<double> KINFIT::kfit::EtaPhoton;
+std::shared_ptr<double> KINFIT::kfit::PhiPhoton;
 std::shared_ptr<int> KINFIT::kfit::PhotonOrigin;
 
 std::shared_ptr<double> KINFIT::kfit::PxNu1;
@@ -99,6 +120,17 @@ std::shared_ptr<std::vector<bool> > KINFIT::kfit::IsParFixed;
 std::shared_ptr<std::vector<float> > KINFIT::kfit::ParMin;
 std::shared_ptr<std::vector<float> > KINFIT::kfit::ParMax;
 
+std::shared_ptr<std::map<int, bool> > KINFIT::kfit::foundPDF;
+
+std::shared_ptr<bool> KINFIT::kfit::usePDFBJetPxPyPz;
+std::shared_ptr<bool> KINFIT::kfit::usePDFBJetPtEtaPhi;
+std::shared_ptr<bool> KINFIT::kfit::usePDFNonBJetPxPyPz;
+std::shared_ptr<bool> KINFIT::kfit::usePDFNonBJetPtEtaPhi;
+std::shared_ptr<bool> KINFIT::kfit::usePDFLeptonPxPyPz;
+std::shared_ptr<bool> KINFIT::kfit::usePDFLeptonPtEtaPhi;
+std::shared_ptr<bool> KINFIT::kfit::usePDFPhotonPxPyPz;
+std::shared_ptr<bool> KINFIT::kfit::usePDFPhotonPtEtaPhi;
+
 std::shared_ptr<TF1> KINFIT::kfit::hPDFTopWMass;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFTopMass;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFTopWHadMass;
@@ -111,25 +143,77 @@ std::shared_ptr<TF1> KINFIT::kfit::hPDFMetPy;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFBJetPx;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFBJetPy;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFBJetPz;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFBJetPt;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFBJetEta;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFBJetPhi;
 
 std::shared_ptr<TF1> KINFIT::kfit::hPDFElecPx;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFElecPy;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFElecPz;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFElecPt;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFElecEta;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFElecPhi;
 
 std::shared_ptr<TF1> KINFIT::kfit::hPDFMuonPx;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFMuonPy;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFMuonPz;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFMuonPt;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFMuonEta;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFMuonPhi;
 
 std::shared_ptr<TF1> KINFIT::kfit::hPDFNonBJetPx;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFNonBJetPy;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFNonBJetPz;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFNonBJetPt;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFNonBJetEta;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFNonBJetPhi;
 
 std::shared_ptr<TF1> KINFIT::kfit::hPDFPhotonPx;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFPhotonPy;
 std::shared_ptr<TF1> KINFIT::kfit::hPDFPhotonPz;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFPhotonPt;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFPhotonEta;
+std::shared_ptr<TF1> KINFIT::kfit::hPDFPhotonPhi;
 
 std::string KINFIT::kfit::FPARAM_NAME[NPARMAX];
 std::string KINFIT::kfit::PDF_NAME[PDF_N];
+
+bool KINFIT::kfit::isDeltaFuncPDFTopWMass;
+bool KINFIT::kfit::isDeltaFuncPDFTopMass;
+bool KINFIT::kfit::isDeltaFuncPDFTopWHadMass;
+bool KINFIT::kfit::isDeltaFuncPDFTopHadMass;
+bool KINFIT::kfit::isDeltaFuncPDFMetPx;
+bool KINFIT::kfit::isDeltaFuncPDFMetPy;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPx;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPy;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPz;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPt;
+bool KINFIT::kfit::isDeltaFuncPDFBJetEta;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPhi;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPx;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPy;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPz;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPt;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetEta;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPhi;
+bool KINFIT::kfit::isDeltaFuncPDFElecPx;
+bool KINFIT::kfit::isDeltaFuncPDFElecPy;
+bool KINFIT::kfit::isDeltaFuncPDFElecPz;
+bool KINFIT::kfit::isDeltaFuncPDFElecPt;
+bool KINFIT::kfit::isDeltaFuncPDFElecEta;
+bool KINFIT::kfit::isDeltaFuncPDFElecPhi;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPx;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPy;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPz;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPt;
+bool KINFIT::kfit::isDeltaFuncPDFMuonEta;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPhi;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPx;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPy;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPz;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPt;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonEta;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPhi;
 
 float KINFIT::kfit::maxPDFTopWMass;
 float KINFIT::kfit::meanPDFTopWMass;
@@ -179,6 +263,24 @@ float KINFIT::kfit::sigmaPDFBJetPz;
 double KINFIT::kfit::xminPDFBJetPz;
 double KINFIT::kfit::xmaxPDFBJetPz;
 
+float KINFIT::kfit::maxPDFBJetPt;
+float KINFIT::kfit::meanPDFBJetPt;
+float KINFIT::kfit::sigmaPDFBJetPt;
+double KINFIT::kfit::xminPDFBJetPt;
+double KINFIT::kfit::xmaxPDFBJetPt;
+
+float KINFIT::kfit::maxPDFBJetEta;
+float KINFIT::kfit::meanPDFBJetEta;
+float KINFIT::kfit::sigmaPDFBJetEta;
+double KINFIT::kfit::xminPDFBJetEta;
+double KINFIT::kfit::xmaxPDFBJetEta;
+
+float KINFIT::kfit::maxPDFBJetPhi;
+float KINFIT::kfit::meanPDFBJetPhi;
+float KINFIT::kfit::sigmaPDFBJetPhi;
+double KINFIT::kfit::xminPDFBJetPhi;
+double KINFIT::kfit::xmaxPDFBJetPhi;
+
 float KINFIT::kfit::maxPDFMetPx;
 float KINFIT::kfit::meanPDFMetPx;
 float KINFIT::kfit::sigmaPDFMetPx;
@@ -209,6 +311,24 @@ float KINFIT::kfit::sigmaPDFElecPz;
 double KINFIT::kfit::xminPDFElecPz;
 double KINFIT::kfit::xmaxPDFElecPz;
 
+float KINFIT::kfit::maxPDFElecPt;
+float KINFIT::kfit::meanPDFElecPt;
+float KINFIT::kfit::sigmaPDFElecPt;
+double KINFIT::kfit::xminPDFElecPt;
+double KINFIT::kfit::xmaxPDFElecPt;
+
+float KINFIT::kfit::maxPDFElecEta;
+float KINFIT::kfit::meanPDFElecEta;
+float KINFIT::kfit::sigmaPDFElecEta;
+double KINFIT::kfit::xminPDFElecEta;
+double KINFIT::kfit::xmaxPDFElecEta;
+
+float KINFIT::kfit::maxPDFElecPhi;
+float KINFIT::kfit::meanPDFElecPhi;
+float KINFIT::kfit::sigmaPDFElecPhi;
+double KINFIT::kfit::xminPDFElecPhi;
+double KINFIT::kfit::xmaxPDFElecPhi;
+
 float KINFIT::kfit::maxPDFMuonPx;
 float KINFIT::kfit::meanPDFMuonPx;
 float KINFIT::kfit::sigmaPDFMuonPx;
@@ -226,6 +346,24 @@ float KINFIT::kfit::meanPDFMuonPz;
 float KINFIT::kfit::sigmaPDFMuonPz;
 double KINFIT::kfit::xminPDFMuonPz;
 double KINFIT::kfit::xmaxPDFMuonPz;
+
+float KINFIT::kfit::maxPDFMuonPt;
+float KINFIT::kfit::meanPDFMuonPt;
+float KINFIT::kfit::sigmaPDFMuonPt;
+double KINFIT::kfit::xminPDFMuonPt;
+double KINFIT::kfit::xmaxPDFMuonPt;
+
+float KINFIT::kfit::maxPDFMuonEta;
+float KINFIT::kfit::meanPDFMuonEta;
+float KINFIT::kfit::sigmaPDFMuonEta;
+double KINFIT::kfit::xminPDFMuonEta;
+double KINFIT::kfit::xmaxPDFMuonEta;
+
+float KINFIT::kfit::maxPDFMuonPhi;
+float KINFIT::kfit::meanPDFMuonPhi;
+float KINFIT::kfit::sigmaPDFMuonPhi;
+double KINFIT::kfit::xminPDFMuonPhi;
+double KINFIT::kfit::xmaxPDFMuonPhi;
 
 float KINFIT::kfit::maxPDFNonBJetPx;
 float KINFIT::kfit::meanPDFNonBJetPx;
@@ -245,6 +383,24 @@ float KINFIT::kfit::sigmaPDFNonBJetPz;
 double KINFIT::kfit::xminPDFNonBJetPz;
 double KINFIT::kfit::xmaxPDFNonBJetPz;
 
+float KINFIT::kfit::maxPDFNonBJetPt;
+float KINFIT::kfit::meanPDFNonBJetPt;
+float KINFIT::kfit::sigmaPDFNonBJetPt;
+double KINFIT::kfit::xminPDFNonBJetPt;
+double KINFIT::kfit::xmaxPDFNonBJetPt;
+
+float KINFIT::kfit::maxPDFNonBJetEta;
+float KINFIT::kfit::meanPDFNonBJetEta;
+float KINFIT::kfit::sigmaPDFNonBJetEta;
+double KINFIT::kfit::xminPDFNonBJetEta;
+double KINFIT::kfit::xmaxPDFNonBJetEta;
+
+float KINFIT::kfit::maxPDFNonBJetPhi;
+float KINFIT::kfit::meanPDFNonBJetPhi;
+float KINFIT::kfit::sigmaPDFNonBJetPhi;
+double KINFIT::kfit::xminPDFNonBJetPhi;
+double KINFIT::kfit::xmaxPDFNonBJetPhi;
+
 float KINFIT::kfit::maxPDFPhotonPx;
 float KINFIT::kfit::meanPDFPhotonPx;
 float KINFIT::kfit::sigmaPDFPhotonPx;
@@ -262,6 +418,24 @@ float KINFIT::kfit::meanPDFPhotonPz;
 float KINFIT::kfit::sigmaPDFPhotonPz;
 double KINFIT::kfit::xminPDFPhotonPz;
 double KINFIT::kfit::xmaxPDFPhotonPz;
+
+float KINFIT::kfit::maxPDFPhotonPt;
+float KINFIT::kfit::meanPDFPhotonPt;
+float KINFIT::kfit::sigmaPDFPhotonPt;
+double KINFIT::kfit::xminPDFPhotonPt;
+double KINFIT::kfit::xmaxPDFPhotonPt;
+
+float KINFIT::kfit::maxPDFPhotonEta;
+float KINFIT::kfit::meanPDFPhotonEta;
+float KINFIT::kfit::sigmaPDFPhotonEta;
+double KINFIT::kfit::xminPDFPhotonEta;
+double KINFIT::kfit::xmaxPDFPhotonEta;
+
+float KINFIT::kfit::maxPDFPhotonPhi;
+float KINFIT::kfit::meanPDFPhotonPhi;
+float KINFIT::kfit::sigmaPDFPhotonPhi;
+double KINFIT::kfit::xminPDFPhotonPhi;
+double KINFIT::kfit::xmaxPDFPhotonPhi;
 
 /// Main constructor
 KINFIT::kfit::kfit()
@@ -305,22 +479,37 @@ KINFIT::kfit::kfit()
    NBJetPxRMS_ = 3;
    NBJetPyRMS_ = 3;
    NBJetPzRMS_ = 3;
+   NBJetPtRMS_ = 3;
+   NBJetEtaRMS_ = 3;
+   NBJetPhiRMS_ = 3;
 
    NNonBJetPxRMS_ = 3;
    NNonBJetPyRMS_ = 3;
    NNonBJetPzRMS_ = 3;
+   NNonBJetPtRMS_ = 3;
+   NNonBJetEtaRMS_ = 3;
+   NNonBJetPhiRMS_ = 3;
    
    NElecPxRMS_ = 3;
    NElecPyRMS_ = 3;
    NElecPzRMS_ = 3;
+   NElecPtRMS_ = 3;
+   NElecEtaRMS_ = 3;
+   NElecPhiRMS_ = 3;
 
    NMuonPxRMS_ = 3;
    NMuonPyRMS_ = 3;
    NMuonPzRMS_ = 3;
+   NMuonPtRMS_ = 3;
+   NMuonEtaRMS_ = 3;
+   NMuonPhiRMS_ = 3;
 
    NPhotonPxRMS_ = 3;
    NPhotonPyRMS_ = 3;
    NPhotonPzRMS_ = 3;
+   NPhotonPtRMS_ = 3;
+   NPhotonEtaRMS_ = 3;
+   NPhotonPhiRMS_ = 3;
    
    LimNRMS_ = 3;
    
@@ -332,6 +521,17 @@ KINFIT::kfit::kfit()
 
    WMass1 = -1;
    WMass2 = -1;
+   
+   foundPDF.reset(); foundPDF = std::make_shared<std::map<int, bool> >();
+   
+   usePDFBJetPxPyPz.reset(); usePDFBJetPxPyPz = std::make_shared<bool>();
+   usePDFBJetPtEtaPhi.reset(); usePDFBJetPtEtaPhi = std::make_shared<bool>();
+   usePDFNonBJetPxPyPz.reset(); usePDFNonBJetPxPyPz = std::make_shared<bool>();
+   usePDFNonBJetPtEtaPhi.reset(); usePDFNonBJetPtEtaPhi = std::make_shared<bool>();
+   usePDFLeptonPxPyPz.reset(); usePDFLeptonPxPyPz = std::make_shared<bool>();
+   usePDFLeptonPtEtaPhi.reset(); usePDFLeptonPtEtaPhi = std::make_shared<bool>();
+   usePDFPhotonPxPyPz.reset(); usePDFPhotonPxPyPz = std::make_shared<bool>();
+   usePDFPhotonPtEtaPhi.reset(); usePDFPhotonPtEtaPhi = std::make_shared<bool>();
    
    hPDFTopWMass.reset(); hPDFTopWMass = std::make_shared<TF1>();
    hPDFTopMass.reset(); hPDFTopMass = std::make_shared<TF1>();
@@ -346,22 +546,37 @@ KINFIT::kfit::kfit()
    hPDFBJetPx.reset(); hPDFBJetPx = std::make_shared<TF1>();
    hPDFBJetPy.reset(); hPDFBJetPy = std::make_shared<TF1>();
    hPDFBJetPz.reset(); hPDFBJetPz = std::make_shared<TF1>();
+   hPDFBJetPt.reset(); hPDFBJetPt = std::make_shared<TF1>();
+   hPDFBJetEta.reset(); hPDFBJetEta = std::make_shared<TF1>();
+   hPDFBJetPhi.reset(); hPDFBJetPhi = std::make_shared<TF1>();
    
    hPDFElecPx.reset(); hPDFElecPx = std::make_shared<TF1>();
    hPDFElecPy.reset(); hPDFElecPy = std::make_shared<TF1>();
    hPDFElecPz.reset(); hPDFElecPz = std::make_shared<TF1>();
+   hPDFElecPt.reset(); hPDFElecPt = std::make_shared<TF1>();
+   hPDFElecEta.reset(); hPDFElecEta = std::make_shared<TF1>();
+   hPDFElecPhi.reset(); hPDFElecPhi = std::make_shared<TF1>();
    
    hPDFMuonPx.reset(); hPDFMuonPx = std::make_shared<TF1>();
    hPDFMuonPy.reset(); hPDFMuonPy = std::make_shared<TF1>();
    hPDFMuonPz.reset(); hPDFMuonPz = std::make_shared<TF1>();
+   hPDFMuonPt.reset(); hPDFMuonPt = std::make_shared<TF1>();
+   hPDFMuonEta.reset(); hPDFMuonEta = std::make_shared<TF1>();
+   hPDFMuonPhi.reset(); hPDFMuonPhi = std::make_shared<TF1>();
    
    hPDFNonBJetPx.reset(); hPDFNonBJetPx = std::make_shared<TF1>();
    hPDFNonBJetPy.reset(); hPDFNonBJetPy = std::make_shared<TF1>();
    hPDFNonBJetPz.reset(); hPDFNonBJetPz = std::make_shared<TF1>();
+   hPDFNonBJetPt.reset(); hPDFNonBJetPt = std::make_shared<TF1>();
+   hPDFNonBJetEta.reset(); hPDFNonBJetEta = std::make_shared<TF1>();
+   hPDFNonBJetPhi.reset(); hPDFNonBJetPhi = std::make_shared<TF1>();
 
    hPDFPhotonPx.reset(); hPDFPhotonPx = std::make_shared<TF1>();
    hPDFPhotonPy.reset(); hPDFPhotonPy = std::make_shared<TF1>();
    hPDFPhotonPz.reset(); hPDFPhotonPz = std::make_shared<TF1>();
+   hPDFPhotonPt.reset(); hPDFPhotonPt = std::make_shared<TF1>();
+   hPDFPhotonEta.reset(); hPDFPhotonEta = std::make_shared<TF1>();
+   hPDFPhotonPhi.reset(); hPDFPhotonPhi = std::make_shared<TF1>();
    
    MetPx_ = NULL;
    MetPy_ = NULL;
@@ -470,55 +685,82 @@ void KINFIT::kfit::Init(HYPO hypo)
 
 	/// Define fit parameters
 	
-	FPARAM_NAME[FPARAM_Etx_TOPTOPLEPLEP]       = "Etx";
-	FPARAM_NAME[FPARAM_Ety_TOPTOPLEPLEP]       = "Ety";
-	FPARAM_NAME[FPARAM_Sign1_TOPTOPLEPLEP]     = "Sign1";
-	FPARAM_NAME[FPARAM_Sign2_TOPTOPLEPLEP]     = "Sign2";
-	FPARAM_NAME[FPARAM_EtRealX_TOPTOPLEPLEP]   = "EtRealX";
-	FPARAM_NAME[FPARAM_EtRealY_TOPTOPLEPLEP]   = "EtRealY";
-	FPARAM_NAME[FPARAM_mW1_TOPTOPLEPLEP]       = "mW1";
-	FPARAM_NAME[FPARAM_mW2_TOPTOPLEPLEP]       = "mW2";
-	FPARAM_NAME[FPARAM_BJet1Px_TOPTOPLEPLEP]   = "BJet1Px";
-	FPARAM_NAME[FPARAM_BJet1Py_TOPTOPLEPLEP]   = "BJet1Py";
-	FPARAM_NAME[FPARAM_BJet1Pz_TOPTOPLEPLEP]   = "BJet1Pz";
-	FPARAM_NAME[FPARAM_BJet1E_TOPTOPLEPLEP]    = "BJet1E";
-	FPARAM_NAME[FPARAM_BJet2Px_TOPTOPLEPLEP]   = "BJet2Px";
-	FPARAM_NAME[FPARAM_BJet2Py_TOPTOPLEPLEP]   = "BJet2Py";
-	FPARAM_NAME[FPARAM_BJet2Pz_TOPTOPLEPLEP]   = "BJet2Pz";
-	FPARAM_NAME[FPARAM_BJet2E_TOPTOPLEPLEP]    = "BJet2E";
-	FPARAM_NAME[FPARAM_Lepton1Px_TOPTOPLEPLEP] = "Lepton1Px";
-	FPARAM_NAME[FPARAM_Lepton1Py_TOPTOPLEPLEP] = "Lepton1Py";
-	FPARAM_NAME[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = "Lepton1Pz";
-	FPARAM_NAME[FPARAM_Lepton1E_TOPTOPLEPLEP]  = "Lepton1E";
-	FPARAM_NAME[FPARAM_Lepton2Px_TOPTOPLEPLEP] = "Lepton2Px";
-	FPARAM_NAME[FPARAM_Lepton2Py_TOPTOPLEPLEP] = "Lepton2Py";
-	FPARAM_NAME[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = "Lepton2Pz";
-	FPARAM_NAME[FPARAM_Lepton2E_TOPTOPLEPLEP]  = "Lepton2E";
-	FPARAM_NAME[FPARAM_PhotonPx_TOPTOPLEPLEP]  = "PhotonPx";
-	FPARAM_NAME[FPARAM_PhotonPy_TOPTOPLEPLEP]  = "PhotonPy";
-	FPARAM_NAME[FPARAM_PhotonPz_TOPTOPLEPLEP]  = "PhotonPz";
-	FPARAM_NAME[FPARAM_PhotonE_TOPTOPLEPLEP]   = "PhotonE";
+	FPARAM_NAME[FPARAM_Etx_TOPTOPLEPLEP]        = "Etx";
+	FPARAM_NAME[FPARAM_Ety_TOPTOPLEPLEP]        = "Ety";
+	FPARAM_NAME[FPARAM_Sign1_TOPTOPLEPLEP]      = "Sign1";
+	FPARAM_NAME[FPARAM_Sign2_TOPTOPLEPLEP]      = "Sign2";
+	FPARAM_NAME[FPARAM_EtRealX_TOPTOPLEPLEP]    = "EtRealX";
+	FPARAM_NAME[FPARAM_EtRealY_TOPTOPLEPLEP]    = "EtRealY";
+	FPARAM_NAME[FPARAM_mW1_TOPTOPLEPLEP]        = "mW1";
+	FPARAM_NAME[FPARAM_mW2_TOPTOPLEPLEP]        = "mW2";
+	FPARAM_NAME[FPARAM_BJet1Px_TOPTOPLEPLEP]    = "BJet1Px";
+	FPARAM_NAME[FPARAM_BJet1Py_TOPTOPLEPLEP]    = "BJet1Py";
+	FPARAM_NAME[FPARAM_BJet1Pz_TOPTOPLEPLEP]    = "BJet1Pz";
+	FPARAM_NAME[FPARAM_BJet1Pt_TOPTOPLEPLEP]    = "BJet1Pt";
+	FPARAM_NAME[FPARAM_BJet1Eta_TOPTOPLEPLEP]   = "BJet1Eta";
+	FPARAM_NAME[FPARAM_BJet1Phi_TOPTOPLEPLEP]   = "BJet1Phi";
+	FPARAM_NAME[FPARAM_BJet1E_TOPTOPLEPLEP]     = "BJet1E";
+	FPARAM_NAME[FPARAM_BJet2Px_TOPTOPLEPLEP]    = "BJet2Px";
+	FPARAM_NAME[FPARAM_BJet2Py_TOPTOPLEPLEP]    = "BJet2Py";
+	FPARAM_NAME[FPARAM_BJet2Pz_TOPTOPLEPLEP]    = "BJet2Pz";
+	FPARAM_NAME[FPARAM_BJet2Pt_TOPTOPLEPLEP]    = "BJet2Pt";
+	FPARAM_NAME[FPARAM_BJet2Eta_TOPTOPLEPLEP]   = "BJet2Eta";
+	FPARAM_NAME[FPARAM_BJet2Phi_TOPTOPLEPLEP]   = "BJet2Phi";
+	FPARAM_NAME[FPARAM_BJet2E_TOPTOPLEPLEP]     = "BJet2E";
+	FPARAM_NAME[FPARAM_Lepton1Px_TOPTOPLEPLEP]  = "Lepton1Px";
+	FPARAM_NAME[FPARAM_Lepton1Py_TOPTOPLEPLEP]  = "Lepton1Py";
+	FPARAM_NAME[FPARAM_Lepton1Pz_TOPTOPLEPLEP]  = "Lepton1Pz";
+	FPARAM_NAME[FPARAM_Lepton1Pt_TOPTOPLEPLEP]  = "Lepton1Pt";
+	FPARAM_NAME[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = "Lepton1Eta";
+	FPARAM_NAME[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = "Lepton1Phi";
+	FPARAM_NAME[FPARAM_Lepton1E_TOPTOPLEPLEP]   = "Lepton1E";
+	FPARAM_NAME[FPARAM_Lepton2Px_TOPTOPLEPLEP]  = "Lepton2Px";
+	FPARAM_NAME[FPARAM_Lepton2Py_TOPTOPLEPLEP]  = "Lepton2Py";
+	FPARAM_NAME[FPARAM_Lepton2Pz_TOPTOPLEPLEP]  = "Lepton2Pz";
+	FPARAM_NAME[FPARAM_Lepton2Pt_TOPTOPLEPLEP]  = "Lepton2Pt";
+	FPARAM_NAME[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = "Lepton2Eta";
+	FPARAM_NAME[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = "Lepton2Phi";
+	FPARAM_NAME[FPARAM_Lepton2E_TOPTOPLEPLEP]   = "Lepton2E";
+	FPARAM_NAME[FPARAM_PhotonPx_TOPTOPLEPLEP]   = "PhotonPx";
+	FPARAM_NAME[FPARAM_PhotonPy_TOPTOPLEPLEP]   = "PhotonPy";
+	FPARAM_NAME[FPARAM_PhotonPz_TOPTOPLEPLEP]   = "PhotonPz";
+	FPARAM_NAME[FPARAM_PhotonPt_TOPTOPLEPLEP]   = "PhotonPt";
+	FPARAM_NAME[FPARAM_PhotonEta_TOPTOPLEPLEP]  = "PhotonEta";
+	FPARAM_NAME[FPARAM_PhotonPhi_TOPTOPLEPLEP]  = "PhotonPhi";
+	FPARAM_NAME[FPARAM_PhotonE_TOPTOPLEPLEP]    = "PhotonE";
 	FPARAM_N = FPARAM_N_TOPTOPLEPLEP;
 
 	/// Transfer functions
 	
-	PDF_NAME[PDF_TopWMass]    = "PDFTopWMass";
-	PDF_NAME[PDF_TopMass]     = "PDFTopMass";
-//	PDF_NAME[PDF_TopTopMass]  = "PDFTopTopMass";
-	PDF_NAME[PDF_MetPx]       = "PDFMetPx";
-	PDF_NAME[PDF_MetPy]       = "PDFMetPy";
-	PDF_NAME[PDF_BJetPx]      = "PDFBJetPx";
-	PDF_NAME[PDF_BJetPy]      = "PDFBJetPy";
-	PDF_NAME[PDF_BJetPz]      = "PDFBJetPz";
-	PDF_NAME[PDF_ElecPx]      = "PDFElecPx";
-	PDF_NAME[PDF_ElecPy]      = "PDFElecPy";
-	PDF_NAME[PDF_ElecPz]      = "PDFElecPz";
-	PDF_NAME[PDF_MuonPx]      = "PDFMuonPx";
-	PDF_NAME[PDF_MuonPy]      = "PDFMuonPy";
-	PDF_NAME[PDF_MuonPz]      = "PDFMuonPz";
-	PDF_NAME[PDF_PhotonPx]    = "PDFPhotonPx";
-	PDF_NAME[PDF_PhotonPy]    = "PDFPhotonPy";
-	PDF_NAME[PDF_PhotonPz]    = "PDFPhotonPz";
+	PDF_NAME[PDF_TopWMass]     = "PDFTopWMass";
+	PDF_NAME[PDF_TopMass]      = "PDFTopMass";
+//	PDF_NAME[PDF_TopTopMass]   = "PDFTopTopMass";
+	PDF_NAME[PDF_MetPx]        = "PDFMetPx";
+	PDF_NAME[PDF_MetPy]        = "PDFMetPy";
+	PDF_NAME[PDF_BJetPx]       = "PDFBJetPx";
+	PDF_NAME[PDF_BJetPy]       = "PDFBJetPy";
+	PDF_NAME[PDF_BJetPz]       = "PDFBJetPz";
+	PDF_NAME[PDF_BJetPt]       = "PDFBJetPt";
+	PDF_NAME[PDF_BJetEta]      = "PDFBJetEta";
+	PDF_NAME[PDF_BJetPhi]      = "PDFBJetPhi";
+	PDF_NAME[PDF_ElecPx]       = "PDFElecPx";
+	PDF_NAME[PDF_ElecPy]       = "PDFElecPy";
+	PDF_NAME[PDF_ElecPz]       = "PDFElecPz";
+	PDF_NAME[PDF_ElecPt]       = "PDFElecPt";
+	PDF_NAME[PDF_ElecEta]      = "PDFElecEta";
+	PDF_NAME[PDF_ElecPhi]      = "PDFElecPhi";
+	PDF_NAME[PDF_MuonPx]       = "PDFMuonPx";
+	PDF_NAME[PDF_MuonPy]       = "PDFMuonPy";
+	PDF_NAME[PDF_MuonPz]       = "PDFMuonPz";
+	PDF_NAME[PDF_MuonPt]       = "PDFMuonPt";
+	PDF_NAME[PDF_MuonEta]      = "PDFMuonEta";
+	PDF_NAME[PDF_MuonPhi]      = "PDFMuonPhi";
+	PDF_NAME[PDF_PhotonPx]     = "PDFPhotonPx";
+	PDF_NAME[PDF_PhotonPy]     = "PDFPhotonPy";
+	PDF_NAME[PDF_PhotonPz]     = "PDFPhotonPz";
+	PDF_NAME[PDF_PhotonPt]     = "PDFPhotonPt";
+	PDF_NAME[PDF_PhotonEta]    = "PDFPhotonEta";
+	PDF_NAME[PDF_PhotonPhi]    = "PDFPhotonPhi";
 	
 	/// Fix all parameters except one neutrino (px, py) and two W boson masses
 	
@@ -537,44 +779,130 @@ void KINFIT::kfit::Init(HYPO hypo)
 	(*IsParFixed)[FPARAM_BJet1Px_TOPTOPLEPLEP]    = true;
 	(*IsParFixed)[FPARAM_BJet1Py_TOPTOPLEPLEP]    = true;
 	(*IsParFixed)[FPARAM_BJet1Pz_TOPTOPLEPLEP]    = true;
+	(*IsParFixed)[FPARAM_BJet1Pt_TOPTOPLEPLEP]    = true;
+	(*IsParFixed)[FPARAM_BJet1Eta_TOPTOPLEPLEP]    = true;
+	(*IsParFixed)[FPARAM_BJet1Phi_TOPTOPLEPLEP]    = true;
 	(*IsParFixed)[FPARAM_BJet1E_TOPTOPLEPLEP]     = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_BJet2Px_TOPTOPLEPLEP]    = true;
 	(*IsParFixed)[FPARAM_BJet2Py_TOPTOPLEPLEP]    = true;
 	(*IsParFixed)[FPARAM_BJet2Pz_TOPTOPLEPLEP]    = true;
+	(*IsParFixed)[FPARAM_BJet2Pt_TOPTOPLEPLEP]    = true;
+	(*IsParFixed)[FPARAM_BJet2Eta_TOPTOPLEPLEP]    = true;
+	(*IsParFixed)[FPARAM_BJet2Phi_TOPTOPLEPLEP]    = true;
 	(*IsParFixed)[FPARAM_BJet2E_TOPTOPLEPLEP]     = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_Lepton1Px_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_Lepton1Py_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_Lepton1Pz_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_Lepton1Pt_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_Lepton1Eta_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_Lepton1Phi_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_Lepton1E_TOPTOPLEPLEP]   = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_Lepton2Px_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_Lepton2Py_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_Lepton2Pz_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_Lepton2Pt_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_Lepton2Eta_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_Lepton2Phi_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_Lepton2E_TOPTOPLEPLEP]   = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_PhotonPx_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_PhotonPy_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_PhotonPz_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_PhotonPt_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_PhotonEta_TOPTOPLEPLEP]  = true;
+	(*IsParFixed)[FPARAM_PhotonPhi_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_PhotonE_TOPTOPLEPLEP]   = true; /// Must always be fixed
 	
 	/// Check that transfer functions are present in the input file
 	
-	checkPDF(hPDFTopWMass.get(), PDF_NAME[PDF_TopWMass]);
-	checkPDF(hPDFTopMass.get(), PDF_NAME[PDF_TopMass]);
+	bool foundPDFTopWMass = (! isDeltaFuncPDFTopWMass) ? checkPDF(hPDFTopWMass.get(), PDF_NAME[PDF_TopWMass]) : true; foundPDF.get()->insert({PDF_TopWMass, foundPDFTopWMass});
+	bool foundPDFTopMass = (! isDeltaFuncPDFTopMass) ? checkPDF(hPDFTopMass.get(), PDF_NAME[PDF_TopMass]) : true; foundPDF.get()->insert({PDF_TopMass, foundPDFTopMass});
 //	checkPDF(hPDFTopTopMass.get(), PDF_NAME[PDF_TopTopMass]);
 	
-	checkPDF(hPDFMetPx.get(), PDF_NAME[PDF_MetPx]);
-	checkPDF(hPDFMetPy.get(), PDF_NAME[PDF_MetPy]);
+	bool foundPDFMetPx = (! isDeltaFuncPDFMetPx) ? checkPDF(hPDFMetPx.get(), PDF_NAME[PDF_MetPx]) : true; foundPDF.get()->insert({PDF_MetPx, foundPDFMetPx});
+	bool foundPDFMetPy = (! isDeltaFuncPDFMetPy) ? checkPDF(hPDFMetPy.get(), PDF_NAME[PDF_MetPy]) : true; foundPDF.get()->insert({PDF_MetPy, foundPDFMetPy});
+
+	bool foundPDFBJetPx = (! isDeltaFuncPDFBJetPx) ? checkPDF(hPDFBJetPx.get(), PDF_NAME[PDF_BJetPx]) : true;
+	bool foundPDFBJetPy = (! isDeltaFuncPDFBJetPy) ? checkPDF(hPDFBJetPy.get(), PDF_NAME[PDF_BJetPy]) : true;
+	bool foundPDFBJetPz = (! isDeltaFuncPDFBJetPz) ? checkPDF(hPDFBJetPz.get(), PDF_NAME[PDF_BJetPz]) : true;
+	bool foundPDFBJetPt = (! isDeltaFuncPDFBJetPt) ? checkPDF(hPDFBJetPt.get(), PDF_NAME[PDF_BJetPt]) : true;
+	bool foundPDFBJetEta = (! isDeltaFuncPDFBJetEta) ? checkPDF(hPDFBJetEta.get(), PDF_NAME[PDF_BJetEta]) : true;
+	bool foundPDFBJetPhi = (! isDeltaFuncPDFBJetPhi) ? checkPDF(hPDFBJetPhi.get(), PDF_NAME[PDF_BJetPhi]) : true;
 	
-	checkPDF(hPDFBJetPx.get(), PDF_NAME[PDF_BJetPx]);
-	checkPDF(hPDFBJetPy.get(), PDF_NAME[PDF_BJetPy]);
-	checkPDF(hPDFBJetPz.get(), PDF_NAME[PDF_BJetPz]);
+	bool foundPDFBJetPxPyPz = (foundPDFBJetPx || foundPDFBJetPy || foundPDFBJetPz);
+	bool foundPDFBJetPtEtaPhi = (foundPDFBJetPt || foundPDFBJetEta || foundPDFBJetPhi);
 	
-	checkPDF(hPDFElecPx.get(), PDF_NAME[PDF_ElecPx]);
-	checkPDF(hPDFElecPy.get(), PDF_NAME[PDF_ElecPy]);
-	checkPDF(hPDFElecPz.get(), PDF_NAME[PDF_ElecPz]);
+	if( foundPDFBJetPxPyPz && foundPDFBJetPtEtaPhi ) printPDFWarning();
+	else if( foundPDFBJetPxPyPz ) {
+	   (*usePDFBJetPxPyPz) = true;
+	   (*usePDFBJetPtEtaPhi) = false;
+	   foundPDF.get()->insert({PDF_BJetPx, foundPDFBJetPx});
+	   foundPDF.get()->insert({PDF_BJetPy, foundPDFBJetPy});
+	   foundPDF.get()->insert({PDF_BJetPz, foundPDFBJetPz});
+	}
+	else {
+	   (*usePDFBJetPxPyPz) = false;
+	   (*usePDFBJetPtEtaPhi) = true;
+	   foundPDF.get()->insert({PDF_BJetPt, foundPDFBJetPt});
+	   foundPDF.get()->insert({PDF_BJetEta, foundPDFBJetEta});
+	   foundPDF.get()->insert({PDF_BJetPhi, foundPDFBJetPhi});
+	}
 	
-	checkPDF(hPDFMuonPx.get(), PDF_NAME[PDF_MuonPx]);
-	checkPDF(hPDFMuonPy.get(), PDF_NAME[PDF_MuonPy]);
-	checkPDF(hPDFMuonPz.get(), PDF_NAME[PDF_MuonPz]);
+	bool foundPDFElecPx = (! isDeltaFuncPDFElecPx) ? checkPDF(hPDFElecPx.get(), PDF_NAME[PDF_ElecPx]) : true;
+	bool foundPDFElecPy = (! isDeltaFuncPDFElecPy) ? checkPDF(hPDFElecPy.get(), PDF_NAME[PDF_ElecPy]) : true;
+	bool foundPDFElecPz = (! isDeltaFuncPDFElecPz) ? checkPDF(hPDFElecPz.get(), PDF_NAME[PDF_ElecPz]) : true;
+	bool foundPDFElecPt = (! isDeltaFuncPDFElecPt) ? checkPDF(hPDFElecPt.get(), PDF_NAME[PDF_ElecPt]) : true;
+	bool foundPDFElecEta = (! isDeltaFuncPDFElecEta) ? checkPDF(hPDFElecEta.get(), PDF_NAME[PDF_ElecEta]) : true;
+	bool foundPDFElecPhi = (! isDeltaFuncPDFElecPhi) ? checkPDF(hPDFElecPhi.get(), PDF_NAME[PDF_ElecPhi]) : true;
+
+	bool foundPDFElecPxPyPz = (foundPDFElecPx || foundPDFElecPy || foundPDFElecPz);
+	bool foundPDFElecPtEtaPhi = (foundPDFElecPt || foundPDFElecEta || foundPDFElecPhi);
+	
+	if( foundPDFElecPxPyPz && foundPDFElecPtEtaPhi ) printPDFWarning();
+	else if( foundPDFElecPxPyPz ) {
+	   foundPDF.get()->insert({PDF_ElecPx, foundPDFElecPx});
+	   foundPDF.get()->insert({PDF_ElecPy, foundPDFElecPy});
+	   foundPDF.get()->insert({PDF_ElecPz, foundPDFElecPz});
+	}
+	else {
+	   foundPDF.get()->insert({PDF_ElecPt, foundPDFElecPt});
+	   foundPDF.get()->insert({PDF_ElecEta, foundPDFElecEta});
+	   foundPDF.get()->insert({PDF_ElecPhi, foundPDFElecPhi});
+	}
+	
+	bool foundPDFMuonPx = (! isDeltaFuncPDFMuonPx) ? checkPDF(hPDFMuonPx.get(), PDF_NAME[PDF_MuonPx]) : true;
+	bool foundPDFMuonPy = (! isDeltaFuncPDFMuonPy) ? checkPDF(hPDFMuonPy.get(), PDF_NAME[PDF_MuonPy]) : true;
+	bool foundPDFMuonPz = (! isDeltaFuncPDFMuonPz) ? checkPDF(hPDFMuonPz.get(), PDF_NAME[PDF_MuonPz]) : true;
+	bool foundPDFMuonPt = (! isDeltaFuncPDFMuonPt) ? checkPDF(hPDFMuonPt.get(), PDF_NAME[PDF_MuonPt]) : true;
+	bool foundPDFMuonEta = (! isDeltaFuncPDFMuonEta) ? checkPDF(hPDFMuonEta.get(), PDF_NAME[PDF_MuonEta]) : true;
+	bool foundPDFMuonPhi = (! isDeltaFuncPDFMuonPhi) ? checkPDF(hPDFMuonPhi.get(), PDF_NAME[PDF_MuonPhi]) : true;
+
+	bool foundPDFMuonPxPyPz = (foundPDFMuonPx || foundPDFMuonPy || foundPDFMuonPz);
+	bool foundPDFMuonPtEtaPhi = (foundPDFMuonPt || foundPDFMuonEta || foundPDFMuonPhi);
+	
+	if( foundPDFMuonPxPyPz && foundPDFMuonPtEtaPhi ) printPDFWarning();
+	else if( foundPDFMuonPxPyPz ) {
+	   foundPDF.get()->insert({PDF_MuonPx, foundPDFMuonPx});
+	   foundPDF.get()->insert({PDF_MuonPy, foundPDFMuonPy});
+	   foundPDF.get()->insert({PDF_MuonPz, foundPDFMuonPz});
+	}
+	else {
+	   foundPDF.get()->insert({PDF_MuonPt, foundPDFMuonPt});
+	   foundPDF.get()->insert({PDF_MuonEta, foundPDFMuonEta});
+	   foundPDF.get()->insert({PDF_MuonPhi, foundPDFMuonPhi});
+	}
+	
+	if( foundPDFElecPxPyPz && foundPDFMuonPxPyPz ) {
+	   (*usePDFLeptonPxPyPz) = true;
+	   (*usePDFLeptonPtEtaPhi) = false;
+	}
+	else if( foundPDFElecPtEtaPhi && foundPDFMuonPtEtaPhi ) {
+	   (*usePDFLeptonPxPyPz) = false;
+	   (*usePDFLeptonPtEtaPhi) = true;
+	}
+	else {
+	   std::cout << "Please define the same type PDFs for leptons" << std::endl;
+	   exit(1);
+	}
 	
 	DoFit_ = true;
 	
@@ -594,53 +922,86 @@ void KINFIT::kfit::Init(HYPO hypo)
 	FPARAM_NAME[FPARAM_BJetLepPx_TOPTOPLEPHAD]    = "BJetLepPx";
 	FPARAM_NAME[FPARAM_BJetLepPy_TOPTOPLEPHAD]    = "BJetLepPy";
 	FPARAM_NAME[FPARAM_BJetLepPz_TOPTOPLEPHAD]    = "BJetLepPz";
+	FPARAM_NAME[FPARAM_BJetLepPt_TOPTOPLEPHAD]    = "BJetLepPt";
+	FPARAM_NAME[FPARAM_BJetLepEta_TOPTOPLEPHAD]   = "BJetLepEta";
+	FPARAM_NAME[FPARAM_BJetLepPhi_TOPTOPLEPHAD]   = "BJetLepPhi";
 	FPARAM_NAME[FPARAM_BJetLepE_TOPTOPLEPHAD]     = "BJetLepE";
 	FPARAM_NAME[FPARAM_BJetHadPx_TOPTOPLEPHAD]    = "BJetHadPx";
 	FPARAM_NAME[FPARAM_BJetHadPy_TOPTOPLEPHAD]    = "BJetHadPy";
 	FPARAM_NAME[FPARAM_BJetHadPz_TOPTOPLEPHAD]    = "BJetHadPz";
+	FPARAM_NAME[FPARAM_BJetHadPt_TOPTOPLEPHAD]    = "BJetHadPt";
+	FPARAM_NAME[FPARAM_BJetHadEta_TOPTOPLEPHAD]   = "BJetHadEta";
+	FPARAM_NAME[FPARAM_BJetHadPhi_TOPTOPLEPHAD]   = "BJetHadPhi";
 	FPARAM_NAME[FPARAM_BJetHadE_TOPTOPLEPHAD]     = "BJetHadE";
 	FPARAM_NAME[FPARAM_NonBJet1Px_TOPTOPLEPHAD]   = "NonBJet1Px";
 	FPARAM_NAME[FPARAM_NonBJet1Py_TOPTOPLEPHAD]   = "NonBJet1Py";
 	FPARAM_NAME[FPARAM_NonBJet1Pz_TOPTOPLEPHAD]   = "NonBJet1Pz";
+	FPARAM_NAME[FPARAM_NonBJet1Pt_TOPTOPLEPHAD]   = "NonBJet1Pt";
+	FPARAM_NAME[FPARAM_NonBJet1Eta_TOPTOPLEPHAD]  = "NonBJet1Eta";
+	FPARAM_NAME[FPARAM_NonBJet1Phi_TOPTOPLEPHAD]  = "NonBJet1Phi";
 	FPARAM_NAME[FPARAM_NonBJet1E_TOPTOPLEPHAD]    = "NonBJet1E";
 	FPARAM_NAME[FPARAM_NonBJet2Px_TOPTOPLEPHAD]   = "NonBJet2Px";
 	FPARAM_NAME[FPARAM_NonBJet2Py_TOPTOPLEPHAD]   = "NonBJet2Py";
 	FPARAM_NAME[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]   = "NonBJet2Pz";
+	FPARAM_NAME[FPARAM_NonBJet2Pt_TOPTOPLEPHAD]   = "NonBJet2Pt";
+	FPARAM_NAME[FPARAM_NonBJet2Eta_TOPTOPLEPHAD]  = "NonBJet2Eta";
+	FPARAM_NAME[FPARAM_NonBJet2Phi_TOPTOPLEPHAD]  = "NonBJet2Phi";
 	FPARAM_NAME[FPARAM_NonBJet2E_TOPTOPLEPHAD]    = "NonBJet2E";
 	FPARAM_NAME[FPARAM_LeptonPx_TOPTOPLEPHAD]     = "LeptonPx";
 	FPARAM_NAME[FPARAM_LeptonPy_TOPTOPLEPHAD]     = "LeptonPy";
 	FPARAM_NAME[FPARAM_LeptonPz_TOPTOPLEPHAD]     = "LeptonPz";
+	FPARAM_NAME[FPARAM_LeptonPt_TOPTOPLEPHAD]     = "LeptonPt";
+	FPARAM_NAME[FPARAM_LeptonEta_TOPTOPLEPHAD]    = "LeptonEta";
+	FPARAM_NAME[FPARAM_LeptonPhi_TOPTOPLEPHAD]    = "LeptonPhi";
 	FPARAM_NAME[FPARAM_LeptonE_TOPTOPLEPHAD]      = "LeptonE";
 	FPARAM_NAME[FPARAM_PhotonPx_TOPTOPLEPHAD]     = "PhotonPx";
 	FPARAM_NAME[FPARAM_PhotonPy_TOPTOPLEPHAD]     = "PhotonPy";
 	FPARAM_NAME[FPARAM_PhotonPz_TOPTOPLEPHAD]     = "PhotonPz";
+	FPARAM_NAME[FPARAM_PhotonPt_TOPTOPLEPHAD]     = "PhotonPt";
+	FPARAM_NAME[FPARAM_PhotonEta_TOPTOPLEPHAD]    = "PhotonEta";
+	FPARAM_NAME[FPARAM_PhotonPhi_TOPTOPLEPHAD]    = "PhotonPhi";
 	FPARAM_NAME[FPARAM_PhotonE_TOPTOPLEPHAD]      = "PhotonE";
 	FPARAM_N = FPARAM_N_TOPTOPLEPHAD;
 
 	/// Transfer functions
 	
-	PDF_NAME[PDF_TopWMass]       = "PDFTopWMass";
-	PDF_NAME[PDF_TopMass]        = "PDFTopMass";
-	PDF_NAME[PDF_TopWHadMass]    = "PDFTopWHadMass";
-	PDF_NAME[PDF_TopHadMass]     = "PDFTopHadMass";
-//	PDF_NAME[PDF_TopTopMass]     = "PDFTopTopMass";
-	PDF_NAME[PDF_MetPx]          = "PDFMetPx";
-	PDF_NAME[PDF_MetPy]          = "PDFMetPy";
-	PDF_NAME[PDF_BJetPx]         = "PDFBJetPx";
-	PDF_NAME[PDF_BJetPy]         = "PDFBJetPy";
-	PDF_NAME[PDF_BJetPz]         = "PDFBJetPz";
-	PDF_NAME[PDF_NonBJetPx]      = "PDFNonBJetPx";
-	PDF_NAME[PDF_NonBJetPy]      = "PDFNonBJetPy";
-	PDF_NAME[PDF_NonBJetPz]      = "PDFNonBJetPz";
-	PDF_NAME[PDF_ElecPx]         = "PDFElecPx";
-	PDF_NAME[PDF_ElecPy]         = "PDFElecPy";
-	PDF_NAME[PDF_ElecPz]         = "PDFElecPz";
-	PDF_NAME[PDF_MuonPx]         = "PDFMuonPx";
-	PDF_NAME[PDF_MuonPy]         = "PDFMuonPy";
-	PDF_NAME[PDF_MuonPz]         = "PDFMuonPz";
-	PDF_NAME[PDF_PhotonPx]       = "PDFPhotonPx";
-	PDF_NAME[PDF_PhotonPy]       = "PDFPhotonPy";
-	PDF_NAME[PDF_PhotonPz]       = "PDFPhotonPz";
+	PDF_NAME[PDF_TopWMass]        = "PDFTopWMass";
+	PDF_NAME[PDF_TopMass]         = "PDFTopMass";
+	PDF_NAME[PDF_TopWHadMass]     = "PDFTopWHadMass";
+	PDF_NAME[PDF_TopHadMass]      = "PDFTopHadMass";
+//	PDF_NAME[PDF_TopTopMass]      = "PDFTopTopMass";
+	PDF_NAME[PDF_MetPx]           = "PDFMetPx";
+	PDF_NAME[PDF_MetPy]           = "PDFMetPy";
+	PDF_NAME[PDF_BJetPx]          = "PDFBJetPx";
+	PDF_NAME[PDF_BJetPy]          = "PDFBJetPy";
+	PDF_NAME[PDF_BJetPz]          = "PDFBJetPz";
+	PDF_NAME[PDF_BJetPt]          = "PDFBJetPt";
+	PDF_NAME[PDF_BJetEta]         = "PDFBJetEta";
+	PDF_NAME[PDF_BJetPhi]         = "PDFBJetPhi";
+	PDF_NAME[PDF_NonBJetPx]       = "PDFNonBJetPx";
+	PDF_NAME[PDF_NonBJetPy]       = "PDFNonBJetPy";
+	PDF_NAME[PDF_NonBJetPz]       = "PDFNonBJetPz";
+	PDF_NAME[PDF_NonBJetPt]       = "PDFNonBJetPt";
+	PDF_NAME[PDF_NonBJetEta]      = "PDFNonBJetEta";
+	PDF_NAME[PDF_NonBJetPhi]      = "PDFNonBJetPhi";
+	PDF_NAME[PDF_ElecPx]          = "PDFElecPx";
+	PDF_NAME[PDF_ElecPy]          = "PDFElecPy";
+	PDF_NAME[PDF_ElecPz]          = "PDFElecPz";
+	PDF_NAME[PDF_ElecPt]          = "PDFElecPt";
+	PDF_NAME[PDF_ElecEta]         = "PDFElecEta";
+	PDF_NAME[PDF_ElecPhi]         = "PDFElecPhi";
+	PDF_NAME[PDF_MuonPx]          = "PDFMuonPx";
+	PDF_NAME[PDF_MuonPy]          = "PDFMuonPy";
+	PDF_NAME[PDF_MuonPz]          = "PDFMuonPz";
+	PDF_NAME[PDF_MuonPt]          = "PDFMuonPt";
+	PDF_NAME[PDF_MuonEta]         = "PDFMuonEta";
+	PDF_NAME[PDF_MuonPhi]         = "PDFMuonPhi";
+	PDF_NAME[PDF_PhotonPx]        = "PDFPhotonPx";
+	PDF_NAME[PDF_PhotonPy]        = "PDFPhotonPy";
+	PDF_NAME[PDF_PhotonPz]        = "PDFPhotonPz";
+	PDF_NAME[PDF_PhotonPt]        = "PDFPhotonPt";
+	PDF_NAME[PDF_PhotonEta]       = "PDFPhotonEta";
+	PDF_NAME[PDF_PhotonPhi]       = "PDFPhotonPhi";
 	
 	/// Fix all parameters except leptonic W boson mass
 	
@@ -655,61 +1016,172 @@ void KINFIT::kfit::Init(HYPO hypo)
 	(*IsParFixed)[FPARAM_BJetLepPx_TOPTOPLEPHAD]    = true;
 	(*IsParFixed)[FPARAM_BJetLepPy_TOPTOPLEPHAD]    = true;
 	(*IsParFixed)[FPARAM_BJetLepPz_TOPTOPLEPHAD]    = true;
+	(*IsParFixed)[FPARAM_BJetLepPt_TOPTOPLEPHAD]    = true;
+	(*IsParFixed)[FPARAM_BJetLepEta_TOPTOPLEPHAD]   = true;
+	(*IsParFixed)[FPARAM_BJetLepPhi_TOPTOPLEPHAD]   = true;
 	(*IsParFixed)[FPARAM_BJetLepE_TOPTOPLEPHAD]     = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_BJetHadPx_TOPTOPLEPHAD]    = true;
 	(*IsParFixed)[FPARAM_BJetHadPy_TOPTOPLEPHAD]    = true;
 	(*IsParFixed)[FPARAM_BJetHadPz_TOPTOPLEPHAD]    = true;
+	(*IsParFixed)[FPARAM_BJetHadPt_TOPTOPLEPHAD]    = true;
+	(*IsParFixed)[FPARAM_BJetHadEta_TOPTOPLEPHAD]   = true;
+	(*IsParFixed)[FPARAM_BJetHadPhi_TOPTOPLEPHAD]   = true;
 	(*IsParFixed)[FPARAM_BJetHadE_TOPTOPLEPHAD]     = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_NonBJet1Px_TOPTOPLEPHAD]   = true;
 	(*IsParFixed)[FPARAM_NonBJet1Py_TOPTOPLEPHAD]   = true;
 	(*IsParFixed)[FPARAM_NonBJet1Pz_TOPTOPLEPHAD]   = true;
+	(*IsParFixed)[FPARAM_NonBJet1Pt_TOPTOPLEPHAD]   = true;
+	(*IsParFixed)[FPARAM_NonBJet1Eta_TOPTOPLEPHAD]  = true;
+	(*IsParFixed)[FPARAM_NonBJet1Phi_TOPTOPLEPHAD]  = true;
 	(*IsParFixed)[FPARAM_NonBJet1E_TOPTOPLEPHAD]    = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_NonBJet2Px_TOPTOPLEPHAD]   = true;
 	(*IsParFixed)[FPARAM_NonBJet2Py_TOPTOPLEPHAD]   = true;
 	(*IsParFixed)[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]   = true;
+	(*IsParFixed)[FPARAM_NonBJet2Pt_TOPTOPLEPHAD]   = true;
+	(*IsParFixed)[FPARAM_NonBJet2Eta_TOPTOPLEPHAD]  = true;
+	(*IsParFixed)[FPARAM_NonBJet2Phi_TOPTOPLEPHAD]  = true;
 	(*IsParFixed)[FPARAM_NonBJet2E_TOPTOPLEPHAD]    = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_LeptonPx_TOPTOPLEPHAD]     = true;
 	(*IsParFixed)[FPARAM_LeptonPy_TOPTOPLEPHAD]     = true;
 	(*IsParFixed)[FPARAM_LeptonPz_TOPTOPLEPHAD]     = true;
+	(*IsParFixed)[FPARAM_LeptonPt_TOPTOPLEPHAD]     = true;
+	(*IsParFixed)[FPARAM_LeptonEta_TOPTOPLEPHAD]    = true;
+	(*IsParFixed)[FPARAM_LeptonPhi_TOPTOPLEPHAD]    = true;
 	(*IsParFixed)[FPARAM_LeptonE_TOPTOPLEPHAD]      = true; /// Must always be fixed
 	(*IsParFixed)[FPARAM_PhotonPx_TOPTOPLEPHAD]     = true;
 	(*IsParFixed)[FPARAM_PhotonPy_TOPTOPLEPHAD]     = true;
 	(*IsParFixed)[FPARAM_PhotonPz_TOPTOPLEPHAD]     = true;
+	(*IsParFixed)[FPARAM_PhotonPt_TOPTOPLEPHAD]     = true;
+	(*IsParFixed)[FPARAM_PhotonEta_TOPTOPLEPHAD]    = true;
+	(*IsParFixed)[FPARAM_PhotonPhi_TOPTOPLEPHAD]    = true;
 	(*IsParFixed)[FPARAM_PhotonE_TOPTOPLEPHAD]      = true; /// Must always be fixed
 
 	/// Check that transfer functions are present in the input file
 	
-	checkPDF(hPDFTopWMass.get(), PDF_NAME[PDF_TopWMass]);
-	checkPDF(hPDFTopMass.get(), PDF_NAME[PDF_TopMass]);
-	checkPDF(hPDFTopWHadMass.get(), PDF_NAME[PDF_TopWHadMass]);
-	checkPDF(hPDFTopHadMass.get(), PDF_NAME[PDF_TopHadMass]);
+	bool foundPDFTopWMass = (! isDeltaFuncPDFTopWMass) ? checkPDF(hPDFTopWMass.get(), PDF_NAME[PDF_TopWMass]) : true; foundPDF.get()->insert({PDF_TopWMass, foundPDFTopWMass});
+	bool foundPDFTopMass = (! isDeltaFuncPDFTopMass) ? checkPDF(hPDFTopMass.get(), PDF_NAME[PDF_TopMass]) : true; foundPDF.get()->insert({PDF_TopMass, foundPDFTopMass});
+	bool foundPDFTopWHadMass = (! isDeltaFuncPDFTopWHadMass) ? checkPDF(hPDFTopWHadMass.get(), PDF_NAME[PDF_TopWHadMass]) : true; foundPDF.get()->insert({PDF_TopWHadMass, foundPDFTopWHadMass});
+	bool foundPDFTopHadMass = (! isDeltaFuncPDFTopHadMass) ? checkPDF(hPDFTopHadMass.get(), PDF_NAME[PDF_TopHadMass]) : true; foundPDF.get()->insert({PDF_TopHadMass, foundPDFTopHadMass});
 //	checkPDF(hPDFTopTopMass.get(), PDF_NAME[PDF_TopTopMass]);
 	
-	checkPDF(hPDFMetPx.get(), PDF_NAME[PDF_MetPx]);
-	checkPDF(hPDFMetPy.get(), PDF_NAME[PDF_MetPy]);
+	bool foundPDFMetPx = (! isDeltaFuncPDFMetPx) ? checkPDF(hPDFMetPx.get(), PDF_NAME[PDF_MetPx]) : true; foundPDF.get()->insert({PDF_MetPx, foundPDFMetPx});
+	bool foundPDFMetPy = (! isDeltaFuncPDFMetPy) ? checkPDF(hPDFMetPy.get(), PDF_NAME[PDF_MetPy]) : true; foundPDF.get()->insert({PDF_MetPy, foundPDFMetPy});
 	
-	checkPDF(hPDFBJetPx.get(), PDF_NAME[PDF_BJetPx]);
-	checkPDF(hPDFBJetPy.get(), PDF_NAME[PDF_BJetPy]);
-	checkPDF(hPDFBJetPz.get(), PDF_NAME[PDF_BJetPz]);
+	bool foundPDFBJetPx = (! isDeltaFuncPDFBJetPx) ? checkPDF(hPDFBJetPx.get(), PDF_NAME[PDF_BJetPx]) : true;
+	bool foundPDFBJetPy = (! isDeltaFuncPDFBJetPy) ? checkPDF(hPDFBJetPy.get(), PDF_NAME[PDF_BJetPy]) : true;
+	bool foundPDFBJetPz = (! isDeltaFuncPDFBJetPz) ? checkPDF(hPDFBJetPz.get(), PDF_NAME[PDF_BJetPz]) : true;
+	bool foundPDFBJetPt = (! isDeltaFuncPDFBJetPt) ? checkPDF(hPDFBJetPt.get(), PDF_NAME[PDF_BJetPt]) : true;
+	bool foundPDFBJetEta = (! isDeltaFuncPDFBJetEta) ? checkPDF(hPDFBJetEta.get(), PDF_NAME[PDF_BJetEta]) : true;
+	bool foundPDFBJetPhi = (! isDeltaFuncPDFBJetPhi) ? checkPDF(hPDFBJetPhi.get(), PDF_NAME[PDF_BJetPhi]) : true;
 
-	checkPDF(hPDFNonBJetPx.get(), PDF_NAME[PDF_NonBJetPx]);
-	checkPDF(hPDFNonBJetPy.get(), PDF_NAME[PDF_NonBJetPy]);
-	checkPDF(hPDFNonBJetPz.get(), PDF_NAME[PDF_NonBJetPz]);
+	bool foundPDFBJetPxPyPz = (foundPDFBJetPx || foundPDFBJetPy || foundPDFBJetPz);
+	bool foundPDFBJetPtEtaPhi = (foundPDFBJetPt || foundPDFBJetEta || foundPDFBJetPhi);
 	
-	checkPDF(hPDFElecPx.get(), PDF_NAME[PDF_ElecPx]);
-	checkPDF(hPDFElecPy.get(), PDF_NAME[PDF_ElecPy]);
-	checkPDF(hPDFElecPz.get(), PDF_NAME[PDF_ElecPz]);
+	if( foundPDFBJetPxPyPz && foundPDFBJetPtEtaPhi ) printPDFWarning();
+	else if( foundPDFBJetPxPyPz ) {
+	   (*usePDFBJetPxPyPz) = true;
+	   (*usePDFBJetPtEtaPhi) = false;
+	   foundPDF.get()->insert({PDF_BJetPx, foundPDFBJetPx});
+	   foundPDF.get()->insert({PDF_BJetPy, foundPDFBJetPy});
+	   foundPDF.get()->insert({PDF_BJetPz, foundPDFBJetPz});
+	}
+	else {
+	   (*usePDFBJetPxPyPz) = false;
+	   (*usePDFBJetPtEtaPhi) = true;
+	   foundPDF.get()->insert({PDF_BJetPt, foundPDFBJetPt});
+	   foundPDF.get()->insert({PDF_BJetEta, foundPDFBJetEta});
+	   foundPDF.get()->insert({PDF_BJetPhi, foundPDFBJetPhi});
+	}
 	
-	checkPDF(hPDFMuonPx.get(), PDF_NAME[PDF_MuonPx]);
-	checkPDF(hPDFMuonPy.get(), PDF_NAME[PDF_MuonPy]);
-	checkPDF(hPDFMuonPz.get(), PDF_NAME[PDF_MuonPz]);
+	bool foundPDFNonBJetPx = (! isDeltaFuncPDFNonBJetPx) ? checkPDF(hPDFNonBJetPx.get(), PDF_NAME[PDF_NonBJetPx]) : true;
+	bool foundPDFNonBJetPy = (! isDeltaFuncPDFNonBJetPy) ? checkPDF(hPDFNonBJetPy.get(), PDF_NAME[PDF_NonBJetPy]) : true;
+	bool foundPDFNonBJetPz = (! isDeltaFuncPDFNonBJetPz) ? checkPDF(hPDFNonBJetPz.get(), PDF_NAME[PDF_NonBJetPz]) : true;
+	bool foundPDFNonBJetPt = (! isDeltaFuncPDFNonBJetPt) ? checkPDF(hPDFNonBJetPt.get(), PDF_NAME[PDF_NonBJetPt]) : true;
+	bool foundPDFNonBJetEta = (! isDeltaFuncPDFNonBJetEta) ? checkPDF(hPDFNonBJetEta.get(), PDF_NAME[PDF_NonBJetEta]) : true;
+	bool foundPDFNonBJetPhi = (! isDeltaFuncPDFNonBJetPhi) ? checkPDF(hPDFNonBJetPhi.get(), PDF_NAME[PDF_NonBJetPhi]) : true;
+
+	bool foundPDFNonBJetPxPyPz = (foundPDFNonBJetPx || foundPDFNonBJetPy || foundPDFNonBJetPz);
+	bool foundPDFNonBJetPtEtaPhi = (foundPDFNonBJetPt || foundPDFNonBJetEta || foundPDFNonBJetPhi);
+	
+	if( foundPDFNonBJetPxPyPz && foundPDFNonBJetPtEtaPhi ) printPDFWarning();
+	else if( foundPDFNonBJetPxPyPz ) {
+	   (*usePDFNonBJetPxPyPz) = true;
+	   (*usePDFNonBJetPtEtaPhi) = false;
+	   foundPDF.get()->insert({PDF_NonBJetPx, foundPDFNonBJetPx});
+	   foundPDF.get()->insert({PDF_NonBJetPy, foundPDFNonBJetPy});
+	   foundPDF.get()->insert({PDF_NonBJetPz, foundPDFNonBJetPz});
+	}
+	else {
+	   (*usePDFNonBJetPxPyPz) = false;
+	   (*usePDFNonBJetPtEtaPhi) = true;
+	   foundPDF.get()->insert({PDF_NonBJetPt, foundPDFNonBJetPt});
+	   foundPDF.get()->insert({PDF_NonBJetEta, foundPDFNonBJetEta});
+	   foundPDF.get()->insert({PDF_NonBJetPhi, foundPDFNonBJetPhi});
+	}
+	
+	bool foundPDFElecPx = (! isDeltaFuncPDFElecPx) ? checkPDF(hPDFElecPx.get(), PDF_NAME[PDF_ElecPx]) : true;
+	bool foundPDFElecPy = (! isDeltaFuncPDFElecPy) ? checkPDF(hPDFElecPy.get(), PDF_NAME[PDF_ElecPy]) : true;
+	bool foundPDFElecPz = (! isDeltaFuncPDFElecPz) ? checkPDF(hPDFElecPz.get(), PDF_NAME[PDF_ElecPz]) : true;
+	bool foundPDFElecPt = (! isDeltaFuncPDFElecPt) ? checkPDF(hPDFElecPt.get(), PDF_NAME[PDF_ElecPt]) : true;
+	bool foundPDFElecEta = (! isDeltaFuncPDFElecEta) ? checkPDF(hPDFElecEta.get(), PDF_NAME[PDF_ElecEta]) : true;
+	bool foundPDFElecPhi = (! isDeltaFuncPDFElecPhi) ? checkPDF(hPDFElecPhi.get(), PDF_NAME[PDF_ElecPhi]) : true;
+
+	bool foundPDFElecPxPyPz = (foundPDFElecPx || foundPDFElecPy || foundPDFElecPz);
+	bool foundPDFElecPtEtaPhi = (foundPDFElecPt || foundPDFElecEta || foundPDFElecPhi);
+	
+	if( foundPDFElecPxPyPz && foundPDFElecPtEtaPhi ) printPDFWarning();
+	else if( foundPDFElecPxPyPz ) {
+	   foundPDF.get()->insert({PDF_ElecPx, foundPDFElecPx});
+	   foundPDF.get()->insert({PDF_ElecPy, foundPDFElecPy});
+	   foundPDF.get()->insert({PDF_ElecPz, foundPDFElecPz});
+	}
+	else {
+	   foundPDF.get()->insert({PDF_ElecPt, foundPDFElecPt});
+	   foundPDF.get()->insert({PDF_ElecEta, foundPDFElecEta});
+	   foundPDF.get()->insert({PDF_ElecPhi, foundPDFElecPhi});
+	}
+	
+	bool foundPDFMuonPx = (! isDeltaFuncPDFMuonPx) ? checkPDF(hPDFMuonPx.get(), PDF_NAME[PDF_MuonPx]) : true;
+	bool foundPDFMuonPy = (! isDeltaFuncPDFMuonPy) ? checkPDF(hPDFMuonPy.get(), PDF_NAME[PDF_MuonPy]) : true;
+	bool foundPDFMuonPz = (! isDeltaFuncPDFMuonPz) ? checkPDF(hPDFMuonPz.get(), PDF_NAME[PDF_MuonPz]) : true;
+	bool foundPDFMuonPt = (! isDeltaFuncPDFMuonPt) ? checkPDF(hPDFMuonPt.get(), PDF_NAME[PDF_MuonPt]) : true;
+	bool foundPDFMuonEta = (! isDeltaFuncPDFMuonEta) ? checkPDF(hPDFMuonEta.get(), PDF_NAME[PDF_MuonEta]) : true;
+	bool foundPDFMuonPhi = (! isDeltaFuncPDFMuonPhi) ? checkPDF(hPDFMuonPhi.get(), PDF_NAME[PDF_MuonPhi]) : true;
+
+	bool foundPDFMuonPxPyPz = (foundPDFMuonPx || foundPDFMuonPy || foundPDFMuonPz);
+	bool foundPDFMuonPtEtaPhi = (foundPDFMuonPt || foundPDFMuonEta || foundPDFMuonPhi);
+	
+	if( foundPDFMuonPxPyPz && foundPDFMuonPtEtaPhi ) printPDFWarning();
+	else if( foundPDFMuonPxPyPz ) {
+	   foundPDF.get()->insert({PDF_MuonPx, foundPDFMuonPx});
+	   foundPDF.get()->insert({PDF_MuonPy, foundPDFMuonPy});
+	   foundPDF.get()->insert({PDF_MuonPz, foundPDFMuonPz});
+	}
+	else {
+	   foundPDF.get()->insert({PDF_MuonPt, foundPDFMuonPt});
+	   foundPDF.get()->insert({PDF_MuonEta, foundPDFMuonEta});
+	   foundPDF.get()->insert({PDF_MuonPhi, foundPDFMuonPhi});
+	}
+
+	if( foundPDFElecPxPyPz && foundPDFMuonPxPyPz ) {
+	   (*usePDFLeptonPxPyPz) = true;
+	   (*usePDFLeptonPtEtaPhi) = false;
+	}
+	else if( foundPDFElecPtEtaPhi && foundPDFMuonPtEtaPhi ) {
+	   (*usePDFLeptonPxPyPz) = false;
+	   (*usePDFLeptonPtEtaPhi) = true;
+	}
+	else {
+	   std::cout << "Please define the same type PDFs for leptons" << std::endl;
+	   exit(1);
+	}
 	
 	DoFit_ = false;
 	
 	NNu_ = 1; ///< Number of neutrinos in the final state
      }
    else if( hypoMode == TOPLEP )
-     {	
+     {
 	hypTopLep = (KINFIT::TopLep*)(this);
 
 	/// Define fit parameters
@@ -722,14 +1194,23 @@ void KINFIT::kfit::Init(HYPO hypo)
 	FPARAM_NAME[FPARAM_BJetLepPy_TOPLEP]    = "BJetLepPy";
 	FPARAM_NAME[FPARAM_BJetLepPz_TOPLEP]    = "BJetLepPz";
 	FPARAM_NAME[FPARAM_BJetLepE_TOPLEP]     = "BJetLepE";
+	FPARAM_NAME[FPARAM_BJetLepPt_TOPLEP]    = "BJetLepPt";
+	FPARAM_NAME[FPARAM_BJetLepEta_TOPLEP]   = "BJetLepEta";
+	FPARAM_NAME[FPARAM_BJetLepPhi_TOPLEP]   = "BJetLepPhi";
 	FPARAM_NAME[FPARAM_LeptonPx_TOPLEP]     = "LeptonPx";
 	FPARAM_NAME[FPARAM_LeptonPy_TOPLEP]     = "LeptonPy";
 	FPARAM_NAME[FPARAM_LeptonPz_TOPLEP]     = "LeptonPz";
 	FPARAM_NAME[FPARAM_LeptonE_TOPLEP]      = "LeptonE";
+	FPARAM_NAME[FPARAM_LeptonPt_TOPLEP]     = "LeptonPt";
+	FPARAM_NAME[FPARAM_LeptonEta_TOPLEP]    = "LeptonEta";
+	FPARAM_NAME[FPARAM_LeptonPhi_TOPLEP]    = "LeptonPhi";
 	FPARAM_NAME[FPARAM_PhotonPx_TOPLEP]     = "PhotonPx";
 	FPARAM_NAME[FPARAM_PhotonPy_TOPLEP]     = "PhotonPy";
 	FPARAM_NAME[FPARAM_PhotonPz_TOPLEP]     = "PhotonPz";
 	FPARAM_NAME[FPARAM_PhotonE_TOPLEP]      = "PhotonE";
+	FPARAM_NAME[FPARAM_PhotonPt_TOPLEP]     = "PhotonPt";
+	FPARAM_NAME[FPARAM_PhotonEta_TOPLEP]    = "PhotonEta";
+	FPARAM_NAME[FPARAM_PhotonPhi_TOPLEP]    = "PhotonPhi";
 	FPARAM_N = FPARAM_N_TOPLEP;
 
 	/// Transfer functions
@@ -741,15 +1222,27 @@ void KINFIT::kfit::Init(HYPO hypo)
 	PDF_NAME[PDF_BJetPx]         = "PDFBJetPx";
 	PDF_NAME[PDF_BJetPy]         = "PDFBJetPy";
 	PDF_NAME[PDF_BJetPz]         = "PDFBJetPz";
+	PDF_NAME[PDF_BJetPt]         = "PDFBJetPt";
+	PDF_NAME[PDF_BJetEta]        = "PDFBJetEta";
+	PDF_NAME[PDF_BJetPhi]        = "PDFBJetPhi";
 	PDF_NAME[PDF_ElecPx]         = "PDFElecPx";
 	PDF_NAME[PDF_ElecPy]         = "PDFElecPy";
 	PDF_NAME[PDF_ElecPz]         = "PDFElecPz";
+	PDF_NAME[PDF_ElecPt]         = "PDFElecPt";
+	PDF_NAME[PDF_ElecEta]        = "PDFElecEta";
+	PDF_NAME[PDF_ElecPhi]        = "PDFElecPhi";
 	PDF_NAME[PDF_MuonPx]         = "PDFMuonPx";
 	PDF_NAME[PDF_MuonPy]         = "PDFMuonPy";
 	PDF_NAME[PDF_MuonPz]         = "PDFMuonPz";
+	PDF_NAME[PDF_MuonPt]         = "PDFMuonPt";
+	PDF_NAME[PDF_MuonEta]        = "PDFMuonEta";
+	PDF_NAME[PDF_MuonPhi]        = "PDFMuonPhi";
 	PDF_NAME[PDF_PhotonPx]       = "PDFPhotonPx";
 	PDF_NAME[PDF_PhotonPy]       = "PDFPhotonPy";
 	PDF_NAME[PDF_PhotonPz]       = "PDFPhotonPz";
+	PDF_NAME[PDF_PhotonPt]       = "PDFPhotonPt";
+	PDF_NAME[PDF_PhotonEta]      = "PDFPhotonEta";
+	PDF_NAME[PDF_PhotonPhi]      = "PDFPhotonPhi";
 	
 	/// Fix all parameters except leptonic W boson mass
 	
@@ -764,34 +1257,114 @@ void KINFIT::kfit::Init(HYPO hypo)
 	(*IsParFixed)[FPARAM_BJetLepPy_TOPLEP]    = true;
 	(*IsParFixed)[FPARAM_BJetLepPz_TOPLEP]    = true;
 	(*IsParFixed)[FPARAM_BJetLepE_TOPLEP]     = true; /// Must always be fixed
+	(*IsParFixed)[FPARAM_BJetLepPt_TOPLEP]    = true;
+	(*IsParFixed)[FPARAM_BJetLepEta_TOPLEP]   = true;
+	(*IsParFixed)[FPARAM_BJetLepPhi_TOPLEP]   = true;
 	(*IsParFixed)[FPARAM_LeptonPx_TOPLEP]     = true;
 	(*IsParFixed)[FPARAM_LeptonPy_TOPLEP]     = true;
 	(*IsParFixed)[FPARAM_LeptonPz_TOPLEP]     = true;
 	(*IsParFixed)[FPARAM_LeptonE_TOPLEP]      = true; /// Must always be fixed
+	(*IsParFixed)[FPARAM_LeptonPt_TOPLEP]     = true;
+	(*IsParFixed)[FPARAM_LeptonEta_TOPLEP]    = true;
+	(*IsParFixed)[FPARAM_LeptonPhi_TOPLEP]    = true;
 	(*IsParFixed)[FPARAM_PhotonPx_TOPLEP]     = true;
 	(*IsParFixed)[FPARAM_PhotonPy_TOPLEP]     = true;
 	(*IsParFixed)[FPARAM_PhotonPz_TOPLEP]     = true;
 	(*IsParFixed)[FPARAM_PhotonE_TOPLEP]      = true; /// Must always be fixed
+	(*IsParFixed)[FPARAM_PhotonPt_TOPLEP]     = true;
+	(*IsParFixed)[FPARAM_PhotonEta_TOPLEP]    = true;
+	(*IsParFixed)[FPARAM_PhotonPhi_TOPLEP]    = true;
 
 	/// Check that transfer functions are present in the input file
 	
-	checkPDF(hPDFTopWMass.get(), PDF_NAME[PDF_TopWMass]);
-	checkPDF(hPDFTopMass.get(), PDF_NAME[PDF_TopMass]);
+	bool foundPDFTopWMass = (! isDeltaFuncPDFTopWMass) ? checkPDF(hPDFTopWMass.get(), PDF_NAME[PDF_TopWMass]) : true; foundPDF.get()->insert({PDF_TopWMass, foundPDFTopWMass});
+	bool foundPDFTopMass = (! isDeltaFuncPDFTopMass) ? checkPDF(hPDFTopMass.get(), PDF_NAME[PDF_TopMass]) : true; foundPDF.get()->insert({PDF_TopMass, foundPDFTopMass});
 	
-	checkPDF(hPDFMetPx.get(), PDF_NAME[PDF_MetPx]);
-	checkPDF(hPDFMetPy.get(), PDF_NAME[PDF_MetPy]);
+	bool foundPDFMetPx = (! isDeltaFuncPDFMetPx) ? checkPDF(hPDFMetPx.get(), PDF_NAME[PDF_MetPx]) : true; foundPDF.get()->insert({PDF_MetPx, foundPDFMetPx});
+	bool foundPDFMetPy = (! isDeltaFuncPDFMetPy) ? checkPDF(hPDFMetPy.get(), PDF_NAME[PDF_MetPy]) : true; foundPDF.get()->insert({PDF_MetPy, foundPDFMetPy});
 	
-	checkPDF(hPDFBJetPx.get(), PDF_NAME[PDF_BJetPx]);
-	checkPDF(hPDFBJetPy.get(), PDF_NAME[PDF_BJetPy]);
-	checkPDF(hPDFBJetPz.get(), PDF_NAME[PDF_BJetPz]);
+	bool foundPDFBJetPx = (! isDeltaFuncPDFBJetPx) ? checkPDF(hPDFBJetPx.get(), PDF_NAME[PDF_BJetPx]) : true;
+	bool foundPDFBJetPy = (! isDeltaFuncPDFBJetPy) ? checkPDF(hPDFBJetPy.get(), PDF_NAME[PDF_BJetPy]) : true;
+	bool foundPDFBJetPz = (! isDeltaFuncPDFBJetPz) ? checkPDF(hPDFBJetPz.get(), PDF_NAME[PDF_BJetPz]) : true;
+	bool foundPDFBJetPt = (! isDeltaFuncPDFBJetPt) ? checkPDF(hPDFBJetPt.get(), PDF_NAME[PDF_BJetPt]) : true;
+	bool foundPDFBJetEta = (! isDeltaFuncPDFBJetEta) ? checkPDF(hPDFBJetEta.get(), PDF_NAME[PDF_BJetEta]) : true;
+	bool foundPDFBJetPhi = (! isDeltaFuncPDFBJetPhi) ? checkPDF(hPDFBJetPhi.get(), PDF_NAME[PDF_BJetPhi]) : true;
+
+	bool foundPDFBJetPxPyPz = (foundPDFBJetPx || foundPDFBJetPy || foundPDFBJetPz);
+	bool foundPDFBJetPtEtaPhi = (foundPDFBJetPt || foundPDFBJetEta || foundPDFBJetPhi);
 	
-	checkPDF(hPDFElecPx.get(), PDF_NAME[PDF_ElecPx]);
-	checkPDF(hPDFElecPy.get(), PDF_NAME[PDF_ElecPy]);
-	checkPDF(hPDFElecPz.get(), PDF_NAME[PDF_ElecPz]);
+	if( foundPDFBJetPxPyPz && foundPDFBJetPtEtaPhi ) printPDFWarning();
+	else if( foundPDFBJetPxPyPz ) {
+	   (*usePDFBJetPxPyPz) = true;
+	   (*usePDFBJetPtEtaPhi) = false;
+	   foundPDF.get()->insert({PDF_BJetPx, foundPDFBJetPx});
+	   foundPDF.get()->insert({PDF_BJetPy, foundPDFBJetPy});
+	   foundPDF.get()->insert({PDF_BJetPz, foundPDFBJetPz});
+	}
+	else {
+	   (*usePDFBJetPxPyPz) = false;
+	   (*usePDFBJetPtEtaPhi) = true;
+	   foundPDF.get()->insert({PDF_BJetPt, foundPDFBJetPt});
+	   foundPDF.get()->insert({PDF_BJetEta, foundPDFBJetEta});
+	   foundPDF.get()->insert({PDF_BJetPhi, foundPDFBJetPhi});
+	}
 	
-	checkPDF(hPDFMuonPx.get(), PDF_NAME[PDF_MuonPx]);
-	checkPDF(hPDFMuonPy.get(), PDF_NAME[PDF_MuonPy]);
-	checkPDF(hPDFMuonPz.get(), PDF_NAME[PDF_MuonPz]);
+	bool foundPDFElecPx = (! isDeltaFuncPDFElecPx) ? checkPDF(hPDFElecPx.get(), PDF_NAME[PDF_ElecPx]) : true;
+	bool foundPDFElecPy = (! isDeltaFuncPDFElecPy) ? checkPDF(hPDFElecPy.get(), PDF_NAME[PDF_ElecPy]) : true;
+	bool foundPDFElecPz = (! isDeltaFuncPDFElecPz) ? checkPDF(hPDFElecPz.get(), PDF_NAME[PDF_ElecPz]) : true;
+	bool foundPDFElecPt = (! isDeltaFuncPDFElecPt) ? checkPDF(hPDFElecPt.get(), PDF_NAME[PDF_ElecPt]) : true;
+	bool foundPDFElecEta = (! isDeltaFuncPDFElecEta) ? checkPDF(hPDFElecEta.get(), PDF_NAME[PDF_ElecEta]) : true;
+	bool foundPDFElecPhi = (! isDeltaFuncPDFElecPhi) ? checkPDF(hPDFElecPhi.get(), PDF_NAME[PDF_ElecPhi]) : true;
+
+	bool foundPDFElecPxPyPz = (foundPDFElecPx || foundPDFElecPy || foundPDFElecPz);
+	bool foundPDFElecPtEtaPhi = (foundPDFElecPt || foundPDFElecEta || foundPDFElecPhi);
+	
+	if( foundPDFElecPxPyPz && foundPDFElecPtEtaPhi ) printPDFWarning();
+	else if( foundPDFElecPxPyPz ) {
+	   foundPDF.get()->insert({PDF_ElecPx, foundPDFElecPx});
+	   foundPDF.get()->insert({PDF_ElecPy, foundPDFElecPy});
+	   foundPDF.get()->insert({PDF_ElecPz, foundPDFElecPz});
+	}
+	else {
+	   foundPDF.get()->insert({PDF_ElecPt, foundPDFElecPt});
+	   foundPDF.get()->insert({PDF_ElecEta, foundPDFElecEta});
+	   foundPDF.get()->insert({PDF_ElecPhi, foundPDFElecPhi});
+	}
+	
+	bool foundPDFMuonPx = (! isDeltaFuncPDFMuonPx) ? checkPDF(hPDFMuonPx.get(), PDF_NAME[PDF_MuonPx]) : true;
+	bool foundPDFMuonPy = (! isDeltaFuncPDFMuonPy) ? checkPDF(hPDFMuonPy.get(), PDF_NAME[PDF_MuonPy]) : true;
+	bool foundPDFMuonPz = (! isDeltaFuncPDFMuonPz) ? checkPDF(hPDFMuonPz.get(), PDF_NAME[PDF_MuonPz]) : true;
+	bool foundPDFMuonPt = (! isDeltaFuncPDFMuonPt) ? checkPDF(hPDFMuonPt.get(), PDF_NAME[PDF_MuonPt]) : true;
+	bool foundPDFMuonEta = (! isDeltaFuncPDFMuonEta) ? checkPDF(hPDFMuonEta.get(), PDF_NAME[PDF_MuonEta]) : true;
+	bool foundPDFMuonPhi = (! isDeltaFuncPDFMuonPhi) ? checkPDF(hPDFMuonPhi.get(), PDF_NAME[PDF_MuonPhi]) : true;
+
+	bool foundPDFMuonPxPyPz = (foundPDFMuonPx || foundPDFMuonPy || foundPDFMuonPz);
+	bool foundPDFMuonPtEtaPhi = (foundPDFMuonPt || foundPDFMuonEta || foundPDFMuonPhi);
+	
+	if( foundPDFMuonPxPyPz && foundPDFMuonPtEtaPhi ) printPDFWarning();
+	else if( foundPDFMuonPxPyPz ) {
+	   foundPDF.get()->insert({PDF_MuonPx, foundPDFMuonPx});
+	   foundPDF.get()->insert({PDF_MuonPy, foundPDFMuonPy});
+	   foundPDF.get()->insert({PDF_MuonPz, foundPDFMuonPz});
+	}
+	else {
+	   foundPDF.get()->insert({PDF_MuonPt, foundPDFMuonPt});
+	   foundPDF.get()->insert({PDF_MuonEta, foundPDFMuonEta});
+	   foundPDF.get()->insert({PDF_MuonPhi, foundPDFMuonPhi});
+	}
+
+	if( foundPDFElecPxPyPz && foundPDFMuonPxPyPz ) {
+	   (*usePDFLeptonPxPyPz) = true;
+	   (*usePDFLeptonPtEtaPhi) = false;
+	}
+	else if( foundPDFElecPtEtaPhi && foundPDFMuonPtEtaPhi ) {
+	   (*usePDFLeptonPxPyPz) = false;
+	   (*usePDFLeptonPtEtaPhi) = true;
+	}
+	else {
+	   std::cout << "Please define the same type PDFs for leptons" << std::endl;
+	   exit(1);
+	}
 	
 	DoFit_ = false;
 	
@@ -804,8 +1377,55 @@ void KINFIT::kfit::Init(HYPO hypo)
 }
 
 /// Read transfer functions from file
-void KINFIT::kfit::SetPDF(std::string obj, std::string fileName, std::string hName)
+void KINFIT::kfit::SetPDF(std::string obj, std::string fileName, std::string hName, bool isDeltaFunc)
 {
+   if( isDeltaFunc )
+     {
+	if( strcmp(obj.c_str(), "TopWMass") == 0 ) isDeltaFuncPDFTopWMass = true;
+	else if( strcmp(obj.c_str(), "TopMass") == 0 ) isDeltaFuncPDFTopMass = true;
+	else if( strcmp(obj.c_str(), "TopWHadMass") == 0 ) isDeltaFuncPDFTopWHadMass = true;
+	else if( strcmp(obj.c_str(), "TopHadMass") == 0 ) isDeltaFuncPDFTopHadMass = true;
+	else if( strcmp(obj.c_str(), "MetPx") == 0 ) isDeltaFuncPDFMetPx = true;
+	else if( strcmp(obj.c_str(), "MetPy") == 0 ) isDeltaFuncPDFMetPy = true;
+	else if( strcmp(obj.c_str(), "BJetPx") == 0 ) isDeltaFuncPDFBJetPx = true;
+	else if( strcmp(obj.c_str(), "BJetPy") == 0 ) isDeltaFuncPDFBJetPy = true;
+	else if( strcmp(obj.c_str(), "BJetPz") == 0 ) isDeltaFuncPDFBJetPz = true;
+	else if( strcmp(obj.c_str(), "BJetPt") == 0 ) isDeltaFuncPDFBJetPt = true;
+	else if( strcmp(obj.c_str(), "BJetEta") == 0 ) isDeltaFuncPDFBJetEta = true;
+	else if( strcmp(obj.c_str(), "BJetPhi") == 0 ) isDeltaFuncPDFBJetPhi = true;
+	else if( strcmp(obj.c_str(), "NonBJetPx") == 0 ) isDeltaFuncPDFNonBJetPx = true;
+	else if( strcmp(obj.c_str(), "NonBJetPy") == 0 ) isDeltaFuncPDFNonBJetPy = true;
+	else if( strcmp(obj.c_str(), "NonBJetPz") == 0 ) isDeltaFuncPDFNonBJetPz = true;
+	else if( strcmp(obj.c_str(), "NonBJetPt") == 0 ) isDeltaFuncPDFNonBJetPt = true;
+	else if( strcmp(obj.c_str(), "NonBJetEta") == 0 ) isDeltaFuncPDFNonBJetEta = true;
+	else if( strcmp(obj.c_str(), "NonBJetPhi") == 0 ) isDeltaFuncPDFNonBJetPhi = true;
+	else if( strcmp(obj.c_str(), "ElecPx") == 0 ) isDeltaFuncPDFElecPx = true;
+	else if( strcmp(obj.c_str(), "ElecPy") == 0 ) isDeltaFuncPDFElecPy = true;
+	else if( strcmp(obj.c_str(), "ElecPz") == 0 ) isDeltaFuncPDFElecPz = true;
+	else if( strcmp(obj.c_str(), "ElecPt") == 0 ) isDeltaFuncPDFElecPt = true;
+	else if( strcmp(obj.c_str(), "ElecEta") == 0 ) isDeltaFuncPDFElecEta = true;
+	else if( strcmp(obj.c_str(), "ElecPhi") == 0 ) isDeltaFuncPDFElecPhi = true;
+	else if( strcmp(obj.c_str(), "MuonPx") == 0 ) isDeltaFuncPDFMuonPx = true;
+	else if( strcmp(obj.c_str(), "MuonPy") == 0 ) isDeltaFuncPDFMuonPy = true;
+	else if( strcmp(obj.c_str(), "MuonPz") == 0 ) isDeltaFuncPDFMuonPz = true;
+	else if( strcmp(obj.c_str(), "MuonPt") == 0 ) isDeltaFuncPDFMuonPt = true;
+	else if( strcmp(obj.c_str(), "MuonEta") == 0 ) isDeltaFuncPDFMuonEta = true;
+	else if( strcmp(obj.c_str(), "MuonPhi") == 0 ) isDeltaFuncPDFMuonPhi = true;
+	else if( strcmp(obj.c_str(), "PhotonPx") == 0 ) isDeltaFuncPDFPhotonPx = true;
+	else if( strcmp(obj.c_str(), "PhotonPy") == 0 ) isDeltaFuncPDFPhotonPy = true;
+	else if( strcmp(obj.c_str(), "PhotonPz") == 0 ) isDeltaFuncPDFPhotonPz = true;
+	else if( strcmp(obj.c_str(), "PhotonPt") == 0 ) isDeltaFuncPDFPhotonPt = true;
+	else if( strcmp(obj.c_str(), "PhotonEta") == 0 ) isDeltaFuncPDFPhotonEta = true;
+	else if( strcmp(obj.c_str(), "PhotonPhi") == 0 ) isDeltaFuncPDFPhotonPhi = true;
+	else
+	  {
+	     std::cout << "Provided transfer function " << obj << " is not defined for this process" << std::endl;
+	     exit(1);
+	  }
+	
+	return;
+     }   
+   
    TFile *fPDF = TFile::Open(fileName.c_str());
    if( ! fPDF->IsOpen() )
      {
@@ -910,6 +1530,33 @@ void KINFIT::kfit::SetPDF(std::string obj, std::string fileName, std::string hNa
 	sigmaPDFBJetPz = fabs(hPDFBJetPz->GetX(maxPDFBJetPz/2.));
 	hPDFBJetPz->GetRange(xminPDFBJetPz, xmaxPDFBJetPz);
      }
+   else if( strcmp(obj.c_str(), "BJetPt") == 0 )
+     {
+	hPDFBJetPt = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_BJetPt].c_str()))) );
+
+	maxPDFBJetPt = hPDFBJetPt->GetMaximum();
+	meanPDFBJetPt = hPDFBJetPt->GetMaximumX();
+	sigmaPDFBJetPt = fabs(hPDFBJetPt->GetX(maxPDFBJetPt/2.));
+	hPDFBJetPt->GetRange(xminPDFBJetPt, xmaxPDFBJetPt);
+     }
+   else if( strcmp(obj.c_str(), "BJetEta") == 0 )
+     {
+	hPDFBJetEta = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_BJetEta].c_str()))) );
+
+	maxPDFBJetEta = hPDFBJetEta->GetMaximum();
+	meanPDFBJetEta = hPDFBJetEta->GetMaximumX();
+	sigmaPDFBJetEta = fabs(hPDFBJetEta->GetX(maxPDFBJetEta/2.));
+	hPDFBJetEta->GetRange(xminPDFBJetEta, xmaxPDFBJetEta);
+     }
+   else if( strcmp(obj.c_str(), "BJetPhi") == 0 )
+     {
+	hPDFBJetPhi = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_BJetPhi].c_str()))) );
+
+	maxPDFBJetPhi = hPDFBJetPhi->GetMaximum();
+	meanPDFBJetPhi = hPDFBJetPhi->GetMaximumX();
+	sigmaPDFBJetPhi = fabs(hPDFBJetPhi->GetX(maxPDFBJetPhi/2.));
+	hPDFBJetPhi->GetRange(xminPDFBJetPhi, xmaxPDFBJetPhi);
+     }
    else if( strcmp(obj.c_str(), "NonBJetPx") == 0 )
      {
 	hPDFNonBJetPx = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_NonBJetPx].c_str()))) );
@@ -937,6 +1584,33 @@ void KINFIT::kfit::SetPDF(std::string obj, std::string fileName, std::string hNa
 	sigmaPDFNonBJetPz = fabs(hPDFNonBJetPz->GetX(maxPDFNonBJetPz/2.));
 	hPDFNonBJetPz->GetRange(xminPDFNonBJetPz, xmaxPDFNonBJetPz);
      }
+   else if( strcmp(obj.c_str(), "NonBJetPt") == 0 )
+     {
+	hPDFNonBJetPt = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_NonBJetPt].c_str()))) );
+
+	maxPDFNonBJetPt = hPDFNonBJetPt->GetMaximum();
+	meanPDFNonBJetPt = hPDFNonBJetPt->GetMaximumX();
+	sigmaPDFNonBJetPt = fabs(hPDFNonBJetPt->GetX(maxPDFNonBJetPt/2.));
+	hPDFNonBJetPt->GetRange(xminPDFNonBJetPt, xmaxPDFNonBJetPt);
+     }
+   else if( strcmp(obj.c_str(), "NonBJetEta") == 0 )
+     {
+	hPDFNonBJetEta = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_NonBJetEta].c_str()))) );
+
+	maxPDFNonBJetEta = hPDFNonBJetEta->GetMaximum();
+	meanPDFNonBJetEta = hPDFNonBJetEta->GetMaximumX();
+	sigmaPDFNonBJetEta = fabs(hPDFNonBJetEta->GetX(maxPDFNonBJetEta/2.));
+	hPDFNonBJetEta->GetRange(xminPDFNonBJetEta, xmaxPDFNonBJetEta);
+     }
+   else if( strcmp(obj.c_str(), "NonBJetPhi") == 0 )
+     {
+	hPDFNonBJetPhi = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_NonBJetPhi].c_str()))) );
+
+	maxPDFNonBJetPhi = hPDFNonBJetPhi->GetMaximum();
+	meanPDFNonBJetPhi = hPDFNonBJetPhi->GetMaximumX();
+	sigmaPDFNonBJetPhi = fabs(hPDFNonBJetPhi->GetX(maxPDFNonBJetPhi/2.));
+	hPDFNonBJetPhi->GetRange(xminPDFNonBJetPhi, xmaxPDFNonBJetPhi);
+     }
    else if( strcmp(obj.c_str(), "ElecPx") == 0 )
      {
 	hPDFElecPx = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_ElecPx].c_str()))) );
@@ -963,7 +1637,34 @@ void KINFIT::kfit::SetPDF(std::string obj, std::string fileName, std::string hNa
 	meanPDFElecPz = hPDFElecPz->GetMaximumX();
 	sigmaPDFElecPz = fabs(hPDFElecPz->GetX(maxPDFElecPz/2.));
 	hPDFElecPz->GetRange(xminPDFElecPz, xmaxPDFElecPz);
-     }   
+     }
+   else if( strcmp(obj.c_str(), "ElecPt") == 0 )
+     {
+	hPDFElecPt = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_ElecPt].c_str()))) );
+	
+	maxPDFElecPt = hPDFElecPt->GetMaximum();
+	meanPDFElecPt = hPDFElecPt->GetMaximumX();
+	sigmaPDFElecPt = fabs(hPDFElecPt->GetX(maxPDFElecPt/2.));
+	hPDFElecPt->GetRange(xminPDFElecPt, xmaxPDFElecPt);
+     }
+   else if( strcmp(obj.c_str(), "ElecEta") == 0 )
+     {
+	hPDFElecEta = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_ElecEta].c_str()))) );
+	
+	maxPDFElecEta = hPDFElecEta->GetMaximum();
+	meanPDFElecEta = hPDFElecEta->GetMaximumX();
+	sigmaPDFElecEta = fabs(hPDFElecEta->GetX(maxPDFElecEta/2.));
+	hPDFElecEta->GetRange(xminPDFElecEta, xmaxPDFElecEta);
+     }
+   else if( strcmp(obj.c_str(), "ElecPhi") == 0 )
+     {
+	hPDFElecPhi = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_ElecPhi].c_str()))) );
+	
+	maxPDFElecPhi = hPDFElecPhi->GetMaximum();
+	meanPDFElecPhi = hPDFElecPhi->GetMaximumX();
+	sigmaPDFElecPhi = fabs(hPDFElecPhi->GetX(maxPDFElecPhi/2.));
+	hPDFElecPhi->GetRange(xminPDFElecPhi, xmaxPDFElecPhi);
+     }
    else if( strcmp(obj.c_str(), "MuonPx") == 0 )
      {
 	hPDFMuonPx = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_MuonPx].c_str()))) );
@@ -990,7 +1691,34 @@ void KINFIT::kfit::SetPDF(std::string obj, std::string fileName, std::string hNa
 	meanPDFMuonPz = hPDFMuonPz->GetMaximumX();
 	sigmaPDFMuonPz = fabs(hPDFMuonPz->GetX(maxPDFMuonPz/2.));
 	hPDFMuonPz->GetRange(xminPDFMuonPz, xmaxPDFMuonPz);
-     }   
+     }
+   else if( strcmp(obj.c_str(), "MuonPt") == 0 )
+     {
+	hPDFMuonPt = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_MuonPt].c_str()))) );
+
+	maxPDFMuonPt = hPDFMuonPt->GetMaximum();
+	meanPDFMuonPt = hPDFMuonPt->GetMaximumX();
+	sigmaPDFMuonPt = fabs(hPDFMuonPt->GetX(maxPDFMuonPt/2.));
+	hPDFMuonPt->GetRange(xminPDFMuonPt, xmaxPDFMuonPt);
+     }
+   else if( strcmp(obj.c_str(), "MuonEta") == 0 )
+     {
+	hPDFMuonEta = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_MuonEta].c_str()))) );
+
+	maxPDFMuonEta = hPDFMuonEta->GetMaximum();
+	meanPDFMuonEta = hPDFMuonEta->GetMaximumX();
+	sigmaPDFMuonEta = fabs(hPDFMuonEta->GetX(maxPDFMuonEta/2.));
+	hPDFMuonEta->GetRange(xminPDFMuonEta, xmaxPDFMuonEta);
+     }
+   else if( strcmp(obj.c_str(), "MuonPhi") == 0 )
+     {
+	hPDFMuonPhi = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_MuonPhi].c_str()))) );
+
+	maxPDFMuonPhi = hPDFMuonPhi->GetMaximum();
+	meanPDFMuonPhi = hPDFMuonPhi->GetMaximumX();
+	sigmaPDFMuonPhi = fabs(hPDFMuonPhi->GetX(maxPDFMuonPhi/2.));
+	hPDFMuonPhi->GetRange(xminPDFMuonPhi, xmaxPDFMuonPhi);
+     }
    else if( strcmp(obj.c_str(), "PhotonPx") == 0 )
      {
 	hPDFPhotonPx = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_PhotonPx].c_str()))) );
@@ -1017,6 +1745,33 @@ void KINFIT::kfit::SetPDF(std::string obj, std::string fileName, std::string hNa
 	meanPDFPhotonPz = hPDFPhotonPz->GetMaximumX();
 	sigmaPDFPhotonPz = fabs(hPDFPhotonPz->GetX(maxPDFPhotonPz/2.));
 	hPDFPhotonPz->GetRange(xminPDFPhotonPz, xmaxPDFPhotonPz);
+     }
+   else if( strcmp(obj.c_str(), "PhotonPt") == 0 )
+     {
+	hPDFPhotonPt = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_PhotonPt].c_str()))) );
+
+	maxPDFPhotonPt = hPDFPhotonPt->GetMaximum();
+	meanPDFPhotonPt = hPDFPhotonPt->GetMaximumX();
+	sigmaPDFPhotonPt = fabs(hPDFPhotonPt->GetX(maxPDFPhotonPt/2.));
+	hPDFPhotonPt->GetRange(xminPDFPhotonPt, xmaxPDFPhotonPt);
+     }
+   else if( strcmp(obj.c_str(), "PhotonEta") == 0 )
+     {
+	hPDFPhotonEta = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_PhotonEta].c_str()))) );
+
+	maxPDFPhotonEta = hPDFPhotonEta->GetMaximum();
+	meanPDFPhotonEta = hPDFPhotonEta->GetMaximumX();
+	sigmaPDFPhotonEta = fabs(hPDFPhotonEta->GetX(maxPDFPhotonEta/2.));
+	hPDFPhotonEta->GetRange(xminPDFPhotonEta, xmaxPDFPhotonEta);
+     }
+   else if( strcmp(obj.c_str(), "PhotonPhi") == 0 )
+     {
+	hPDFPhotonPhi = std::shared_ptr<TF1>( (static_cast<TF1*>(hPDF->Clone(PDF_NAME[PDF_PhotonPhi].c_str()))) );
+
+	maxPDFPhotonPhi = hPDFPhotonPhi->GetMaximum();
+	meanPDFPhotonPhi = hPDFPhotonPhi->GetMaximumX();
+	sigmaPDFPhotonPhi = fabs(hPDFPhotonPhi->GetX(maxPDFPhotonPhi/2.));
+	hPDFPhotonPhi->GetRange(xminPDFPhotonPhi, xmaxPDFPhotonPhi);
      }
    else
      {
@@ -1103,6 +1858,9 @@ void KINFIT::kfit::Reset()
    PyLepton1.reset(); PyLepton1 = std::make_shared<double>(0);
    PzLepton1.reset(); PzLepton1 = std::make_shared<double>(0);
    ELepton1.reset(); ELepton1 = std::make_shared<double>(0);
+   PtLepton1.reset(); PtLepton1 = std::make_shared<double>(0);
+   EtaLepton1.reset(); EtaLepton1 = std::make_shared<double>(0);
+   PhiLepton1.reset(); PhiLepton1 = std::make_shared<double>(0);
    MassLepton1.reset(); MassLepton1 = std::make_shared<double>(0);
    LabelLepton1.reset(); LabelLepton1 = std::make_shared<int>(0);
    
@@ -1110,6 +1868,9 @@ void KINFIT::kfit::Reset()
    PyLepton2.reset(); PyLepton2 = std::make_shared<double>(0);
    PzLepton2.reset(); PzLepton2 = std::make_shared<double>(0);
    ELepton2.reset(); ELepton2 = std::make_shared<double>(0);
+   PtLepton2.reset(); PtLepton2 = std::make_shared<double>(0);
+   EtaLepton2.reset(); EtaLepton2 = std::make_shared<double>(0);
+   PhiLepton2.reset(); PhiLepton2 = std::make_shared<double>(0);
    MassLepton2.reset(); MassLepton2 = std::make_shared<double>(0);
    LabelLepton2.reset(); LabelLepton2 = std::make_shared<int>(0);
    
@@ -1117,30 +1878,45 @@ void KINFIT::kfit::Reset()
    PyBJet1.reset(); PyBJet1 = std::make_shared<double>(0);
    PzBJet1.reset(); PzBJet1 = std::make_shared<double>(0);
    EBJet1.reset(); EBJet1 = std::make_shared<double>(0);
+   PtBJet1.reset(); PtBJet1 = std::make_shared<double>(0);
+   EtaBJet1.reset(); EtaBJet1 = std::make_shared<double>(0);
+   PhiBJet1.reset(); PhiBJet1 = std::make_shared<double>(0);
    MassBJet1.reset(); MassBJet1 = std::make_shared<double>(0);
    
    PxBJet2.reset(); PxBJet2 = std::make_shared<double>(0);
    PyBJet2.reset(); PyBJet2 = std::make_shared<double>(0);
    PzBJet2.reset(); PzBJet2 = std::make_shared<double>(0);
    EBJet2.reset(); EBJet2 = std::make_shared<double>(0);
+   PtBJet2.reset(); PtBJet2 = std::make_shared<double>(0);
+   EtaBJet2.reset(); EtaBJet2 = std::make_shared<double>(0);
+   PhiBJet2.reset(); PhiBJet2 = std::make_shared<double>(0);
    MassBJet2.reset(); MassBJet2 = std::make_shared<double>(0);
 
    PxNonBJet1.reset(); PxNonBJet1 = std::make_shared<double>(0);
    PyNonBJet1.reset(); PyNonBJet1 = std::make_shared<double>(0);
    PzNonBJet1.reset(); PzNonBJet1 = std::make_shared<double>(0);
    ENonBJet1.reset(); ENonBJet1 = std::make_shared<double>(0);
+   PtNonBJet1.reset(); PtNonBJet1 = std::make_shared<double>(0);
+   EtaNonBJet1.reset(); EtaNonBJet1 = std::make_shared<double>(0);
+   PhiNonBJet1.reset(); PhiNonBJet1 = std::make_shared<double>(0);
    MassNonBJet1.reset(); MassNonBJet1 = std::make_shared<double>(0);
    
    PxNonBJet2.reset(); PxNonBJet2 = std::make_shared<double>(0);
    PyNonBJet2.reset(); PyNonBJet2 = std::make_shared<double>(0);
    PzNonBJet2.reset(); PzNonBJet2 = std::make_shared<double>(0);
    ENonBJet2.reset(); ENonBJet2 = std::make_shared<double>(0);
+   PtNonBJet2.reset(); PtNonBJet2 = std::make_shared<double>(0);
+   EtaNonBJet2.reset(); EtaNonBJet2 = std::make_shared<double>(0);
+   PhiNonBJet2.reset(); PhiNonBJet2 = std::make_shared<double>(0);
    MassNonBJet2.reset(); MassNonBJet2 = std::make_shared<double>(0);
 
    PxPhoton.reset(); PxPhoton = std::make_shared<double>(0);
    PyPhoton.reset(); PyPhoton = std::make_shared<double>(0);
    PzPhoton.reset(); PzPhoton = std::make_shared<double>(0);
    EPhoton.reset(); EPhoton = std::make_shared<double>(0);
+   PtPhoton.reset(); PtPhoton = std::make_shared<double>(0);
+   EtaPhoton.reset(); EtaPhoton = std::make_shared<double>(0);
+   PhiPhoton.reset(); PhiPhoton = std::make_shared<double>(0);
    PhotonOrigin.reset(); PhotonOrigin = std::make_shared<int>(0);
    
    PxNu1.reset(); PxNu1 = std::make_shared<double>(0);
@@ -1556,9 +2332,31 @@ void KINFIT::kfit::SetPhoton(std::vector<float> pt,
      {
 	IncludePhotons_ = true;
 	
-	checkPDF(hPDFPhotonPx.get(), PDF_NAME[PDF_PhotonPx]);
-	checkPDF(hPDFPhotonPy.get(), PDF_NAME[PDF_PhotonPy]);
-	checkPDF(hPDFPhotonPz.get(), PDF_NAME[PDF_PhotonPz]);	
+	bool foundPDFPhotonPx = checkPDF(hPDFPhotonPx.get(), PDF_NAME[PDF_PhotonPx]);
+	bool foundPDFPhotonPy = checkPDF(hPDFPhotonPy.get(), PDF_NAME[PDF_PhotonPy]);
+	bool foundPDFPhotonPz = checkPDF(hPDFPhotonPz.get(), PDF_NAME[PDF_PhotonPz]);
+	bool foundPDFPhotonPt = checkPDF(hPDFPhotonPt.get(), PDF_NAME[PDF_PhotonPt]);
+	bool foundPDFPhotonEta = checkPDF(hPDFPhotonEta.get(), PDF_NAME[PDF_PhotonEta]);
+	bool foundPDFPhotonPhi = checkPDF(hPDFPhotonPhi.get(), PDF_NAME[PDF_PhotonPhi]);
+
+	bool foundPDFPhotonPxPyPz = (foundPDFPhotonPx || foundPDFPhotonPy || foundPDFPhotonPz);
+	bool foundPDFPhotonPtEtaPhi = (foundPDFPhotonPt || foundPDFPhotonEta || foundPDFPhotonPhi);
+	
+	if( foundPDFPhotonPxPyPz && foundPDFPhotonPtEtaPhi ) printPDFWarning();
+	else if( foundPDFPhotonPxPyPz ) {
+	   (*usePDFPhotonPxPyPz) = true;
+	   (*usePDFPhotonPtEtaPhi) = false;
+	   foundPDF.get()->insert({PDF_PhotonPx, foundPDFPhotonPx});
+	   foundPDF.get()->insert({PDF_PhotonPy, foundPDFPhotonPy});
+	   foundPDF.get()->insert({PDF_PhotonPz, foundPDFPhotonPz});
+	}
+	else {
+	   (*usePDFPhotonPxPyPz) = false;
+	   (*usePDFPhotonPtEtaPhi) = true;
+	   foundPDF.get()->insert({PDF_PhotonPt, foundPDFPhotonPt});
+	   foundPDF.get()->insert({PDF_PhotonEta, foundPDFPhotonEta});
+	   foundPDF.get()->insert({PDF_PhotonPhi, foundPDFPhotonPhi});
+	}	
      }
    else IncludePhotons_ = false;
 }
@@ -1610,11 +2408,16 @@ float KINFIT::kfit::getEta(float pt, float pz)
 }
 
 /// Check if the transfer function is defined
-void KINFIT::kfit::checkPDF(TF1 *tf, std::string tfname)
+bool KINFIT::kfit::checkPDF(TF1 *tf, std::string tfname, bool isDeltaFunc)
 {   
-   if( strcmp(tf->GetName(), "") == 0 )
-     {
-	std::cout << "Can not find " << tfname << " PDF" << std::endl;
-	exit(1);
-     }   
+   if( strcmp(tf->GetName(), "") == 0 && ! isDeltaFunc )
+     return false;
+   else return true;
+}
+
+/// Print error message for transfer function check
+void KINFIT::kfit::printPDFWarning()
+{   
+   std::cout << "Please specify transfer functions either for (px, py, pz) or for (pt, eta, phi)" << std::endl;
+   exit(1);
 }

@@ -51,22 +51,37 @@ enum
    FPARAM_BJet1Px_TOPTOPLEPLEP,    ///< First b jet momentum, px
    FPARAM_BJet1Py_TOPTOPLEPLEP,    ///< First b jet momentum, py
    FPARAM_BJet1Pz_TOPTOPLEPLEP,    ///< First b jet momentum, pz
+   FPARAM_BJet1Pt_TOPTOPLEPLEP,    ///< First b jet momentum, pt
+   FPARAM_BJet1Eta_TOPTOPLEPLEP,   ///< First b jet momentum, eta
+   FPARAM_BJet1Phi_TOPTOPLEPLEP,   ///< First b jet momentum, phi
    FPARAM_BJet1E_TOPTOPLEPLEP,     ///< First b jet energy
    FPARAM_BJet2Px_TOPTOPLEPLEP,    ///< Second b jet momentum, px
    FPARAM_BJet2Py_TOPTOPLEPLEP,    ///< Second b jet momentum, py
    FPARAM_BJet2Pz_TOPTOPLEPLEP,    ///< Second b jet momentum, pz
+   FPARAM_BJet2Pt_TOPTOPLEPLEP,    ///< Second b jet momentum, pt
+   FPARAM_BJet2Eta_TOPTOPLEPLEP,   ///< Second b jet momentum, eta
+   FPARAM_BJet2Phi_TOPTOPLEPLEP,   ///< Second b jet momentum, phi
    FPARAM_BJet2E_TOPTOPLEPLEP,     ///< Second b jet energy
    FPARAM_Lepton1Px_TOPTOPLEPLEP,  ///< First lepton momentum, px
    FPARAM_Lepton1Py_TOPTOPLEPLEP,  ///< First lepton momentum, py
    FPARAM_Lepton1Pz_TOPTOPLEPLEP,  ///< First lepton momentum, pz
+   FPARAM_Lepton1Pt_TOPTOPLEPLEP,  ///< First lepton momentum, pt
+   FPARAM_Lepton1Eta_TOPTOPLEPLEP, ///< First lepton momentum, eta
+   FPARAM_Lepton1Phi_TOPTOPLEPLEP, ///< First lepton momentum, phi
    FPARAM_Lepton1E_TOPTOPLEPLEP,   ///< First lepton energy
    FPARAM_Lepton2Px_TOPTOPLEPLEP,  ///< Second lepton momentum, px
    FPARAM_Lepton2Py_TOPTOPLEPLEP,  ///< Second lepton momentum, py
    FPARAM_Lepton2Pz_TOPTOPLEPLEP,  ///< Second lepton momentum, pz
+   FPARAM_Lepton2Pt_TOPTOPLEPLEP,  ///< Second lepton momentum, pt
+   FPARAM_Lepton2Eta_TOPTOPLEPLEP, ///< Second lepton momentum, eta
+   FPARAM_Lepton2Phi_TOPTOPLEPLEP, ///< Second lepton momentum, phi
    FPARAM_Lepton2E_TOPTOPLEPLEP,   ///< Second lepton energy
    FPARAM_PhotonPx_TOPTOPLEPLEP,   ///< Photon momentum, px
    FPARAM_PhotonPy_TOPTOPLEPLEP,   ///< Photon momentum, py
    FPARAM_PhotonPz_TOPTOPLEPLEP,   ///< Photon momentum, pz
+   FPARAM_PhotonPt_TOPTOPLEPLEP,   ///< Photon momentum, pt
+   FPARAM_PhotonEta_TOPTOPLEPLEP,  ///< Photon momentum, eta
+   FPARAM_PhotonPhi_TOPTOPLEPLEP,  ///< Photon momentum, phi
    FPARAM_PhotonE_TOPTOPLEPLEP,    ///< Photon energy
    FPARAM_N_TOPTOPLEPLEP           ///< Total number of parameters
 };
@@ -81,26 +96,44 @@ enum
    FPARAM_BJetLepPx_TOPTOPLEPHAD,    ///< Leptonic top b jet momentum, px
    FPARAM_BJetLepPy_TOPTOPLEPHAD,    ///< Leptonic top b jet momentum, py
    FPARAM_BJetLepPz_TOPTOPLEPHAD,    ///< Leptonic top b jet momentum, pz
+   FPARAM_BJetLepPt_TOPTOPLEPHAD,    ///< Leptonic top b jet momentum, pt
+   FPARAM_BJetLepEta_TOPTOPLEPHAD,   ///< Leptonic top b jet momentum, eta
+   FPARAM_BJetLepPhi_TOPTOPLEPHAD,   ///< Leptonic top b jet momentum, phi
    FPARAM_BJetLepE_TOPTOPLEPHAD,     ///< Leptonic top b jet energy
    FPARAM_BJetHadPx_TOPTOPLEPHAD,    ///< Hadronic top b jet momentum, px
    FPARAM_BJetHadPy_TOPTOPLEPHAD,    ///< Hadronic top b jet momentum, py
    FPARAM_BJetHadPz_TOPTOPLEPHAD,    ///< Hadronic top b jet momentum, pz
+   FPARAM_BJetHadPt_TOPTOPLEPHAD,    ///< Hadronic top b jet momentum, pt
+   FPARAM_BJetHadEta_TOPTOPLEPHAD,   ///< Hadronic top b jet momentum, eta
+   FPARAM_BJetHadPhi_TOPTOPLEPHAD,   ///< Hadronic top b jet momentum, phi
    FPARAM_BJetHadE_TOPTOPLEPHAD,     ///< Hadronic top b jet energy
    FPARAM_NonBJet1Px_TOPTOPLEPHAD,   ///< Hadronic top first non b jet momentum, px
    FPARAM_NonBJet1Py_TOPTOPLEPHAD,   ///< Hadronic top first non b jet momentum, py
    FPARAM_NonBJet1Pz_TOPTOPLEPHAD,   ///< Hadronic top first non b jet momentum, pz
+   FPARAM_NonBJet1Pt_TOPTOPLEPHAD,   ///< Hadronic top first non b jet momentum, pt
+   FPARAM_NonBJet1Eta_TOPTOPLEPHAD,  ///< Hadronic top first non b jet momentum, eta
+   FPARAM_NonBJet1Phi_TOPTOPLEPHAD,  ///< Hadronic top first non b jet momentum, phi
    FPARAM_NonBJet1E_TOPTOPLEPHAD,    ///< Hadronic top first non b jet energy
    FPARAM_NonBJet2Px_TOPTOPLEPHAD,   ///< Hadronic top second non b jet momentum, px
    FPARAM_NonBJet2Py_TOPTOPLEPHAD,   ///< Hadronic top second non b jet momentum, py
    FPARAM_NonBJet2Pz_TOPTOPLEPHAD,   ///< Hadronic top second non b jet momentum, pz
+   FPARAM_NonBJet2Pt_TOPTOPLEPHAD,   ///< Hadronic top second non b jet momentum, pt
+   FPARAM_NonBJet2Eta_TOPTOPLEPHAD,  ///< Hadronic top second non b jet momentum, eta
+   FPARAM_NonBJet2Phi_TOPTOPLEPHAD,  ///< Hadronic top second non b jet momentum, phi
    FPARAM_NonBJet2E_TOPTOPLEPHAD,    ///< Hadronic top second non b jet energy
    FPARAM_LeptonPx_TOPTOPLEPHAD,     ///< Lepton momentum, px
    FPARAM_LeptonPy_TOPTOPLEPHAD,     ///< Lepton momentum, py
    FPARAM_LeptonPz_TOPTOPLEPHAD,     ///< Lepton momentum, pz
+   FPARAM_LeptonPt_TOPTOPLEPHAD,     ///< Lepton momentum, pt
+   FPARAM_LeptonEta_TOPTOPLEPHAD,    ///< Lepton momentum, eta
+   FPARAM_LeptonPhi_TOPTOPLEPHAD,    ///< Lepton momentum, phi
    FPARAM_LeptonE_TOPTOPLEPHAD,      ///< Lepton energy
    FPARAM_PhotonPx_TOPTOPLEPHAD,     ///< Photon momentum, px
    FPARAM_PhotonPy_TOPTOPLEPHAD,     ///< Photon momentum, py
    FPARAM_PhotonPz_TOPTOPLEPHAD,     ///< Photon momentum, pz
+   FPARAM_PhotonPt_TOPTOPLEPHAD,     ///< Photon momentum, pt
+   FPARAM_PhotonEta_TOPTOPLEPHAD,    ///< Photon momentum, eta
+   FPARAM_PhotonPhi_TOPTOPLEPHAD,    ///< Photon momentum, phi
    FPARAM_PhotonE_TOPTOPLEPHAD,      ///< Photon energy
    FPARAM_N_TOPTOPLEPHAD             ///< Total number of parameters
 };
@@ -115,14 +148,23 @@ enum
    FPARAM_BJetLepPy_TOPLEP,    ///< Leptonic top b jet momentum, py
    FPARAM_BJetLepPz_TOPLEP,    ///< Leptonic top b jet momentum, pz
    FPARAM_BJetLepE_TOPLEP,     ///< Leptonic top b jet energy
+   FPARAM_BJetLepPt_TOPLEP,    ///< Leptonic top b jet momentum, pt
+   FPARAM_BJetLepEta_TOPLEP,   ///< Leptonic top b jet pseudorapidity, eta
+   FPARAM_BJetLepPhi_TOPLEP,   ///< Leptonic top b jet azimuthal angle, phi
    FPARAM_LeptonPx_TOPLEP,     ///< Lepton momentum, px
    FPARAM_LeptonPy_TOPLEP,     ///< Lepton momentum, py
    FPARAM_LeptonPz_TOPLEP,     ///< Lepton momentum, pz
    FPARAM_LeptonE_TOPLEP,      ///< Lepton energy
+   FPARAM_LeptonPt_TOPLEP,     ///< Lepton momentum, pt
+   FPARAM_LeptonEta_TOPLEP,    ///< Lepton pseudorapidity, eta
+   FPARAM_LeptonPhi_TOPLEP,    ///< Lepton azimuthal angle, phi
    FPARAM_PhotonPx_TOPLEP,     ///< Photon momentum, px
    FPARAM_PhotonPy_TOPLEP,     ///< Photon momentum, py
    FPARAM_PhotonPz_TOPLEP,     ///< Photon momentum, pz
    FPARAM_PhotonE_TOPLEP,      ///< Photon energy
+   FPARAM_PhotonPt_TOPLEP,     ///< Photon momentum, pt
+   FPARAM_PhotonEta_TOPLEP,    ///< Photon pseudorapidity, eta
+   FPARAM_PhotonPhi_TOPLEP,    ///< Photon azimuthal angle, phi
    FPARAM_N_TOPLEP             ///< Total number of parameters
 };
 
@@ -138,18 +180,33 @@ enum
    NLL_BJet1Px_TOPTOPLEPLEP,
    NLL_BJet1Py_TOPTOPLEPLEP,
    NLL_BJet1Pz_TOPTOPLEPLEP,
+   NLL_BJet1Pt_TOPTOPLEPLEP,
+   NLL_BJet1Eta_TOPTOPLEPLEP,
+   NLL_BJet1Phi_TOPTOPLEPLEP,
    NLL_BJet2Px_TOPTOPLEPLEP,
    NLL_BJet2Py_TOPTOPLEPLEP,
    NLL_BJet2Pz_TOPTOPLEPLEP,
+   NLL_BJet2Pt_TOPTOPLEPLEP,
+   NLL_BJet2Eta_TOPTOPLEPLEP,
+   NLL_BJet2Phi_TOPTOPLEPLEP,
    NLL_Lepton1Px_TOPTOPLEPLEP,
    NLL_Lepton1Py_TOPTOPLEPLEP,
    NLL_Lepton1Pz_TOPTOPLEPLEP,
+   NLL_Lepton1Pt_TOPTOPLEPLEP,
+   NLL_Lepton1Eta_TOPTOPLEPLEP,
+   NLL_Lepton1Phi_TOPTOPLEPLEP,
    NLL_Lepton2Px_TOPTOPLEPLEP,
    NLL_Lepton2Py_TOPTOPLEPLEP,
    NLL_Lepton2Pz_TOPTOPLEPLEP,
+   NLL_Lepton2Pt_TOPTOPLEPLEP,
+   NLL_Lepton2Eta_TOPTOPLEPLEP,
+   NLL_Lepton2Phi_TOPTOPLEPLEP,
    NLL_PhotonPx_TOPTOPLEPLEP,
    NLL_PhotonPy_TOPTOPLEPLEP,
    NLL_PhotonPz_TOPTOPLEPLEP,
+   NLL_PhotonPt_TOPTOPLEPLEP,
+   NLL_PhotonEta_TOPTOPLEPLEP,
+   NLL_PhotonPhi_TOPTOPLEPLEP,
    NLL_RacPT_TOPTOPLEPLEP,
    NLL_mWPT_TOPTOPLEPLEP,
    NLL_mTopPT_TOPTOPLEPLEP,
@@ -168,21 +225,39 @@ enum
    NLL_BJetLepPx_TOPTOPLEPHAD,
    NLL_BJetLepPy_TOPTOPLEPHAD,
    NLL_BJetLepPz_TOPTOPLEPHAD,
+   NLL_BJetLepPt_TOPTOPLEPHAD,
+   NLL_BJetLepEta_TOPTOPLEPHAD,
+   NLL_BJetLepPhi_TOPTOPLEPHAD,
    NLL_BJetHadPx_TOPTOPLEPHAD,
    NLL_BJetHadPy_TOPTOPLEPHAD,
    NLL_BJetHadPz_TOPTOPLEPHAD,
+   NLL_BJetHadPt_TOPTOPLEPHAD,
+   NLL_BJetHadEta_TOPTOPLEPHAD,
+   NLL_BJetHadPhi_TOPTOPLEPHAD,
    NLL_NonBJet1Px_TOPTOPLEPHAD,
    NLL_NonBJet1Py_TOPTOPLEPHAD,
    NLL_NonBJet1Pz_TOPTOPLEPHAD,
+   NLL_NonBJet1Pt_TOPTOPLEPHAD,
+   NLL_NonBJet1Eta_TOPTOPLEPHAD,
+   NLL_NonBJet1Phi_TOPTOPLEPHAD,
    NLL_NonBJet2Px_TOPTOPLEPHAD,
    NLL_NonBJet2Py_TOPTOPLEPHAD,
    NLL_NonBJet2Pz_TOPTOPLEPHAD,
+   NLL_NonBJet2Pt_TOPTOPLEPHAD,
+   NLL_NonBJet2Eta_TOPTOPLEPHAD,
+   NLL_NonBJet2Phi_TOPTOPLEPHAD,
    NLL_LeptonPx_TOPTOPLEPHAD,
    NLL_LeptonPy_TOPTOPLEPHAD,
    NLL_LeptonPz_TOPTOPLEPHAD,
+   NLL_LeptonPt_TOPTOPLEPHAD,
+   NLL_LeptonEta_TOPTOPLEPHAD,
+   NLL_LeptonPhi_TOPTOPLEPHAD,
    NLL_PhotonPx_TOPTOPLEPHAD,
    NLL_PhotonPy_TOPTOPLEPHAD,
    NLL_PhotonPz_TOPTOPLEPHAD,
+   NLL_PhotonPt_TOPTOPLEPHAD,
+   NLL_PhotonEta_TOPTOPLEPHAD,
+   NLL_PhotonPhi_TOPTOPLEPHAD,
    NLL_RacPT_TOPTOPLEPHAD,
    NLL_mWPT_TOPTOPLEPHAD,
    NLL_mTopPT_TOPTOPLEPHAD,
@@ -199,12 +274,21 @@ enum
    NLL_BJetLepPx_TOPLEP,
    NLL_BJetLepPy_TOPLEP,
    NLL_BJetLepPz_TOPLEP,
+   NLL_BJetLepPt_TOPLEP,
+   NLL_BJetLepEta_TOPLEP,
+   NLL_BJetLepPhi_TOPLEP,
    NLL_LeptonPx_TOPLEP,
    NLL_LeptonPy_TOPLEP,
    NLL_LeptonPz_TOPLEP,
+   NLL_LeptonPt_TOPLEP,
+   NLL_LeptonEta_TOPLEP,
+   NLL_LeptonPhi_TOPLEP,
    NLL_PhotonPx_TOPLEP,
    NLL_PhotonPy_TOPLEP,
    NLL_PhotonPz_TOPLEP,
+   NLL_PhotonPt_TOPLEP,
+   NLL_PhotonEta_TOPLEP,
+   NLL_PhotonPhi_TOPLEP,
    NLL_RacPT_TOPLEP,
    NLL_mWPT_TOPLEP,
    NLL_mTopPT_TOPLEP,
@@ -258,18 +342,33 @@ typedef enum
    PDF_BJetPx,       ///< (Px(gen)-Px(rec))/Px(gen) for b jets
    PDF_BJetPy,       ///< (Py(gen)-Py(rec))/Py(gen) for b jets
    PDF_BJetPz,       ///< (Pz(gen)-Pz(rec))/Pz(gen) for b jets
+   PDF_BJetPt,       ///< (Pt(gen)-Pt(rec))/Pt(gen) for b jets
+   PDF_BJetEta,      ///< (Eta(gen)-Eta(rec))/Eta(gen) for b jets
+   PDF_BJetPhi,      ///< (Phi(gen)-Phi(rec))/Phi(gen) for b jets
    PDF_NonBJetPx,    ///< (Px(gen)-Px(rec))/Px(gen) for non b jets
    PDF_NonBJetPy,    ///< (Py(gen)-Py(rec))/Py(gen) for non b jets
    PDF_NonBJetPz,    ///< (Pz(gen)-Pz(rec))/Pz(gen) for non b jets
+   PDF_NonBJetPt,    ///< (Pt(gen)-Pt(rec))/Pt(gen) for non b jets
+   PDF_NonBJetEta,   ///< (Eta(gen)-Eta(rec))/Eta(gen) for non b jets
+   PDF_NonBJetPhi,   ///< (Phi(gen)-Phi(rec))/Phi(gen) for non b jets
    PDF_ElecPx,       ///< (Px(gen)-Px(rec))/Px(gen) for electrons
    PDF_ElecPy,       ///< (Py(gen)-Py(rec))/Py(gen) for electrons
    PDF_ElecPz,       ///< (Pz(gen)-Pz(rec))/Pz(gen) for electrons
+   PDF_ElecPt,       ///< (Pt(gen)-Pt(rec))/Pt(gen) for electrons
+   PDF_ElecEta,      ///< (Eta(gen)-Eta(rec))/Eta(gen) for electrons
+   PDF_ElecPhi,      ///< (Phi(gen)-Phi(rec))/Phi(gen) for electrons
    PDF_MuonPx,       ///< (Px(gen)-Px(rec))/Px(gen) for muons
    PDF_MuonPy,       ///< (Py(gen)-Py(rec))/Py(gen) for muons
    PDF_MuonPz,       ///< (Pz(gen)-Pz(rec))/Pz(gen) for muons
+   PDF_MuonPt,       ///< (Pt(gen)-Pt(rec))/Pt(gen) for muons
+   PDF_MuonEta,      ///< (Eta(gen)-Eta(rec))/Eta(gen) for muons
+   PDF_MuonPhi,      ///< (Phi(gen)-Phi(rec))/Phi(gen) for muons
    PDF_PhotonPx,     ///< (Px(gen)-Px(rec))/Px(gen) for photons
    PDF_PhotonPy,     ///< (Py(gen)-Py(rec))/Py(gen) for photons
    PDF_PhotonPz,     ///< (Pz(gen)-Pz(rec))/Pz(gen) for photons
+   PDF_PhotonPt,     ///< (Pt(gen)-Pt(rec))/Pt(gen) for photons
+   PDF_PhotonEta,    ///< (Eta(gen)-Eta(rec))/Eta(gen) for photons
+   PDF_PhotonPhi,    ///< (Phi(gen)-Phi(rec))/Phi(gen) for photons
    PDF_N             ///< Total number of transfer function definitions
 } PDF;
 
@@ -392,7 +491,7 @@ namespace KINFIT
 	void SetTopMass(float topm1, float topm2);
 	
 	/// Read transfer function from the input file
-	void SetPDF(std::string obj, std::string fileName, std::string hName);
+	void SetPDF(std::string obj, std::string fileName, std::string hName, bool isDeltaFunc = false);
 
 	/// Set the number of grid points for the first-layer minimization
 	void SetNToy(int nMC) { NToy_ = nMC; };
@@ -421,6 +520,15 @@ namespace KINFIT
 	/// Set the maximal number of RMS in the variations on the transfer functions for b jet pz
 	void SetNBJetPzRMS(int nRMS) { NBJetPzRMS_ = nRMS; };
 
+	/// Set the maximal number of RMS in the variations on the transfer functions for b jet pt
+	void SetNBJetPtRMS(int nRMS) { NBJetPtRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for b jet eta
+	void SetNBJetEtaRMS(int nRMS) { NBJetEtaRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for b jet phi
+	void SetNBJetPhiRMS(int nRMS) { NBJetPhiRMS_ = nRMS; };
+	
 	/// Set the maximal number of RMS in the variations on the transfer functions for non-b jet px
 	void SetNNonBJetPxRMS(int nRMS) { NNonBJetPxRMS_ = nRMS; };
 	
@@ -429,6 +537,15 @@ namespace KINFIT
 	
 	/// Set the maximal number of RMS in the variations on the transfer functions for non-b jet pz
 	void SetNNonBJetPzRMS(int nRMS) { NNonBJetPzRMS_ = nRMS; };
+
+	/// Set the maximal number of RMS in the variations on the transfer functions for non-b jet pt
+	void SetNNonBJetPtRMS(int nRMS) { NNonBJetPtRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for non-b jet eta
+	void SetNNonBJetEtaRMS(int nRMS) { NNonBJetEtaRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for non-b jet phi
+	void SetNNonBJetPhiRMS(int nRMS) { NNonBJetPhiRMS_ = nRMS; };
 	
 	/// Set the maximal number of RMS in the variations on the transfer functions for electron px
 	void SetNElecPxRMS(int nRMS) { NElecPxRMS_ = nRMS; };
@@ -439,6 +556,15 @@ namespace KINFIT
 	/// Set the maximal number of RMS in the variations on the transfer functions for electron pz
 	void SetNElecPzRMS(int nRMS) { NElecPzRMS_ = nRMS; };
 
+	/// Set the maximal number of RMS in the variations on the transfer functions for electron pt
+	void SetNElecPtRMS(int nRMS) { NElecPtRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for electron eta
+	void SetNElecEtaRMS(int nRMS) { NElecEtaRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for electron phi
+	void SetNElecPhiRMS(int nRMS) { NElecPhiRMS_ = nRMS; };
+	
 	/// Set the maximal number of RMS in the variations on the transfer functions for muon px
 	void SetNMuonPxRMS(int nRMS) { NMuonPxRMS_ = nRMS; };
 	
@@ -448,6 +574,15 @@ namespace KINFIT
 	/// Set the maximal number of RMS in the variations on the transfer functions for muon pz
 	void SetNMuonPzRMS(int nRMS) { NMuonPzRMS_ = nRMS; };
 
+	/// Set the maximal number of RMS in the variations on the transfer functions for muon pt
+	void SetNMuonPtRMS(int nRMS) { NMuonPtRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for muon eta
+	void SetNMuonEtaRMS(int nRMS) { NMuonEtaRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for muon phi
+	void SetNMuonPhiRMS(int nRMS) { NMuonPhiRMS_ = nRMS; };
+	
 	/// Set the maximal number of RMS in the variations on the transfer functions for photon px
 	void SetNPhotonPxRMS(int nRMS) { NPhotonPxRMS_ = nRMS; };
 	
@@ -456,6 +591,15 @@ namespace KINFIT
 	
 	/// Set the maximal number of RMS in the variations on the transfer functions for photon pz
 	void SetNPhotonPzRMS(int nRMS) { NPhotonPzRMS_ = nRMS; };
+
+	/// Set the maximal number of RMS in the variations on the transfer functions for photon pt
+	void SetNPhotonPtRMS(int nRMS) { NPhotonPtRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for photon eta
+	void SetNPhotonEtaRMS(int nRMS) { NPhotonEtaRMS_ = nRMS; };
+	
+	/// Set the maximal number of RMS in the variations on the transfer functions for photon phi
+	void SetNPhotonPhiRMS(int nRMS) { NPhotonPhiRMS_ = nRMS; };
 	
 	/// Set the fit parameter range in terms of transfer function's RMS for lepton and jet kinematics
 	void SetLimNRMS(int nRMS) { LimNRMS_ = nRMS; };
@@ -858,8 +1002,11 @@ namespace KINFIT
 	float getEta(float pt, float pz);
 	
 	/// Check if the transfer function is defined
-	void checkPDF(TF1* hf, std::string tfname);
-
+	bool checkPDF(TF1* hf, std::string tfname, bool isDeltaFunc = false);
+	
+	/// Print transfer function warning
+	void printPDFWarning();
+	
       private:
 	
 	void checkIndex(int idx, std::string name, int max)
@@ -1082,26 +1229,41 @@ namespace KINFIT
 	int NBJetPxRMS_; 
 	int NBJetPyRMS_;
 	int NBJetPzRMS_;
+	int NBJetPtRMS_; 
+	int NBJetEtaRMS_;
+	int NBJetPhiRMS_;
 	int NBJetERMS_;
 
 	int NNonBJetPxRMS_;
 	int NNonBJetPyRMS_;
 	int NNonBJetPzRMS_;
+	int NNonBJetPtRMS_;
+	int NNonBJetEtaRMS_;
+	int NNonBJetPhiRMS_;
 	int NNonBJetERMS_;
 	
 	int NElecPxRMS_;
 	int NElecPyRMS_;
 	int NElecPzRMS_;
+	int NElecPtRMS_;
+	int NElecEtaRMS_;
+	int NElecPhiRMS_;
 	int NElecERMS_;
 
 	int NMuonPxRMS_;
 	int NMuonPyRMS_;
 	int NMuonPzRMS_;
+	int NMuonPtRMS_;
+	int NMuonEtaRMS_;
+	int NMuonPhiRMS_;
 	int NMuonERMS_;
 
 	int NPhotonPxRMS_;
 	int NPhotonPyRMS_;
 	int NPhotonPzRMS_;
+	int NPhotonPtRMS_;
+	int NPhotonEtaRMS_;
+	int NPhotonPhiRMS_;
 	int NPhotonERMS_;
 	
 	int LimNRMS_;
@@ -1109,6 +1271,43 @@ namespace KINFIT
 	float EtxMin_;
 	float EtxMax_;
 
+	static bool isDeltaFuncPDFTopWMass;
+	static bool isDeltaFuncPDFTopMass;
+	static bool isDeltaFuncPDFTopWHadMass;
+	static bool isDeltaFuncPDFTopHadMass;
+	static bool isDeltaFuncPDFMetPx;
+	static bool isDeltaFuncPDFMetPy;
+	static bool isDeltaFuncPDFBJetPx;
+	static bool isDeltaFuncPDFBJetPy;
+	static bool isDeltaFuncPDFBJetPz;
+	static bool isDeltaFuncPDFBJetPt;
+	static bool isDeltaFuncPDFBJetEta;
+	static bool isDeltaFuncPDFBJetPhi;
+	static bool isDeltaFuncPDFNonBJetPx;
+	static bool isDeltaFuncPDFNonBJetPy;
+	static bool isDeltaFuncPDFNonBJetPz;
+	static bool isDeltaFuncPDFNonBJetPt;
+	static bool isDeltaFuncPDFNonBJetEta;
+	static bool isDeltaFuncPDFNonBJetPhi;
+	static bool isDeltaFuncPDFElecPx;
+	static bool isDeltaFuncPDFElecPy;
+	static bool isDeltaFuncPDFElecPz;
+	static bool isDeltaFuncPDFElecPt;
+	static bool isDeltaFuncPDFElecEta;
+	static bool isDeltaFuncPDFElecPhi;
+	static bool isDeltaFuncPDFMuonPx;
+	static bool isDeltaFuncPDFMuonPy;
+	static bool isDeltaFuncPDFMuonPz;
+	static bool isDeltaFuncPDFMuonPt;
+	static bool isDeltaFuncPDFMuonEta;
+	static bool isDeltaFuncPDFMuonPhi;
+	static bool isDeltaFuncPDFPhotonPx;
+	static bool isDeltaFuncPDFPhotonPy;
+	static bool isDeltaFuncPDFPhotonPz;
+	static bool isDeltaFuncPDFPhotonPt;
+	static bool isDeltaFuncPDFPhotonEta;
+	static bool isDeltaFuncPDFPhotonPhi;
+	
 	static float maxPDFTopWMass;
 	static float meanPDFTopWMass;
 	static float sigmaPDFTopWMass;
@@ -1157,6 +1356,24 @@ namespace KINFIT
 	static double xminPDFBJetPz;
 	static double xmaxPDFBJetPz;
 
+	static float maxPDFBJetPt;
+	static float meanPDFBJetPt;
+	static float sigmaPDFBJetPt;
+	static double xminPDFBJetPt;
+	static double xmaxPDFBJetPt;
+
+	static float maxPDFBJetEta;
+	static float meanPDFBJetEta;
+	static float sigmaPDFBJetEta;
+	static double xminPDFBJetEta;
+	static double xmaxPDFBJetEta;
+
+	static float maxPDFBJetPhi;
+	static float meanPDFBJetPhi;
+	static float sigmaPDFBJetPhi;
+	static double xminPDFBJetPhi;
+	static double xmaxPDFBJetPhi;
+	
 	static float maxPDFMetPx;
 	static float meanPDFMetPx;
 	static float sigmaPDFMetPx;
@@ -1186,6 +1403,24 @@ namespace KINFIT
 	static float sigmaPDFElecPz;
 	static double xminPDFElecPz;
 	static double xmaxPDFElecPz;
+
+	static float maxPDFElecPt;
+	static float meanPDFElecPt;
+	static float sigmaPDFElecPt;
+	static double xminPDFElecPt;
+	static double xmaxPDFElecPt;
+
+	static float maxPDFElecEta;
+	static float meanPDFElecEta;
+	static float sigmaPDFElecEta;
+	static double xminPDFElecEta;
+	static double xmaxPDFElecEta;
+
+	static float maxPDFElecPhi;
+	static float meanPDFElecPhi;
+	static float sigmaPDFElecPhi;
+	static double xminPDFElecPhi;
+	static double xmaxPDFElecPhi;
 	
 	static float maxPDFMuonPx;
 	static float meanPDFMuonPx;
@@ -1205,6 +1440,24 @@ namespace KINFIT
 	static double xminPDFMuonPz;
 	static double xmaxPDFMuonPz;
 
+	static float maxPDFMuonPt;
+	static float meanPDFMuonPt;
+	static float sigmaPDFMuonPt;
+	static double xminPDFMuonPt;
+	static double xmaxPDFMuonPt;
+
+	static float maxPDFMuonEta;
+	static float meanPDFMuonEta;
+	static float sigmaPDFMuonEta;
+	static double xminPDFMuonEta;
+	static double xmaxPDFMuonEta;
+
+	static float maxPDFMuonPhi;
+	static float meanPDFMuonPhi;
+	static float sigmaPDFMuonPhi;
+	static double xminPDFMuonPhi;
+	static double xmaxPDFMuonPhi;
+	
 	static float maxPDFNonBJetPx;
 	static float meanPDFNonBJetPx;
 	static float sigmaPDFNonBJetPx;
@@ -1223,6 +1476,24 @@ namespace KINFIT
 	static double xminPDFNonBJetPz;
 	static double xmaxPDFNonBJetPz;
 
+	static float maxPDFNonBJetPt;
+	static float meanPDFNonBJetPt;
+	static float sigmaPDFNonBJetPt;
+	static double xminPDFNonBJetPt;
+	static double xmaxPDFNonBJetPt;
+
+	static float maxPDFNonBJetEta;
+	static float meanPDFNonBJetEta;
+	static float sigmaPDFNonBJetEta;
+	static double xminPDFNonBJetEta;
+	static double xmaxPDFNonBJetEta;
+
+	static float maxPDFNonBJetPhi;
+	static float meanPDFNonBJetPhi;
+	static float sigmaPDFNonBJetPhi;
+	static double xminPDFNonBJetPhi;
+	static double xmaxPDFNonBJetPhi;
+	
 	static float maxPDFPhotonPx;
 	static float meanPDFPhotonPx;
 	static float sigmaPDFPhotonPx;
@@ -1240,6 +1511,24 @@ namespace KINFIT
 	static float sigmaPDFPhotonPz;
 	static double xminPDFPhotonPz;
 	static double xmaxPDFPhotonPz;
+
+	static float maxPDFPhotonPt;
+	static float meanPDFPhotonPt;
+	static float sigmaPDFPhotonPt;
+	static double xminPDFPhotonPt;
+	static double xmaxPDFPhotonPt;
+
+	static float maxPDFPhotonEta;
+	static float meanPDFPhotonEta;
+	static float sigmaPDFPhotonEta;
+	static double xminPDFPhotonEta;
+	static double xmaxPDFPhotonEta;
+
+	static float maxPDFPhotonPhi;
+	static float meanPDFPhotonPhi;
+	static float sigmaPDFPhotonPhi;
+	static double xminPDFPhotonPhi;
+	static double xmaxPDFPhotonPhi;
 	
 	///
 	/// Additional variables
@@ -1263,6 +1552,9 @@ namespace KINFIT
 	static std::shared_ptr<double> PyLepton1;
 	static std::shared_ptr<double> PzLepton1;
 	static std::shared_ptr<double> ELepton1;
+	static std::shared_ptr<double> PtLepton1;
+	static std::shared_ptr<double> EtaLepton1;
+	static std::shared_ptr<double> PhiLepton1;
 	static std::shared_ptr<double> MassLepton1;
 	static std::shared_ptr<int> LabelLepton1;
 	
@@ -1270,6 +1562,9 @@ namespace KINFIT
 	static std::shared_ptr<double> PyLepton2;
 	static std::shared_ptr<double> PzLepton2;
 	static std::shared_ptr<double> ELepton2;
+	static std::shared_ptr<double> PtLepton2;
+	static std::shared_ptr<double> EtaLepton2;
+	static std::shared_ptr<double> PhiLepton2;
 	static std::shared_ptr<double> MassLepton2;
 	static std::shared_ptr<int> LabelLepton2;
 	
@@ -1277,30 +1572,45 @@ namespace KINFIT
 	static std::shared_ptr<double> PyBJet1;
 	static std::shared_ptr<double> PzBJet1;
 	static std::shared_ptr<double> EBJet1;
+	static std::shared_ptr<double> PtBJet1;
+	static std::shared_ptr<double> EtaBJet1;
+	static std::shared_ptr<double> PhiBJet1;
 	static std::shared_ptr<double> MassBJet1;
 	
 	static std::shared_ptr<double> PxBJet2;
 	static std::shared_ptr<double> PyBJet2;
 	static std::shared_ptr<double> PzBJet2;
 	static std::shared_ptr<double> EBJet2;
+	static std::shared_ptr<double> PtBJet2;
+	static std::shared_ptr<double> EtaBJet2;
+	static std::shared_ptr<double> PhiBJet2;
 	static std::shared_ptr<double> MassBJet2;
 
 	static std::shared_ptr<double> PxNonBJet1;
 	static std::shared_ptr<double> PyNonBJet1;
 	static std::shared_ptr<double> PzNonBJet1;
 	static std::shared_ptr<double> ENonBJet1;
+	static std::shared_ptr<double> PtNonBJet1;
+	static std::shared_ptr<double> EtaNonBJet1;
+	static std::shared_ptr<double> PhiNonBJet1;
 	static std::shared_ptr<double> MassNonBJet1;
 	
 	static std::shared_ptr<double> PxNonBJet2;
 	static std::shared_ptr<double> PyNonBJet2;
 	static std::shared_ptr<double> PzNonBJet2;
 	static std::shared_ptr<double> ENonBJet2;
+	static std::shared_ptr<double> PtNonBJet2;
+	static std::shared_ptr<double> EtaNonBJet2;
+	static std::shared_ptr<double> PhiNonBJet2;
 	static std::shared_ptr<double> MassNonBJet2;
 
 	static std::shared_ptr<double> PxPhoton;
 	static std::shared_ptr<double> PyPhoton;
 	static std::shared_ptr<double> PzPhoton;
 	static std::shared_ptr<double> EPhoton;
+	static std::shared_ptr<double> PtPhoton;
+	static std::shared_ptr<double> EtaPhoton;
+	static std::shared_ptr<double> PhiPhoton;
 	static std::shared_ptr<int> PhotonOrigin;
 	
 	static std::shared_ptr<double> PxNu1;
@@ -1319,6 +1629,17 @@ namespace KINFIT
 	static std::shared_ptr<std::vector<double> > ChiTerm;
 	static std::shared_ptr<std::vector<std::string> > ChiTermName;
 	
+	static std::shared_ptr<std::map<int, bool> > foundPDF;
+	
+	static std::shared_ptr<bool> usePDFBJetPxPyPz;
+	static std::shared_ptr<bool> usePDFBJetPtEtaPhi;
+	static std::shared_ptr<bool> usePDFNonBJetPxPyPz;
+	static std::shared_ptr<bool> usePDFNonBJetPtEtaPhi;
+	static std::shared_ptr<bool> usePDFLeptonPxPyPz;
+	static std::shared_ptr<bool> usePDFLeptonPtEtaPhi;
+	static std::shared_ptr<bool> usePDFPhotonPxPyPz;
+	static std::shared_ptr<bool> usePDFPhotonPtEtaPhi;
+	
 	static std::shared_ptr<TF1> hPDFTopWMass;
 	static std::shared_ptr<TF1> hPDFTopMass;
 	static std::shared_ptr<TF1> hPDFTopWHadMass;
@@ -1331,22 +1652,37 @@ namespace KINFIT
 	static std::shared_ptr<TF1> hPDFBJetPx;
 	static std::shared_ptr<TF1> hPDFBJetPy;
 	static std::shared_ptr<TF1> hPDFBJetPz;
+	static std::shared_ptr<TF1> hPDFBJetPt;
+	static std::shared_ptr<TF1> hPDFBJetEta;
+	static std::shared_ptr<TF1> hPDFBJetPhi;
 	
 	static std::shared_ptr<TF1> hPDFElecPx;
 	static std::shared_ptr<TF1> hPDFElecPy;
 	static std::shared_ptr<TF1> hPDFElecPz;
+	static std::shared_ptr<TF1> hPDFElecPt;
+	static std::shared_ptr<TF1> hPDFElecEta;
+	static std::shared_ptr<TF1> hPDFElecPhi;
 	
 	static std::shared_ptr<TF1> hPDFMuonPx;
 	static std::shared_ptr<TF1> hPDFMuonPy;
 	static std::shared_ptr<TF1> hPDFMuonPz;
+	static std::shared_ptr<TF1> hPDFMuonPt;
+	static std::shared_ptr<TF1> hPDFMuonEta;
+	static std::shared_ptr<TF1> hPDFMuonPhi;
 	
 	static std::shared_ptr<TF1> hPDFNonBJetPx;
 	static std::shared_ptr<TF1> hPDFNonBJetPy;
 	static std::shared_ptr<TF1> hPDFNonBJetPz;
+	static std::shared_ptr<TF1> hPDFNonBJetPt;
+	static std::shared_ptr<TF1> hPDFNonBJetEta;
+	static std::shared_ptr<TF1> hPDFNonBJetPhi;
 
 	static std::shared_ptr<TF1> hPDFPhotonPx;
 	static std::shared_ptr<TF1> hPDFPhotonPy;
 	static std::shared_ptr<TF1> hPDFPhotonPz;
+	static std::shared_ptr<TF1> hPDFPhotonPt;
+	static std::shared_ptr<TF1> hPDFPhotonEta;
+	static std::shared_ptr<TF1> hPDFPhotonPhi;
      };
 
 }
