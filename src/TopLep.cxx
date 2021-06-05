@@ -1050,7 +1050,7 @@ void KINFIT::TopLep::calcNuGrid(std::vector<FRESULT> &vp)
 		par[FPARAM_BJetLepE_TOPLEP] = sqrt((*MassBJet1)*(*MassBJet1) + par[FPARAM_BJetLepPx_TOPLEP]*par[FPARAM_BJetLepPx_TOPLEP] + par[FPARAM_BJetLepPy_TOPLEP]*par[FPARAM_BJetLepPy_TOPLEP] + par[FPARAM_BJetLepPz_TOPLEP]*par[FPARAM_BJetLepPz_TOPLEP]);
 	     } while( (par[FPARAM_BJetLepE_TOPLEP]*par[FPARAM_BJetLepE_TOPLEP]-par[FPARAM_BJetLepPx_TOPLEP]*par[FPARAM_BJetLepPx_TOPLEP]-par[FPARAM_BJetLepPy_TOPLEP]*par[FPARAM_BJetLepPy_TOPLEP]-par[FPARAM_BJetLepPz_TOPLEP]*par[FPARAM_BJetLepPz_TOPLEP]) < thres );
 	}
-	else {	     
+	else {
 	   do
 	     {
 		if( ! isDeltaFuncPDFBJetPt ) {

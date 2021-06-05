@@ -248,6 +248,9 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 	     *PyLepton1 = LeptonPy[il];
 	     *PzLepton1 = LeptonPz[il];
 	     *ELepton1 = LeptonE[il];
+	     *PtLepton1 = sqrt((*PxLepton1)*(*PxLepton1)+(*PyLepton1)*(*PyLepton1));
+	     *EtaLepton1 = getEta(*PtLepton1, *PzLepton1);
+	     *PhiLepton1 = atan2(*PyLepton1, *PxLepton1);
 	     *MassLepton1 = (*ELepton1)*(*ELepton1) - (*PxLepton1)*(*PxLepton1) - (*PyLepton1)*(*PyLepton1) - (*PzLepton1)*(*PzLepton1);
 	     *MassLepton1 = (*MassLepton1 > 0.) ? sqrt(*MassLepton1) : 0.;
 	     *LabelLepton1 = LeptonLabel[il];
@@ -255,13 +258,19 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 	     float sigmaPDFLeptonPx = sigmaPDFElecPx;
 	     float sigmaPDFLeptonPy = sigmaPDFElecPy;
 	     float sigmaPDFLeptonPz = sigmaPDFElecPz;
+	     float sigmaPDFLeptonPt = sigmaPDFElecPt;
+	     float sigmaPDFLeptonEta = sigmaPDFElecEta;
+	     float sigmaPDFLeptonPhi = sigmaPDFElecPhi;
 	     
 	     if( *LabelLepton1 == 1 )
 	       {
 		  sigmaPDFLeptonPx = sigmaPDFMuonPx;
 		  sigmaPDFLeptonPy = sigmaPDFMuonPy;
 		  sigmaPDFLeptonPz = sigmaPDFMuonPz;
-	       }	     
+		  sigmaPDFLeptonPt = sigmaPDFMuonPt;
+		  sigmaPDFLeptonEta = sigmaPDFMuonEta;
+		  sigmaPDFLeptonPhi = sigmaPDFMuonPhi;
+	       }
 
 	     (*ParMin)[FPARAM_Lepton1Px_TOPTOPLEPLEP] = (*PxLepton1) - LimNRMS_*fabs(*PxLepton1)*sigmaPDFLeptonPx;
 	     (*ParMax)[FPARAM_Lepton1Px_TOPTOPLEPLEP] = (*PxLepton1) + LimNRMS_*fabs(*PxLepton1)*sigmaPDFLeptonPx;
@@ -269,6 +278,12 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 	     (*ParMax)[FPARAM_Lepton1Py_TOPTOPLEPLEP] = (*PyLepton1) + LimNRMS_*fabs(*PyLepton1)*sigmaPDFLeptonPy;
 	     (*ParMin)[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = (*PzLepton1) - LimNRMS_*fabs(*PzLepton1)*sigmaPDFLeptonPz;
 	     (*ParMax)[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = (*PzLepton1) + LimNRMS_*fabs(*PzLepton1)*sigmaPDFLeptonPz;
+	     (*ParMin)[FPARAM_Lepton1Pt_TOPTOPLEPLEP] = (*PtLepton1) - LimNRMS_*fabs(*PtLepton1)*sigmaPDFLeptonPt;
+	     (*ParMax)[FPARAM_Lepton1Pt_TOPTOPLEPLEP] = (*PtLepton1) + LimNRMS_*fabs(*PtLepton1)*sigmaPDFLeptonPt;
+	     (*ParMin)[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = (*EtaLepton1) - LimNRMS_*fabs(*EtaLepton1)*sigmaPDFLeptonEta;
+	     (*ParMax)[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = (*EtaLepton1) + LimNRMS_*fabs(*EtaLepton1)*sigmaPDFLeptonEta;
+	     (*ParMin)[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = (*PhiLepton1) - LimNRMS_*fabs(*PhiLepton1)*sigmaPDFLeptonPhi;
+	     (*ParMax)[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = (*PhiLepton1) + LimNRMS_*fabs(*PhiLepton1)*sigmaPDFLeptonPhi;
 	     
 	     int label1_l = LeptonLabel[il];
 	     int idx1_l = LeptonIdx[il];
@@ -277,6 +292,9 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 	     *PyLepton2 = LeptonPy[il2];
 	     *PzLepton2 = LeptonPz[il2];
 	     *ELepton2 = LeptonE[il2];
+	     *PtLepton2 = sqrt((*PxLepton2)*(*PxLepton2)+(*PyLepton2)*(*PyLepton2));
+	     *EtaLepton2 = getEta(*PtLepton2, *PzLepton2);
+	     *PhiLepton2 = atan2(*PyLepton2, *PxLepton2);
 	     *MassLepton2 = (*ELepton2)*(*ELepton2) - (*PxLepton2)*(*PxLepton2) - (*PyLepton2)*(*PyLepton2) - (*PzLepton2)*(*PzLepton2);
 	     *MassLepton2 = (*MassLepton2 > 0.) ? sqrt(*MassLepton2) : 0.;
 	     *LabelLepton2 = LeptonLabel[il2];
@@ -284,6 +302,9 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 	     sigmaPDFLeptonPx = sigmaPDFElecPx;
 	     sigmaPDFLeptonPy = sigmaPDFElecPy;
 	     sigmaPDFLeptonPz = sigmaPDFElecPz;
+	     sigmaPDFLeptonPt = sigmaPDFElecPt;
+	     sigmaPDFLeptonEta = sigmaPDFElecEta;
+	     sigmaPDFLeptonPhi = sigmaPDFElecPhi;
 
 	     if( *LabelLepton2 == 1 )
 	       {
@@ -298,6 +319,12 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 	     (*ParMax)[FPARAM_Lepton2Py_TOPTOPLEPLEP] = (*PyLepton2) + LimNRMS_*fabs(*PyLepton2)*sigmaPDFLeptonPy;
 	     (*ParMin)[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = (*PzLepton2) - LimNRMS_*fabs(*PzLepton2)*sigmaPDFLeptonPz;
 	     (*ParMax)[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = (*PzLepton2) + LimNRMS_*fabs(*PzLepton2)*sigmaPDFLeptonPz;
+	     (*ParMin)[FPARAM_Lepton2Pt_TOPTOPLEPLEP] = (*PtLepton2) - LimNRMS_*fabs(*PtLepton2)*sigmaPDFLeptonPt;
+	     (*ParMax)[FPARAM_Lepton2Pt_TOPTOPLEPLEP] = (*PtLepton2) + LimNRMS_*fabs(*PtLepton2)*sigmaPDFLeptonPt;
+	     (*ParMin)[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = (*EtaLepton2) - LimNRMS_*fabs(*EtaLepton2)*sigmaPDFLeptonEta;
+	     (*ParMax)[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = (*EtaLepton2) + LimNRMS_*fabs(*EtaLepton2)*sigmaPDFLeptonEta;
+	     (*ParMin)[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = (*PhiLepton2) - LimNRMS_*fabs(*PhiLepton2)*sigmaPDFLeptonPhi;
+	     (*ParMax)[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = (*PhiLepton2) + LimNRMS_*fabs(*PhiLepton2)*sigmaPDFLeptonPhi;
 
 	     int label2_l = LeptonLabel[il2];
 	     int idx2_l = LeptonIdx[il2];
@@ -308,6 +335,9 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 		  *PxBJet1 = BJetPx[ib];
 		  *PyBJet1 = BJetPy[ib];
 		  *PzBJet1 = BJetPz[ib];
+		  *PtBJet1 = sqrt((*PxBJet1)*(*PxBJet1)+(*PyBJet1)*(*PyBJet1));
+		  *EtaBJet1 = getEta(*PtBJet1, *PzBJet1);
+		  *PhiBJet1 = atan2(*PyBJet1, *PxBJet1);
 		  *MassBJet1 = (*EBJet1)*(*EBJet1) - (*PxBJet1)*(*PxBJet1) - (*PyBJet1)*(*PyBJet1) - (*PzBJet1)*(*PzBJet1);
 		  *MassBJet1 = (*MassBJet1 > 0.) ? sqrt(*MassBJet1) : 0.;
 
@@ -317,6 +347,12 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 		  (*ParMax)[FPARAM_BJet1Py_TOPTOPLEPLEP] = (*PyBJet1) + LimNRMS_*fabs(*PyBJet1)*sigmaPDFBJetPy;
 		  (*ParMin)[FPARAM_BJet1Pz_TOPTOPLEPLEP] = (*PzBJet1) - LimNRMS_*fabs(*PzBJet1)*sigmaPDFBJetPz;
 		  (*ParMax)[FPARAM_BJet1Pz_TOPTOPLEPLEP] = (*PzBJet1) + LimNRMS_*fabs(*PzBJet1)*sigmaPDFBJetPz;
+		  (*ParMin)[FPARAM_BJet1Pt_TOPTOPLEPLEP] = (*PtBJet1) - LimNRMS_*fabs(*PtBJet1)*sigmaPDFBJetPt;
+		  (*ParMax)[FPARAM_BJet1Pt_TOPTOPLEPLEP] = (*PtBJet1) + LimNRMS_*fabs(*PtBJet1)*sigmaPDFBJetPt;
+		  (*ParMin)[FPARAM_BJet1Eta_TOPTOPLEPLEP] = (*EtaBJet1) - LimNRMS_*fabs(*EtaBJet1)*sigmaPDFBJetEta;
+		  (*ParMax)[FPARAM_BJet1Eta_TOPTOPLEPLEP] = (*EtaBJet1) + LimNRMS_*fabs(*EtaBJet1)*sigmaPDFBJetEta;
+		  (*ParMin)[FPARAM_BJet1Phi_TOPTOPLEPLEP] = (*PhiBJet1) - LimNRMS_*fabs(*PhiBJet1)*sigmaPDFBJetPhi;
+		  (*ParMax)[FPARAM_BJet1Phi_TOPTOPLEPLEP] = (*PhiBJet1) + LimNRMS_*fabs(*PhiBJet1)*sigmaPDFBJetPhi;
 
 		  for( int ib2=0;ib2<nBJet;ib2++ )
 		    {
@@ -328,6 +364,9 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 		       *PxBJet2 = BJetPx[ib2];
 		       *PyBJet2 = BJetPy[ib2];
 		       *PzBJet2 = BJetPz[ib2];
+		       *PtBJet2 = sqrt((*PxBJet2)*(*PxBJet2)+(*PyBJet2)*(*PyBJet2));
+		       *EtaBJet2 = getEta(*PtBJet2, *PzBJet2);
+		       *PhiBJet2 = atan2(*PyBJet2, *PxBJet2);
 		       *MassBJet2 = (*EBJet2)*(*EBJet2) - (*PxBJet2)*(*PxBJet2) - (*PyBJet2)*(*PyBJet2) - (*PzBJet2)*(*PzBJet2);
 		       *MassBJet2 = (*MassBJet2 > 0.) ? sqrt(*MassBJet2) : 0.;
 
@@ -337,6 +376,12 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 		       (*ParMax)[FPARAM_BJet2Py_TOPTOPLEPLEP] = (*PyBJet2) + LimNRMS_*fabs(*PyBJet2)*sigmaPDFBJetPy;
 		       (*ParMin)[FPARAM_BJet2Pz_TOPTOPLEPLEP] = (*PzBJet2) - LimNRMS_*fabs(*PzBJet2)*sigmaPDFBJetPz;
 		       (*ParMax)[FPARAM_BJet2Pz_TOPTOPLEPLEP] = (*PzBJet2) + LimNRMS_*fabs(*PzBJet2)*sigmaPDFBJetPz;
+		       (*ParMin)[FPARAM_BJet2Pt_TOPTOPLEPLEP] = (*PtBJet2) - LimNRMS_*fabs(*PtBJet2)*sigmaPDFBJetPt;
+		       (*ParMax)[FPARAM_BJet2Pt_TOPTOPLEPLEP] = (*PtBJet2) + LimNRMS_*fabs(*PtBJet2)*sigmaPDFBJetPt;
+		       (*ParMin)[FPARAM_BJet2Eta_TOPTOPLEPLEP] = (*EtaBJet2) - LimNRMS_*fabs(*EtaBJet2)*sigmaPDFBJetEta;
+		       (*ParMax)[FPARAM_BJet2Eta_TOPTOPLEPLEP] = (*EtaBJet2) + LimNRMS_*fabs(*EtaBJet2)*sigmaPDFBJetEta;
+		       (*ParMin)[FPARAM_BJet2Phi_TOPTOPLEPLEP] = (*PhiBJet2) - LimNRMS_*fabs(*PhiBJet2)*sigmaPDFBJetPhi;
+		       (*ParMax)[FPARAM_BJet2Phi_TOPTOPLEPLEP] = (*PhiBJet2) + LimNRMS_*fabs(*PhiBJet2)*sigmaPDFBJetPhi;
 		       
 		       for( int ipho=nPhoton;ipho>=0;ipho-- )
 			 {
@@ -346,6 +391,9 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 				 *PxPhoton = PhotonPx[ipho];
 				 *PyPhoton = PhotonPy[ipho];
 				 *PzPhoton = PhotonPz[ipho];
+				 *PtPhoton = sqrt((*PxPhoton)*(*PxPhoton)+(*PyPhoton)*(*PyPhoton));
+				 *EtaPhoton = getEta(*PtPhoton, *PzPhoton);
+				 *PhiPhoton = atan2(*PyPhoton, *PxPhoton);
 				 
 				 (*ParMin)[FPARAM_PhotonPx_TOPTOPLEPLEP] = (*PxPhoton) - LimNRMS_*fabs(*PxPhoton)*sigmaPDFPhotonPx;
 				 (*ParMax)[FPARAM_PhotonPx_TOPTOPLEPLEP] = (*PxPhoton) + LimNRMS_*fabs(*PxPhoton)*sigmaPDFPhotonPx;
@@ -353,6 +401,12 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 				 (*ParMax)[FPARAM_PhotonPy_TOPTOPLEPLEP] = (*PyPhoton) + LimNRMS_*fabs(*PyPhoton)*sigmaPDFPhotonPy;
 				 (*ParMin)[FPARAM_PhotonPz_TOPTOPLEPLEP] = (*PzPhoton) - LimNRMS_*fabs(*PzPhoton)*sigmaPDFPhotonPz;
 				 (*ParMax)[FPARAM_PhotonPz_TOPTOPLEPLEP] = (*PzPhoton) + LimNRMS_*fabs(*PzPhoton)*sigmaPDFPhotonPz;
+				 (*ParMin)[FPARAM_PhotonPt_TOPTOPLEPLEP] = (*PtPhoton) - LimNRMS_*fabs(*PtPhoton)*sigmaPDFPhotonPt;
+				 (*ParMax)[FPARAM_PhotonPt_TOPTOPLEPLEP] = (*PtPhoton) + LimNRMS_*fabs(*PtPhoton)*sigmaPDFPhotonPt;
+				 (*ParMin)[FPARAM_PhotonEta_TOPTOPLEPLEP] = (*EtaPhoton) - LimNRMS_*fabs(*EtaPhoton)*sigmaPDFPhotonEta;
+				 (*ParMax)[FPARAM_PhotonEta_TOPTOPLEPLEP] = (*EtaPhoton) + LimNRMS_*fabs(*EtaPhoton)*sigmaPDFPhotonEta;
+				 (*ParMin)[FPARAM_PhotonPhi_TOPTOPLEPLEP] = (*PhiPhoton) - LimNRMS_*fabs(*PhiPhoton)*sigmaPDFPhotonPhi;
+				 (*ParMax)[FPARAM_PhotonPhi_TOPTOPLEPLEP] = (*PhiPhoton) + LimNRMS_*fabs(*PhiPhoton)*sigmaPDFPhotonPhi;
 			      }
 			    
 			    for( int ipo=0;ipo<PHOTON_ORIGIN_N_TOPTOPLEPLEP;ipo++ )
@@ -628,11 +682,11 @@ void KINFIT::TopTopLepLep::CalcNPerm()
 }
 
 /// Derive solutions on a given set of inputs and calculate the resultant NLL
-double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLepton1, float ELepton1, int LabelLepton1,
-				  float PxLepton2, float PyLepton2, float PzLepton2, float ELepton2, int LabelLepton2,
-				  float PxBJet1, float PyBJet1, float PzBJet1, float EBJet1,
-				  float PxBJet2, float PyBJet2, float PzBJet2, float EBJet2,
-				  float PxPhoton, float PyPhoton, float PzPhoton, float EPhoton,
+double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLepton1, float PtLepton1, float EtaLepton1, float PhiLepton1, float ELepton1, int LabelLepton1,
+				  float PxLepton2, float PyLepton2, float PzLepton2, float PtLepton2, float EtaLepton2, float PhiLepton2, float ELepton2, int LabelLepton2,
+				  float PxBJet1, float PyBJet1, float PzBJet1, float PtBJet1, float EtaBJet1, float PhiBJet1, float EBJet1,
+				  float PxBJet2, float PyBJet2, float PzBJet2, float PtBJet2, float EtaBJet2, float PhiBJet2, float EBJet2,
+				  float PxPhoton, float PyPhoton, float PzPhoton, float PtPhoton, float EtaPhoton, float PhiPhoton, float EPhoton,
 				  int photonOrigin,
 				  std::vector<double> &chi2t, double *par)
 {
@@ -655,16 +709,25 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    float Lepton1Px = par[FPARAM_Lepton1Px_TOPTOPLEPLEP];
    float Lepton1Py = par[FPARAM_Lepton1Py_TOPTOPLEPLEP];
    float Lepton1Pz = par[FPARAM_Lepton1Pz_TOPTOPLEPLEP];
+   float Lepton1Pt = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP];
+   float Lepton1Eta = par[FPARAM_Lepton1Eta_TOPTOPLEPLEP];
+   float Lepton1Phi = par[FPARAM_Lepton1Phi_TOPTOPLEPLEP];
    float Lepton1E = par[FPARAM_Lepton1E_TOPTOPLEPLEP];
 
    float Lepton2Px = par[FPARAM_Lepton2Px_TOPTOPLEPLEP];
    float Lepton2Py = par[FPARAM_Lepton2Py_TOPTOPLEPLEP];
    float Lepton2Pz = par[FPARAM_Lepton2Pz_TOPTOPLEPLEP];
+   float Lepton2Pt = par[FPARAM_Lepton2Pt_TOPTOPLEPLEP];
+   float Lepton2Eta = par[FPARAM_Lepton2Eta_TOPTOPLEPLEP];
+   float Lepton2Phi = par[FPARAM_Lepton2Phi_TOPTOPLEPLEP];
    float Lepton2E = par[FPARAM_Lepton2E_TOPTOPLEPLEP];
    
    float PhotonPx = par[FPARAM_PhotonPx_TOPTOPLEPLEP];
    float PhotonPy = par[FPARAM_PhotonPy_TOPTOPLEPLEP];
    float PhotonPz = par[FPARAM_PhotonPz_TOPTOPLEPLEP];
+   float PhotonPt = par[FPARAM_PhotonPt_TOPTOPLEPLEP];
+   float PhotonEta = par[FPARAM_PhotonEta_TOPTOPLEPLEP];
+   float PhotonPhi = par[FPARAM_PhotonPhi_TOPTOPLEPLEP];
    float PhotonE = par[FPARAM_PhotonE_TOPTOPLEPLEP];
    
    if( (photonOrigin == PHOTON_FROM_W1_TOPTOPLEPLEP ||
@@ -725,6 +788,9 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    float BJet1Px = par[FPARAM_BJet1Px_TOPTOPLEPLEP];
    float BJet1Py = par[FPARAM_BJet1Py_TOPTOPLEPLEP];
    float BJet1Pz = par[FPARAM_BJet1Pz_TOPTOPLEPLEP];
+   float BJet1Pt = par[FPARAM_BJet1Pt_TOPTOPLEPLEP];
+   float BJet1Eta = par[FPARAM_BJet1Eta_TOPTOPLEPLEP];
+   float BJet1Phi = par[FPARAM_BJet1Phi_TOPTOPLEPLEP];
    float BJet1E = par[FPARAM_BJet1E_TOPTOPLEPLEP];
    
    if( photonOrigin == PHOTON_FROM_BJET1_TOPTOPLEPLEP && IncludePhotons_ )
@@ -738,6 +804,9 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    float BJet2Px = par[FPARAM_BJet2Px_TOPTOPLEPLEP];
    float BJet2Py = par[FPARAM_BJet2Py_TOPTOPLEPLEP];
    float BJet2Pz = par[FPARAM_BJet2Pz_TOPTOPLEPLEP];
+   float BJet2Pt = par[FPARAM_BJet2Pt_TOPTOPLEPLEP];
+   float BJet2Eta = par[FPARAM_BJet2Eta_TOPTOPLEPLEP];
+   float BJet2Phi = par[FPARAM_BJet2Phi_TOPTOPLEPLEP];
    float BJet2E = par[FPARAM_BJet2E_TOPTOPLEPLEP];
    
    if( photonOrigin == PHOTON_FROM_BJET2_TOPTOPLEPLEP && IncludePhotons_ )
@@ -855,41 +924,66 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    mtop2Abs = sqrt(mtop2Abs);
    mW2Abs = sqrt(mW2Abs);
 
-   float mW1Prob = getProb(hPDFTopWMass.get(), mW1Abs, maxPDFTopWMass, xminPDFTopWMass, xmaxPDFTopWMass);
-   float mW2Prob = getProb(hPDFTopWMass.get(), mW2Abs, maxPDFTopWMass, xminPDFTopWMass, xmaxPDFTopWMass);
+   float mW1Prob = (! isDeltaFuncPDFTopWMass) ? getProb(hPDFTopWMass.get(), mW1Abs, maxPDFTopWMass, xminPDFTopWMass, xmaxPDFTopWMass) : 1.0;
+   float mW2Prob = (! isDeltaFuncPDFTopWMass) ? getProb(hPDFTopWMass.get(), mW2Abs, maxPDFTopWMass, xminPDFTopWMass, xmaxPDFTopWMass) : 1.0;
 
-   float mTop1Prob = getProb(hPDFTopMass.get(), mtop1Abs, maxPDFTopMass, xminPDFTopMass, xmaxPDFTopMass);
-   float mTop2Prob = getProb(hPDFTopMass.get(), mtop2Abs, maxPDFTopMass, xminPDFTopMass, xmaxPDFTopMass);
+   float mTop1Prob = (! isDeltaFuncPDFTopMass) ? getProb(hPDFTopMass.get(), mtop1Abs, maxPDFTopMass, xminPDFTopMass, xmaxPDFTopMass) : 1.0;
+   float mTop2Prob = (! isDeltaFuncPDFTopMass) ? getProb(hPDFTopMass.get(), mtop2Abs, maxPDFTopMass, xminPDFTopMass, xmaxPDFTopMass) : 1.0;
    
 //   float mTopTopProb = (AddTopTopMassToNLL_) ? getProb(hPDFTopTopMass.get(), mtoptopAbs, maxPDFTopTopMass, xminPDFTopTopMass, xmaxPDFTopTopMass) : 1.0;
 
-   float MetPxProb = (! (*IsParFixed)[FPARAM_EtRealX_TOPTOPLEPLEP]) ? getProb(hPDFMetPx.get(), (par[FPARAM_EtRealX_TOPTOPLEPLEP]-*EtMissX)/par[FPARAM_EtRealX_TOPTOPLEPLEP], maxPDFMetPx, xminPDFMetPx, xmaxPDFMetPx) : 1.0;
-   float MetPyProb = (! (*IsParFixed)[FPARAM_EtRealY_TOPTOPLEPLEP]) ? getProb(hPDFMetPy.get(), (par[FPARAM_EtRealY_TOPTOPLEPLEP]-*EtMissY)/par[FPARAM_EtRealY_TOPTOPLEPLEP], maxPDFMetPy, xminPDFMetPy, xmaxPDFMetPy) : 1.0;
+   float MetPxProb = (! (*IsParFixed)[FPARAM_EtRealX_TOPTOPLEPLEP] && ! isDeltaFuncPDFMetPx) ? getProb(hPDFMetPx.get(), (par[FPARAM_EtRealX_TOPTOPLEPLEP]-*EtMissX)/par[FPARAM_EtRealX_TOPTOPLEPLEP], maxPDFMetPx, xminPDFMetPx, xmaxPDFMetPx) : 1.0;
+   float MetPyProb = (! (*IsParFixed)[FPARAM_EtRealY_TOPTOPLEPLEP] && ! isDeltaFuncPDFMetPy) ? getProb(hPDFMetPy.get(), (par[FPARAM_EtRealY_TOPTOPLEPLEP]-*EtMissY)/par[FPARAM_EtRealY_TOPTOPLEPLEP], maxPDFMetPy, xminPDFMetPy, xmaxPDFMetPy) : 1.0;
    
-   float BJet1PxProb = (! (*IsParFixed)[FPARAM_BJet1Px_TOPTOPLEPLEP]) ? getProb(hPDFBJetPx.get(), (par[FPARAM_BJet1Px_TOPTOPLEPLEP]-PxBJet1)/par[FPARAM_BJet1Px_TOPTOPLEPLEP], maxPDFBJetPx, xminPDFBJetPx, xmaxPDFBJetPx) : 1.0;
-   float BJet1PyProb = (! (*IsParFixed)[FPARAM_BJet1Py_TOPTOPLEPLEP]) ? getProb(hPDFBJetPy.get(), (par[FPARAM_BJet1Py_TOPTOPLEPLEP]-PyBJet1)/par[FPARAM_BJet1Py_TOPTOPLEPLEP], maxPDFBJetPy, xminPDFBJetPy, xmaxPDFBJetPy) : 1.0;
-   float BJet1PzProb = (! (*IsParFixed)[FPARAM_BJet1Pz_TOPTOPLEPLEP]) ? getProb(hPDFBJetPz.get(), (par[FPARAM_BJet1Pz_TOPTOPLEPLEP]-PzBJet1)/par[FPARAM_BJet1Pz_TOPTOPLEPLEP], maxPDFBJetPz, xminPDFBJetPz, xmaxPDFBJetPz) : 1.0;
+   float BJet1PxProb = (! (*IsParFixed)[FPARAM_BJet1Px_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPx) ? getProb(hPDFBJetPx.get(), (par[FPARAM_BJet1Px_TOPTOPLEPLEP]-PxBJet1)/par[FPARAM_BJet1Px_TOPTOPLEPLEP], maxPDFBJetPx, xminPDFBJetPx, xmaxPDFBJetPx) : 1.0;
+   float BJet1PyProb = (! (*IsParFixed)[FPARAM_BJet1Py_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPy) ? getProb(hPDFBJetPy.get(), (par[FPARAM_BJet1Py_TOPTOPLEPLEP]-PyBJet1)/par[FPARAM_BJet1Py_TOPTOPLEPLEP], maxPDFBJetPy, xminPDFBJetPy, xmaxPDFBJetPy) : 1.0;
+   float BJet1PzProb = (! (*IsParFixed)[FPARAM_BJet1Pz_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPz) ? getProb(hPDFBJetPz.get(), (par[FPARAM_BJet1Pz_TOPTOPLEPLEP]-PzBJet1)/par[FPARAM_BJet1Pz_TOPTOPLEPLEP], maxPDFBJetPz, xminPDFBJetPz, xmaxPDFBJetPz) : 1.0;
+   float BJet1PtProb = (! (*IsParFixed)[FPARAM_BJet1Pt_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPt) ? getProb(hPDFBJetPt.get(), (par[FPARAM_BJet1Pt_TOPTOPLEPLEP]-PtBJet1)/par[FPARAM_BJet1Pt_TOPTOPLEPLEP], maxPDFBJetPt, xminPDFBJetPt, xmaxPDFBJetPt) : 1.0;
+   float BJet1EtaProb = (! (*IsParFixed)[FPARAM_BJet1Eta_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetEta) ? getProb(hPDFBJetEta.get(), (par[FPARAM_BJet1Eta_TOPTOPLEPLEP]-EtaBJet1)/par[FPARAM_BJet1Eta_TOPTOPLEPLEP], maxPDFBJetEta, xminPDFBJetEta, xmaxPDFBJetEta) : 1.0;
+   float BJet1PhiProb = (! (*IsParFixed)[FPARAM_BJet1Phi_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPhi) ? getProb(hPDFBJetPhi.get(), (par[FPARAM_BJet1Phi_TOPTOPLEPLEP]-PhiBJet1)/par[FPARAM_BJet1Phi_TOPTOPLEPLEP], maxPDFBJetPhi, xminPDFBJetPhi, xmaxPDFBJetPhi) : 1.0;
 
-   float BJet2PxProb = (! (*IsParFixed)[FPARAM_BJet2Px_TOPTOPLEPLEP]) ? getProb(hPDFBJetPx.get(), (par[FPARAM_BJet2Px_TOPTOPLEPLEP]-PxBJet2)/par[FPARAM_BJet2Px_TOPTOPLEPLEP], maxPDFBJetPx, xminPDFBJetPx, xmaxPDFBJetPx) : 1.0;
-   float BJet2PyProb = (! (*IsParFixed)[FPARAM_BJet2Py_TOPTOPLEPLEP]) ? getProb(hPDFBJetPy.get(), (par[FPARAM_BJet2Py_TOPTOPLEPLEP]-PyBJet2)/par[FPARAM_BJet2Py_TOPTOPLEPLEP], maxPDFBJetPy, xminPDFBJetPy, xmaxPDFBJetPy) : 1.0;
-   float BJet2PzProb = (! (*IsParFixed)[FPARAM_BJet2Pz_TOPTOPLEPLEP]) ? getProb(hPDFBJetPz.get(), (par[FPARAM_BJet2Pz_TOPTOPLEPLEP]-PzBJet2)/par[FPARAM_BJet2Pz_TOPTOPLEPLEP], maxPDFBJetPz, xminPDFBJetPz, xmaxPDFBJetPz) : 1.0;
+   float BJet2PxProb = (! (*IsParFixed)[FPARAM_BJet2Px_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPx) ? getProb(hPDFBJetPx.get(), (par[FPARAM_BJet2Px_TOPTOPLEPLEP]-PxBJet2)/par[FPARAM_BJet2Px_TOPTOPLEPLEP], maxPDFBJetPx, xminPDFBJetPx, xmaxPDFBJetPx) : 1.0;
+   float BJet2PyProb = (! (*IsParFixed)[FPARAM_BJet2Py_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPy) ? getProb(hPDFBJetPy.get(), (par[FPARAM_BJet2Py_TOPTOPLEPLEP]-PyBJet2)/par[FPARAM_BJet2Py_TOPTOPLEPLEP], maxPDFBJetPy, xminPDFBJetPy, xmaxPDFBJetPy) : 1.0;
+   float BJet2PzProb = (! (*IsParFixed)[FPARAM_BJet2Pz_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPz) ? getProb(hPDFBJetPz.get(), (par[FPARAM_BJet2Pz_TOPTOPLEPLEP]-PzBJet2)/par[FPARAM_BJet2Pz_TOPTOPLEPLEP], maxPDFBJetPz, xminPDFBJetPz, xmaxPDFBJetPz) : 1.0;
+   float BJet2PtProb = (! (*IsParFixed)[FPARAM_BJet2Pt_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPt) ? getProb(hPDFBJetPt.get(), (par[FPARAM_BJet2Pt_TOPTOPLEPLEP]-PtBJet2)/par[FPARAM_BJet2Pt_TOPTOPLEPLEP], maxPDFBJetPt, xminPDFBJetPt, xmaxPDFBJetPt) : 1.0;
+   float BJet2EtaProb = (! (*IsParFixed)[FPARAM_BJet2Eta_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetEta) ? getProb(hPDFBJetEta.get(), (par[FPARAM_BJet2Eta_TOPTOPLEPLEP]-EtaBJet2)/par[FPARAM_BJet2Eta_TOPTOPLEPLEP], maxPDFBJetEta, xminPDFBJetEta, xmaxPDFBJetEta) : 1.0;
+   float BJet2PhiProb = (! (*IsParFixed)[FPARAM_BJet2Phi_TOPTOPLEPLEP] && ! isDeltaFuncPDFBJetPhi) ? getProb(hPDFBJetPhi.get(), (par[FPARAM_BJet2Phi_TOPTOPLEPLEP]-PhiBJet2)/par[FPARAM_BJet2Phi_TOPTOPLEPLEP], maxPDFBJetPhi, xminPDFBJetPhi, xmaxPDFBJetPhi) : 1.0;
+
+   float PhotonPxProb = (! (*IsParFixed)[FPARAM_PhotonPx_TOPTOPLEPLEP] && ! isDeltaFuncPDFPhotonPx) ? getProb(hPDFPhotonPx.get(), (par[FPARAM_PhotonPx_TOPTOPLEPLEP]-PxPhoton)/par[FPARAM_PhotonPx_TOPTOPLEPLEP], maxPDFPhotonPx, xminPDFPhotonPx, xmaxPDFPhotonPx) : 1.0;
+   float PhotonPyProb = (! (*IsParFixed)[FPARAM_PhotonPy_TOPTOPLEPLEP] && ! isDeltaFuncPDFPhotonPy) ? getProb(hPDFPhotonPy.get(), (par[FPARAM_PhotonPy_TOPTOPLEPLEP]-PyPhoton)/par[FPARAM_PhotonPy_TOPTOPLEPLEP], maxPDFPhotonPy, xminPDFPhotonPy, xmaxPDFPhotonPy) : 1.0;
+   float PhotonPzProb = (! (*IsParFixed)[FPARAM_PhotonPz_TOPTOPLEPLEP] && ! isDeltaFuncPDFPhotonPz) ? getProb(hPDFPhotonPz.get(), (par[FPARAM_PhotonPz_TOPTOPLEPLEP]-PzPhoton)/par[FPARAM_PhotonPz_TOPTOPLEPLEP], maxPDFPhotonPz, xminPDFPhotonPz, xmaxPDFPhotonPz) : 1.0;
+   float PhotonPtProb = (! (*IsParFixed)[FPARAM_PhotonPt_TOPTOPLEPLEP] && ! isDeltaFuncPDFPhotonPt) ? getProb(hPDFPhotonPt.get(), (par[FPARAM_PhotonPt_TOPTOPLEPLEP]-PtPhoton)/par[FPARAM_PhotonPt_TOPTOPLEPLEP], maxPDFPhotonPt, xminPDFPhotonPt, xmaxPDFPhotonPt) : 1.0;
+   float PhotonEtaProb = (! (*IsParFixed)[FPARAM_PhotonEta_TOPTOPLEPLEP] && ! isDeltaFuncPDFPhotonEta) ? getProb(hPDFPhotonEta.get(), (par[FPARAM_PhotonEta_TOPTOPLEPLEP]-EtaPhoton)/par[FPARAM_PhotonEta_TOPTOPLEPLEP], maxPDFPhotonEta, xminPDFPhotonEta, xmaxPDFPhotonEta) : 1.0;
+   float PhotonPhiProb = (! (*IsParFixed)[FPARAM_PhotonPhi_TOPTOPLEPLEP] && ! isDeltaFuncPDFPhotonPhi) ? getProb(hPDFPhotonPhi.get(), (par[FPARAM_PhotonPhi_TOPTOPLEPLEP]-PhiPhoton)/par[FPARAM_PhotonPhi_TOPTOPLEPLEP], maxPDFPhotonPhi, xminPDFPhotonPhi, xmaxPDFPhotonPhi) : 1.0;
    
    float Lepton1PxProb = 1.0;
    float Lepton1PyProb = 1.0;
    float Lepton1PzProb = 1.0;
+   float Lepton1PtProb = 1.0;
+   float Lepton1EtaProb = 1.0;
+   float Lepton1PhiProb = 1.0;
    
    float Lepton2PxProb = 1.0;
    float Lepton2PyProb = 1.0;
    float Lepton2PzProb = 1.0;
+   float Lepton2PtProb = 1.0;
+   float Lepton2EtaProb = 1.0;
+   float Lepton2PhiProb = 1.0;
    
-   if (! (*IsParFixed)[FPARAM_Lepton1Px_TOPTOPLEPLEP]) Lepton1PxProb = (LabelLepton1 == 0) ? getProb(hPDFElecPx.get(), (par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-PxLepton1)/par[FPARAM_Lepton1Px_TOPTOPLEPLEP], maxPDFElecPx, xminPDFElecPx, xmaxPDFElecPx) : getProb(hPDFMuonPx.get(), (par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-PxLepton1)/par[FPARAM_Lepton1Px_TOPTOPLEPLEP], maxPDFMuonPx, xminPDFMuonPx, xmaxPDFMuonPx);
-   if (! (*IsParFixed)[FPARAM_Lepton1Py_TOPTOPLEPLEP]) Lepton1PyProb = (LabelLepton1 == 0) ? getProb(hPDFElecPy.get(), (par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-PyLepton1)/par[FPARAM_Lepton1Py_TOPTOPLEPLEP], maxPDFElecPy, xminPDFElecPy, xmaxPDFElecPy) : getProb(hPDFMuonPy.get(), (par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-PyLepton1)/par[FPARAM_Lepton1Py_TOPTOPLEPLEP], maxPDFMuonPy, xminPDFMuonPy, xmaxPDFMuonPy);
-   if (! (*IsParFixed)[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) Lepton1PzProb = (LabelLepton1 == 0) ? getProb(hPDFElecPz.get(), (par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]-PzLepton1)/par[FPARAM_Lepton1Pz_TOPTOPLEPLEP], maxPDFElecPz, xminPDFElecPz, xmaxPDFElecPz) : getProb(hPDFMuonPz.get(), (par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]-PzLepton1)/par[FPARAM_Lepton1Pz_TOPTOPLEPLEP], maxPDFMuonPz, xminPDFMuonPz, xmaxPDFMuonPz);
-   
-   if (! (*IsParFixed)[FPARAM_Lepton2Px_TOPTOPLEPLEP]) Lepton2PxProb = (LabelLepton2 == 0) ? getProb(hPDFElecPx.get(), (par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-PxLepton2)/par[FPARAM_Lepton2Px_TOPTOPLEPLEP], maxPDFElecPx, xminPDFElecPx, xmaxPDFElecPx) : getProb(hPDFMuonPx.get(), (par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-PxLepton2)/par[FPARAM_Lepton2Px_TOPTOPLEPLEP], maxPDFMuonPx, xminPDFMuonPx, xmaxPDFMuonPx);
-   if (! (*IsParFixed)[FPARAM_Lepton2Py_TOPTOPLEPLEP]) Lepton2PyProb = (LabelLepton2 == 0) ? getProb(hPDFElecPy.get(), (par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-PyLepton2)/par[FPARAM_Lepton2Py_TOPTOPLEPLEP], maxPDFElecPy, xminPDFElecPy, xmaxPDFElecPy) : getProb(hPDFMuonPy.get(), (par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-PyLepton2)/par[FPARAM_Lepton2Py_TOPTOPLEPLEP], maxPDFMuonPy, xminPDFMuonPy, xmaxPDFMuonPy);
-   if (! (*IsParFixed)[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) Lepton2PzProb = (LabelLepton2 == 0) ? getProb(hPDFElecPz.get(), (par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]-PzLepton2)/par[FPARAM_Lepton2Pz_TOPTOPLEPLEP], maxPDFElecPz, xminPDFElecPz, xmaxPDFElecPz) : getProb(hPDFMuonPz.get(), (par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]-PzLepton2)/par[FPARAM_Lepton2Pz_TOPTOPLEPLEP], maxPDFMuonPz, xminPDFMuonPz, xmaxPDFMuonPz);
+   if (! (*IsParFixed)[FPARAM_Lepton1Px_TOPTOPLEPLEP]) Lepton1PxProb = (LabelLepton1 == 0) ? ((! isDeltaFuncPDFElecPx) ? getProb(hPDFElecPx.get(), (par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-PxLepton1)/par[FPARAM_Lepton1Px_TOPTOPLEPLEP], maxPDFElecPx, xminPDFElecPx, xmaxPDFElecPx) : 1.0) : ((! isDeltaFuncPDFMuonPx) ? getProb(hPDFMuonPx.get(), (par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-PxLepton1)/par[FPARAM_Lepton1Px_TOPTOPLEPLEP], maxPDFMuonPx, xminPDFMuonPx, xmaxPDFMuonPx) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton1Py_TOPTOPLEPLEP]) Lepton1PyProb = (LabelLepton1 == 0) ? ((! isDeltaFuncPDFElecPy) ? getProb(hPDFElecPy.get(), (par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-PyLepton1)/par[FPARAM_Lepton1Py_TOPTOPLEPLEP], maxPDFElecPy, xminPDFElecPy, xmaxPDFElecPy) : 1.0) : ((! isDeltaFuncPDFMuonPy) ? getProb(hPDFMuonPy.get(), (par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-PyLepton1)/par[FPARAM_Lepton1Py_TOPTOPLEPLEP], maxPDFMuonPy, xminPDFMuonPy, xmaxPDFMuonPy) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) Lepton1PzProb = (LabelLepton1 == 0) ? ((! isDeltaFuncPDFElecPz) ? getProb(hPDFElecPz.get(), (par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]-PzLepton1)/par[FPARAM_Lepton1Pz_TOPTOPLEPLEP], maxPDFElecPz, xminPDFElecPz, xmaxPDFElecPz) : 1.0) : ((! isDeltaFuncPDFMuonPz) ? getProb(hPDFMuonPz.get(), (par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]-PzLepton1)/par[FPARAM_Lepton1Pz_TOPTOPLEPLEP], maxPDFMuonPz, xminPDFMuonPz, xmaxPDFMuonPz) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton1Pt_TOPTOPLEPLEP]) Lepton1PtProb = (LabelLepton1 == 0) ? ((! isDeltaFuncPDFElecPt) ? getProb(hPDFElecPt.get(), (par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]-PtLepton1)/par[FPARAM_Lepton1Pt_TOPTOPLEPLEP], maxPDFElecPt, xminPDFElecPt, xmaxPDFElecPt) : 1.0) : ((! isDeltaFuncPDFMuonPt) ? getProb(hPDFMuonPt.get(), (par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]-PtLepton1)/par[FPARAM_Lepton1Pt_TOPTOPLEPLEP], maxPDFMuonPt, xminPDFMuonPt, xmaxPDFMuonPt) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton1Eta_TOPTOPLEPLEP]) Lepton1EtaProb = (LabelLepton1 == 0) ? ((! isDeltaFuncPDFElecEta) ? getProb(hPDFElecEta.get(), (par[FPARAM_Lepton1Eta_TOPTOPLEPLEP]-EtaLepton1)/par[FPARAM_Lepton1Eta_TOPTOPLEPLEP], maxPDFElecEta, xminPDFElecEta, xmaxPDFElecEta) : 1.0) : ((! isDeltaFuncPDFMuonEta) ? getProb(hPDFMuonEta.get(), (par[FPARAM_Lepton1Eta_TOPTOPLEPLEP]-EtaLepton1)/par[FPARAM_Lepton1Eta_TOPTOPLEPLEP], maxPDFMuonEta, xminPDFMuonEta, xmaxPDFMuonEta) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton1Phi_TOPTOPLEPLEP]) Lepton1PhiProb = (LabelLepton1 == 0) ? ((! isDeltaFuncPDFElecPhi) ? getProb(hPDFElecPhi.get(), (par[FPARAM_Lepton1Phi_TOPTOPLEPLEP]-PhiLepton1)/par[FPARAM_Lepton1Phi_TOPTOPLEPLEP], maxPDFElecPhi, xminPDFElecPhi, xmaxPDFElecPhi) : 1.0) : ((! isDeltaFuncPDFMuonPhi) ? getProb(hPDFMuonPhi.get(), (par[FPARAM_Lepton1Phi_TOPTOPLEPLEP]-PhiLepton1)/par[FPARAM_Lepton1Phi_TOPTOPLEPLEP], maxPDFMuonPhi, xminPDFMuonPhi, xmaxPDFMuonPhi) : 1.0);
 
+   if (! (*IsParFixed)[FPARAM_Lepton2Px_TOPTOPLEPLEP]) Lepton2PxProb = (LabelLepton2 == 0) ? ((! isDeltaFuncPDFElecPx) ? getProb(hPDFElecPx.get(), (par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-PxLepton2)/par[FPARAM_Lepton2Px_TOPTOPLEPLEP], maxPDFElecPx, xminPDFElecPx, xmaxPDFElecPx) : 1.0) : ((! isDeltaFuncPDFMuonPx) ? getProb(hPDFMuonPx.get(), (par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-PxLepton2)/par[FPARAM_Lepton2Px_TOPTOPLEPLEP], maxPDFMuonPx, xminPDFMuonPx, xmaxPDFMuonPx) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton2Py_TOPTOPLEPLEP]) Lepton2PyProb = (LabelLepton2 == 0) ? ((! isDeltaFuncPDFElecPy) ? getProb(hPDFElecPy.get(), (par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-PyLepton2)/par[FPARAM_Lepton2Py_TOPTOPLEPLEP], maxPDFElecPy, xminPDFElecPy, xmaxPDFElecPy) : 1.0) : ((! isDeltaFuncPDFMuonPy) ? getProb(hPDFMuonPy.get(), (par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-PyLepton2)/par[FPARAM_Lepton2Py_TOPTOPLEPLEP], maxPDFMuonPy, xminPDFMuonPy, xmaxPDFMuonPy) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) Lepton2PzProb = (LabelLepton2 == 0) ? ((! isDeltaFuncPDFElecPz) ? getProb(hPDFElecPz.get(), (par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]-PzLepton2)/par[FPARAM_Lepton2Pz_TOPTOPLEPLEP], maxPDFElecPz, xminPDFElecPz, xmaxPDFElecPz) : 1.0) : ((! isDeltaFuncPDFMuonPz) ? getProb(hPDFMuonPz.get(), (par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]-PzLepton2)/par[FPARAM_Lepton2Pz_TOPTOPLEPLEP], maxPDFMuonPz, xminPDFMuonPz, xmaxPDFMuonPz) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton2Pt_TOPTOPLEPLEP]) Lepton2PtProb = (LabelLepton2 == 0) ? ((! isDeltaFuncPDFElecPt) ? getProb(hPDFElecPt.get(), (par[FPARAM_Lepton2Pt_TOPTOPLEPLEP]-PtLepton2)/par[FPARAM_Lepton2Pt_TOPTOPLEPLEP], maxPDFElecPt, xminPDFElecPt, xmaxPDFElecPt) : 1.0) : ((! isDeltaFuncPDFMuonPt) ? getProb(hPDFMuonPt.get(), (par[FPARAM_Lepton2Pt_TOPTOPLEPLEP]-PtLepton2)/par[FPARAM_Lepton2Pt_TOPTOPLEPLEP], maxPDFMuonPt, xminPDFMuonPt, xmaxPDFMuonPt) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton2Eta_TOPTOPLEPLEP]) Lepton2EtaProb = (LabelLepton2 == 0) ? ((! isDeltaFuncPDFElecEta) ? getProb(hPDFElecEta.get(), (par[FPARAM_Lepton2Eta_TOPTOPLEPLEP]-EtaLepton2)/par[FPARAM_Lepton2Eta_TOPTOPLEPLEP], maxPDFElecEta, xminPDFElecEta, xmaxPDFElecEta) : 1.0) : ((! isDeltaFuncPDFMuonEta) ? getProb(hPDFMuonEta.get(), (par[FPARAM_Lepton2Eta_TOPTOPLEPLEP]-EtaLepton2)/par[FPARAM_Lepton2Eta_TOPTOPLEPLEP], maxPDFMuonEta, xminPDFMuonEta, xmaxPDFMuonEta) : 1.0);
+   if (! (*IsParFixed)[FPARAM_Lepton2Phi_TOPTOPLEPLEP]) Lepton2PhiProb = (LabelLepton2 == 0) ? ((! isDeltaFuncPDFElecPhi) ? getProb(hPDFElecPhi.get(), (par[FPARAM_Lepton2Phi_TOPTOPLEPLEP]-PhiLepton2)/par[FPARAM_Lepton2Phi_TOPTOPLEPLEP], maxPDFElecPhi, xminPDFElecPhi, xmaxPDFElecPhi) : 1.0) : ((! isDeltaFuncPDFMuonPhi) ? getProb(hPDFMuonPhi.get(), (par[FPARAM_Lepton2Phi_TOPTOPLEPLEP]-PhiLepton2)/par[FPARAM_Lepton2Phi_TOPTOPLEPLEP], maxPDFMuonPhi, xminPDFMuonPhi, xmaxPDFMuonPhi) : 1.0);
+   
    double minProb = 1E-20; // NLL = 92.1034
    
    chi2t[NLL_W1_TOPTOPLEPLEP] = (mW1Prob > minProb) ? mW1Prob : minProb;
@@ -901,15 +995,33 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    chi2t[NLL_BJet1Px_TOPTOPLEPLEP] = (BJet1PxProb > minProb) ? BJet1PxProb : minProb;
    chi2t[NLL_BJet1Py_TOPTOPLEPLEP] = (BJet1PyProb > minProb) ? BJet1PyProb : minProb; 
    chi2t[NLL_BJet1Pz_TOPTOPLEPLEP] = (BJet1PzProb > minProb) ? BJet1PzProb : minProb;
+   chi2t[NLL_BJet1Pt_TOPTOPLEPLEP] = (BJet1PtProb > minProb) ? BJet1PtProb : minProb;
+   chi2t[NLL_BJet1Eta_TOPTOPLEPLEP] = (BJet1EtaProb > minProb) ? BJet1EtaProb : minProb;
+   chi2t[NLL_BJet1Phi_TOPTOPLEPLEP] = (BJet1PhiProb > minProb) ? BJet1PhiProb : minProb;
    chi2t[NLL_BJet2Px_TOPTOPLEPLEP] = (BJet2PxProb > minProb) ? BJet2PxProb : minProb;
    chi2t[NLL_BJet2Py_TOPTOPLEPLEP] = (BJet2PyProb > minProb) ? BJet2PyProb : minProb;
    chi2t[NLL_BJet2Pz_TOPTOPLEPLEP] = (BJet2PzProb > minProb) ? BJet2PzProb : minProb;
+   chi2t[NLL_BJet2Pt_TOPTOPLEPLEP] = (BJet2PtProb > minProb) ? BJet2PtProb : minProb;
+   chi2t[NLL_BJet2Eta_TOPTOPLEPLEP] = (BJet2EtaProb > minProb) ? BJet2EtaProb : minProb;
+   chi2t[NLL_BJet2Phi_TOPTOPLEPLEP] = (BJet2PhiProb > minProb) ? BJet2PhiProb : minProb;
    chi2t[NLL_Lepton1Px_TOPTOPLEPLEP] = (Lepton1PxProb > minProb) ? Lepton1PxProb : minProb;
    chi2t[NLL_Lepton1Py_TOPTOPLEPLEP] = (Lepton1PyProb > minProb) ? Lepton1PyProb : minProb;
    chi2t[NLL_Lepton1Pz_TOPTOPLEPLEP] = (Lepton1PzProb > minProb) ? Lepton1PzProb : minProb;
+   chi2t[NLL_Lepton1Pt_TOPTOPLEPLEP] = (Lepton1PtProb > minProb) ? Lepton1PtProb : minProb;
+   chi2t[NLL_Lepton1Eta_TOPTOPLEPLEP] = (Lepton1EtaProb > minProb) ? Lepton1EtaProb : minProb;
+   chi2t[NLL_Lepton1Phi_TOPTOPLEPLEP] = (Lepton1PhiProb > minProb) ? Lepton1PhiProb : minProb;
    chi2t[NLL_Lepton2Px_TOPTOPLEPLEP] = (Lepton2PxProb > minProb) ? Lepton2PxProb : minProb;
    chi2t[NLL_Lepton2Py_TOPTOPLEPLEP] = (Lepton2PyProb > minProb) ? Lepton2PyProb : minProb;
    chi2t[NLL_Lepton2Pz_TOPTOPLEPLEP] = (Lepton2PzProb > minProb) ? Lepton2PzProb : minProb;
+   chi2t[NLL_Lepton2Pt_TOPTOPLEPLEP] = (Lepton2PtProb > minProb) ? Lepton2PtProb : minProb;
+   chi2t[NLL_Lepton2Eta_TOPTOPLEPLEP] = (Lepton2EtaProb > minProb) ? Lepton2EtaProb : minProb;
+   chi2t[NLL_Lepton2Phi_TOPTOPLEPLEP] = (Lepton2PhiProb > minProb) ? Lepton2PhiProb : minProb;
+   chi2t[NLL_PhotonPx_TOPTOPLEPLEP] = (PhotonPxProb > minProb) ? PhotonPxProb : minProb;
+   chi2t[NLL_PhotonPy_TOPTOPLEPLEP] = (PhotonPyProb > minProb) ? PhotonPyProb : minProb;
+   chi2t[NLL_PhotonPz_TOPTOPLEPLEP] = (PhotonPzProb > minProb) ? PhotonPzProb : minProb;
+   chi2t[NLL_PhotonPt_TOPTOPLEPLEP] = (PhotonPtProb > minProb) ? PhotonPtProb : minProb;
+   chi2t[NLL_PhotonEta_TOPTOPLEPLEP] = (PhotonEtaProb > minProb) ? PhotonEtaProb : minProb;
+   chi2t[NLL_PhotonPhi_TOPTOPLEPLEP] = (PhotonPhiProb > minProb) ? PhotonPhiProb : minProb;
    
 //   chi2t[NLL_TopTopMass_TOPTOPLEPLEP] = (mTopTopProb > minProb) ? mTopTopProb : minProb;
    
@@ -926,15 +1038,33 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    if(! (*IsParFixed)[FPARAM_BJet1Px_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet1Px_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_BJet1Py_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet1Py_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_BJet1Pz_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet1Pz_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_BJet1Pt_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet1Pt_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_BJet1Eta_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet1Eta_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_BJet1Phi_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet1Phi_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_BJet2Px_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet2Px_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_BJet2Py_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet2Py_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_BJet2Pz_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet2Pz_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_BJet2Pt_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet2Pt_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_BJet2Eta_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet2Eta_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_BJet2Phi_TOPTOPLEPLEP]) lh *= chi2t[NLL_BJet2Phi_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_Lepton1Px_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton1Px_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_Lepton1Py_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton1Py_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton1Pz_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_Lepton1Pt_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton1Pt_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_Lepton1Eta_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton1Eta_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_Lepton1Phi_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton1Phi_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_Lepton2Px_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton2Px_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_Lepton2Py_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton2Py_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton2Pz_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_Lepton2Pt_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton2Pt_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_Lepton2Eta_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton2Eta_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_Lepton2Phi_TOPTOPLEPLEP]) lh *= chi2t[NLL_Lepton2Phi_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_PhotonPx_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonPx_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_PhotonPy_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonPy_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_PhotonPz_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonPz_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_PhotonPt_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonPt_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_PhotonEta_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonEta_TOPTOPLEPLEP];
+   if(! (*IsParFixed)[FPARAM_PhotonPhi_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonPhi_TOPTOPLEPLEP];
    
 //   if( AddTopTopMassToNLL_ ) lh *= chi2t[NLL_TopTopMass_TOPTOPLEPLEP];
 
@@ -1216,14 +1346,14 @@ void KINFIT::TopTopLepLep::calcVar(int iPerm)
 void KINFIT::TopTopLepLep::fcn(int &npar, double *gin, double &f, double *par, int iflag)
 {
 //   std::string chi2tNames[NLL_N_TOPTOPLEPLEP] = {"W1", "W2", "Top1", "Top2", "EtMissX", "EtMissY", "BJet1Px", "BJet1Py", "BJet1Pz", "BJet2Px", "BJet2Py", "BJet2Pz", "Lepton1Px", "Lepton1Py", "Lepton1Pz", "Lepton2Px", "Lepton2Py", "Lepton2Pz", "RacPT", "mWPT", "mTopPT", "TopTopMass"};
-   std::string chi2tNames[NLL_N_TOPTOPLEPLEP] = {"W1", "W2", "Top1", "Top2", "EtMissX", "EtMissY", "BJet1Px", "BJet1Py", "BJet1Pz", "BJet2Px", "BJet2Py", "BJet2Pz", "Lepton1Px", "Lepton1Py", "Lepton1Pz", "Lepton2Px", "Lepton2Py", "Lepton2Pz", "RacPT", "mWPT", "mTopPT"};
+   std::string chi2tNames[NLL_N_TOPTOPLEPLEP] = {"W1", "W2", "Top1", "Top2", "EtMissX", "EtMissY", "BJet1Px", "BJet1Py", "BJet1Pz", "BJet1Pt", "BJet1Eta", "BJet1Phi", "BJet2Px", "BJet2Py", "BJet2Pz", "BJet2Pt", "BJet2Eta", "BJet2Phi", "Lepton1Px", "Lepton1Py", "Lepton1Pz", "Lepton1Pt", "Lepton1Eta", "Lepton1Phi", "Lepton2Px", "Lepton2Py", "Lepton2Pz", "Lepton2Pt", "Lepton2Eta", "Lepton2Phi", "RacPT", "mWPT", "mTopPT"};
    std::vector<double> chi2t(NLL_N_TOPTOPLEPLEP);
    
-   double lh = func(*PxLepton1, *PyLepton1, *PzLepton1, *ELepton1, *LabelLepton1,
-		    *PxLepton2, *PyLepton2, *PzLepton2, *ELepton2, *LabelLepton2,
-		    *PxBJet1, *PyBJet1, *PzBJet1, *EBJet1,
-		    *PxBJet2, *PyBJet2, *PzBJet2, *EBJet2,
-		    *PxPhoton, *PyPhoton, *PzPhoton, *EPhoton,
+   double lh = func(*PxLepton1, *PyLepton1, *PzLepton1, *PtLepton1, *EtaLepton1, *PhiLepton1, *ELepton1, *LabelLepton1,
+		    *PxLepton2, *PyLepton2, *PzLepton2, *PtLepton2, *EtaLepton2, *PhiLepton2, *ELepton2, *LabelLepton2,
+		    *PxBJet1, *PyBJet1, *PzBJet1, *PtBJet1, *EtaBJet1, *PhiBJet1, *EBJet1,
+		    *PxBJet2, *PyBJet2, *PzBJet2, *PtBJet2, *EtaBJet2, *PhiBJet2, *EBJet2,
+		    *PxPhoton, *PyPhoton, *PzPhoton, *PtPhoton, *EtaPhoton, *PhiPhoton, *EPhoton,
 		    *PhotonOrigin,
 		    chi2t, par);
 
@@ -1283,22 +1413,37 @@ void KINFIT::TopTopLepLep::fit(double *par, std::vector<FRESULT> &vpp)
    gMinuit->mnparm(FPARAM_BJet1Py_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1Py_TOPTOPLEPLEP], par[FPARAM_BJet1Py_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1Py_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1Py_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_BJet1Pz_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1Pz_TOPTOPLEPLEP], par[FPARAM_BJet1Pz_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1Pz_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1Pz_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_BJet1E_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1E_TOPTOPLEPLEP], par[FPARAM_BJet1E_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1E_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1E_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_BJet1Pt_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1Pt_TOPTOPLEPLEP], par[FPARAM_BJet1Pt_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1Pt_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1Pt_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_BJet1Eta_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1Eta_TOPTOPLEPLEP], par[FPARAM_BJet1Eta_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1Eta_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1Eta_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_BJet1Phi_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1Phi_TOPTOPLEPLEP], par[FPARAM_BJet1Phi_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1Phi_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1Phi_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_BJet2Px_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet2Px_TOPTOPLEPLEP], par[FPARAM_BJet2Px_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet2Px_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet2Px_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_BJet2Py_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet2Py_TOPTOPLEPLEP], par[FPARAM_BJet2Py_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet2Py_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet2Py_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_BJet2Pz_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet2Pz_TOPTOPLEPLEP], par[FPARAM_BJet2Pz_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet2Pz_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet2Pz_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_BJet2E_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet2E_TOPTOPLEPLEP], par[FPARAM_BJet2E_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet2E_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet2E_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_BJet2Pt_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet2Pt_TOPTOPLEPLEP], par[FPARAM_BJet2Pt_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet2Pt_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet2Pt_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_BJet2Eta_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet2Eta_TOPTOPLEPLEP], par[FPARAM_BJet2Eta_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet2Eta_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet2Eta_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_BJet2Phi_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet2Phi_TOPTOPLEPLEP], par[FPARAM_BJet2Phi_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet2Phi_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet2Phi_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_Lepton1Px_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton1Px_TOPTOPLEPLEP], par[FPARAM_Lepton1Px_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton1Px_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton1Px_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_Lepton1Py_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton1Py_TOPTOPLEPLEP], par[FPARAM_Lepton1Py_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton1Py_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton1Py_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_Lepton1Pz_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton1Pz_TOPTOPLEPLEP], par[FPARAM_Lepton1Pz_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton1Pz_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton1Pz_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_Lepton1E_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton1E_TOPTOPLEPLEP], par[FPARAM_Lepton1E_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton1E_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton1E_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_Lepton1Pt_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton1Pt_TOPTOPLEPLEP], par[FPARAM_Lepton1Pt_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton1Pt_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton1Pt_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_Lepton1Eta_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton1Eta_TOPTOPLEPLEP], par[FPARAM_Lepton1Eta_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton1Eta_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton1Eta_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_Lepton1Phi_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton1Phi_TOPTOPLEPLEP], par[FPARAM_Lepton1Phi_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton1Phi_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton1Phi_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_Lepton2Px_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton2Px_TOPTOPLEPLEP], par[FPARAM_Lepton2Px_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton2Px_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton2Px_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_Lepton2Py_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton2Py_TOPTOPLEPLEP], par[FPARAM_Lepton2Py_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton2Py_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton2Py_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_Lepton2Pz_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton2Pz_TOPTOPLEPLEP], par[FPARAM_Lepton2Pz_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton2Pz_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton2Pz_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_Lepton2E_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton2E_TOPTOPLEPLEP], par[FPARAM_Lepton2E_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton2E_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton2E_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_Lepton2Pt_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton2Pt_TOPTOPLEPLEP], par[FPARAM_Lepton2Pt_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton2Pt_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton2Pt_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_Lepton2Eta_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton2Eta_TOPTOPLEPLEP], par[FPARAM_Lepton2Eta_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton2Eta_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton2Eta_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_Lepton2Phi_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_Lepton2Phi_TOPTOPLEPLEP], par[FPARAM_Lepton2Phi_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_Lepton2Phi_TOPTOPLEPLEP], (*ParMax)[FPARAM_Lepton2Phi_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_PhotonPx_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_PhotonPx_TOPTOPLEPLEP], par[FPARAM_PhotonPx_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_PhotonPx_TOPTOPLEPLEP], (*ParMax)[FPARAM_PhotonPx_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_PhotonPy_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_PhotonPy_TOPTOPLEPLEP], par[FPARAM_PhotonPy_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_PhotonPy_TOPTOPLEPLEP], (*ParMax)[FPARAM_PhotonPy_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_PhotonPz_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_PhotonPz_TOPTOPLEPLEP], par[FPARAM_PhotonPz_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_PhotonPz_TOPTOPLEPLEP], (*ParMax)[FPARAM_PhotonPz_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_PhotonE_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_PhotonE_TOPTOPLEPLEP], par[FPARAM_PhotonE_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_PhotonE_TOPTOPLEPLEP], (*ParMax)[FPARAM_PhotonE_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_PhotonPt_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_PhotonPt_TOPTOPLEPLEP], par[FPARAM_PhotonPt_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_PhotonPt_TOPTOPLEPLEP], (*ParMax)[FPARAM_PhotonPt_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_PhotonEta_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_PhotonEta_TOPTOPLEPLEP], par[FPARAM_PhotonEta_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_PhotonEta_TOPTOPLEPLEP], (*ParMax)[FPARAM_PhotonEta_TOPTOPLEPLEP], ierflg);
+   gMinuit->mnparm(FPARAM_PhotonPhi_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_PhotonPhi_TOPTOPLEPLEP], par[FPARAM_PhotonPhi_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_PhotonPhi_TOPTOPLEPLEP], (*ParMax)[FPARAM_PhotonPhi_TOPTOPLEPLEP], ierflg);
    
    for( int i=0;i<FPARAM_N;i++ ) if( (*IsParFixed)[i] ) gMinuit->FixParameter(i);
 
@@ -1367,47 +1512,166 @@ void KINFIT::TopTopLepLep::calcNuGrid(std::vector<FRESULT> &vp)
 	
 	double thres = -1E-6;
 
-	do
-	  {	     
-	     double gv = (doToys) ? getProbGaus(hPDFBJetPx.get(), maxPDFBJetPx, meanPDFBJetPx, sigmaPDFBJetPx, rnd, NBJetPxRMS_) : 0.;
-	     par[FPARAM_BJet1Px_TOPTOPLEPLEP] = *PxBJet1/(1.-gv);
-	     gv = (doToys) ? getProbGaus(hPDFBJetPy.get(), maxPDFBJetPy, meanPDFBJetPy, sigmaPDFBJetPy, rnd, NBJetPyRMS_) : 0.;
-	     par[FPARAM_BJet1Py_TOPTOPLEPLEP] = *PyBJet1/(1.-gv);
-	     gv = (doToys) ? getProbGaus(hPDFBJetPz.get(), maxPDFBJetPz, meanPDFBJetPz, sigmaPDFBJetPz, rnd, NBJetPzRMS_) : 0.;
-	     par[FPARAM_BJet1Pz_TOPTOPLEPLEP] = *PzBJet1/(1.-gv);
-	     par[FPARAM_BJet1E_TOPTOPLEPLEP] = sqrt((*MassBJet1)*(*MassBJet1) + par[FPARAM_BJet1Px_TOPTOPLEPLEP]*par[FPARAM_BJet1Px_TOPTOPLEPLEP] + par[FPARAM_BJet1Py_TOPTOPLEPLEP]*par[FPARAM_BJet1Py_TOPTOPLEPLEP] + par[FPARAM_BJet1Pz_TOPTOPLEPLEP]*par[FPARAM_BJet1Pz_TOPTOPLEPLEP]);
+	if( *usePDFBJetPxPyPz ) {
+	   do
+	     {
+		if( ! isDeltaFuncPDFBJetPx ) {		     
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPx.get(), maxPDFBJetPx, meanPDFBJetPx, sigmaPDFBJetPx, rnd, NBJetPxRMS_) : 0.;
+		   par[FPARAM_BJet1Px_TOPTOPLEPLEP] = *PxBJet1/(1.-gv);
+		} else par[FPARAM_BJet1Px_TOPTOPLEPLEP] = *PxBJet1;
+		
+		if( ! isDeltaFuncPDFBJetPy ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPy.get(), maxPDFBJetPy, meanPDFBJetPy, sigmaPDFBJetPy, rnd, NBJetPyRMS_) : 0.;
+		   par[FPARAM_BJet1Py_TOPTOPLEPLEP] = *PyBJet1/(1.-gv);
+		} else par[FPARAM_BJet1Py_TOPTOPLEPLEP] = *PyBJet1;
+		
+		if( ! isDeltaFuncPDFBJetPz ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPz.get(), maxPDFBJetPz, meanPDFBJetPz, sigmaPDFBJetPz, rnd, NBJetPzRMS_) : 0.;
+		   par[FPARAM_BJet1Pz_TOPTOPLEPLEP] = *PzBJet1/(1.-gv);
+		} else par[FPARAM_BJet1Pz_TOPTOPLEPLEP] = *PzBJet1;		
+		
+		par[FPARAM_BJet1Pt_TOPTOPLEPLEP] = sqrt(par[FPARAM_BJet1Px_TOPTOPLEPLEP]*par[FPARAM_BJet1Px_TOPTOPLEPLEP] + par[FPARAM_BJet1Py_TOPTOPLEPLEP]*par[FPARAM_BJet1Py_TOPTOPLEPLEP]);
+		par[FPARAM_BJet1Eta_TOPTOPLEPLEP] = getEta(par[FPARAM_BJet1Pt_TOPTOPLEPLEP], par[FPARAM_BJet1Pz_TOPTOPLEPLEP]);
+		par[FPARAM_BJet1Phi_TOPTOPLEPLEP] = atan2(par[FPARAM_BJet1Py_TOPTOPLEPLEP], par[FPARAM_BJet1Px_TOPTOPLEPLEP]);
+		par[FPARAM_BJet1E_TOPTOPLEPLEP] = sqrt((*MassBJet1)*(*MassBJet1) + par[FPARAM_BJet1Px_TOPTOPLEPLEP]*par[FPARAM_BJet1Px_TOPTOPLEPLEP] + par[FPARAM_BJet1Py_TOPTOPLEPLEP]*par[FPARAM_BJet1Py_TOPTOPLEPLEP] + par[FPARAM_BJet1Pz_TOPTOPLEPLEP]*par[FPARAM_BJet1Pz_TOPTOPLEPLEP]);
 	  } while( (par[FPARAM_BJet1E_TOPTOPLEPLEP]*par[FPARAM_BJet1E_TOPTOPLEPLEP]-par[FPARAM_BJet1Px_TOPTOPLEPLEP]*par[FPARAM_BJet1Px_TOPTOPLEPLEP]-par[FPARAM_BJet1Py_TOPTOPLEPLEP]*par[FPARAM_BJet1Py_TOPTOPLEPLEP]-par[FPARAM_BJet1Pz_TOPTOPLEPLEP]*par[FPARAM_BJet1Pz_TOPTOPLEPLEP]) < thres );
-
-	do
-	  {	     
-	     double gv = (doToys) ? getProbGaus(hPDFBJetPx.get(), maxPDFBJetPx, meanPDFBJetPx, sigmaPDFBJetPx, rnd, NBJetPxRMS_) : 0.;
-	     par[FPARAM_BJet2Px_TOPTOPLEPLEP] = *PxBJet2/(1.-gv);
-	     gv = (doToys) ? getProbGaus(hPDFBJetPy.get(), maxPDFBJetPy, meanPDFBJetPy, sigmaPDFBJetPy, rnd, NBJetPyRMS_) : 0.;
-	     par[FPARAM_BJet2Py_TOPTOPLEPLEP] = *PyBJet2/(1.-gv);
-	     gv = (doToys) ? getProbGaus(hPDFBJetPz.get(), maxPDFBJetPz, meanPDFBJetPz, sigmaPDFBJetPz, rnd, NBJetPzRMS_) : 0.;
-	     par[FPARAM_BJet2Pz_TOPTOPLEPLEP] = *PzBJet2/(1.-gv);
-	     par[FPARAM_BJet2E_TOPTOPLEPLEP] = sqrt((*MassBJet2)*(*MassBJet2) + par[FPARAM_BJet2Px_TOPTOPLEPLEP]*par[FPARAM_BJet2Px_TOPTOPLEPLEP] + par[FPARAM_BJet2Py_TOPTOPLEPLEP]*par[FPARAM_BJet2Py_TOPTOPLEPLEP] + par[FPARAM_BJet2Pz_TOPTOPLEPLEP]*par[FPARAM_BJet2Pz_TOPTOPLEPLEP]);
+	}
+	else {
+	   do
+	     {
+		if( ! isDeltaFuncPDFBJetPt ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPt.get(), maxPDFBJetPt, meanPDFBJetPt, sigmaPDFBJetPt, rnd, NBJetPtRMS_) : 0.;
+		   par[FPARAM_BJet1Pt_TOPTOPLEPLEP] = *PtBJet1/(1.-gv);
+		} else par[FPARAM_BJet1Pt_TOPTOPLEPLEP] = *PtBJet1;
+		
+		if( ! isDeltaFuncPDFBJetEta ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetEta.get(), maxPDFBJetEta, meanPDFBJetEta, sigmaPDFBJetEta, rnd, NBJetEtaRMS_) : 0.;
+		   par[FPARAM_BJet1Eta_TOPTOPLEPLEP] = *EtaBJet1/(1.-gv);
+		} else par[FPARAM_BJet1Eta_TOPTOPLEPLEP] = *EtaBJet1;
+		
+		if( ! isDeltaFuncPDFBJetPhi ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPhi.get(), maxPDFBJetPhi, meanPDFBJetPhi, sigmaPDFBJetPhi, rnd, NBJetPhiRMS_) : 0.;
+		   par[FPARAM_BJet1Phi_TOPTOPLEPLEP] = *PhiBJet1/(1.-gv);
+		} else par[FPARAM_BJet1Phi_TOPTOPLEPLEP] = *PhiBJet1;		
+		
+		par[FPARAM_BJet1Px_TOPTOPLEPLEP] = par[FPARAM_BJet1Pt_TOPTOPLEPLEP]*cos(par[FPARAM_BJet1Phi_TOPTOPLEPLEP]);
+		par[FPARAM_BJet1Py_TOPTOPLEPLEP] = par[FPARAM_BJet1Pt_TOPTOPLEPLEP]*sin(par[FPARAM_BJet1Phi_TOPTOPLEPLEP]);
+		par[FPARAM_BJet1Pz_TOPTOPLEPLEP] = par[FPARAM_BJet1Pt_TOPTOPLEPLEP]*sinh(par[FPARAM_BJet1Eta_TOPTOPLEPLEP]);
+		par[FPARAM_BJet1E_TOPTOPLEPLEP] = sqrt((*MassBJet1)*(*MassBJet1) + par[FPARAM_BJet1Px_TOPTOPLEPLEP]*par[FPARAM_BJet1Px_TOPTOPLEPLEP] + par[FPARAM_BJet1Py_TOPTOPLEPLEP]*par[FPARAM_BJet1Py_TOPTOPLEPLEP] + par[FPARAM_BJet1Pz_TOPTOPLEPLEP]*par[FPARAM_BJet1Pz_TOPTOPLEPLEP]);
+	  } while( (par[FPARAM_BJet1E_TOPTOPLEPLEP]*par[FPARAM_BJet1E_TOPTOPLEPLEP]-par[FPARAM_BJet1Px_TOPTOPLEPLEP]*par[FPARAM_BJet1Px_TOPTOPLEPLEP]-par[FPARAM_BJet1Py_TOPTOPLEPLEP]*par[FPARAM_BJet1Py_TOPTOPLEPLEP]-par[FPARAM_BJet1Pz_TOPTOPLEPLEP]*par[FPARAM_BJet1Pz_TOPTOPLEPLEP]) < thres );	   
+	}
+	
+	if( *usePDFBJetPxPyPz ) {
+	   do
+	     {
+		if( ! isDeltaFuncPDFBJetPx ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPx.get(), maxPDFBJetPx, meanPDFBJetPx, sigmaPDFBJetPx, rnd, NBJetPxRMS_) : 0.;
+		   par[FPARAM_BJet2Px_TOPTOPLEPLEP] = *PxBJet2/(1.-gv);
+		} else par[FPARAM_BJet2Px_TOPTOPLEPLEP] = *PxBJet2;
+		
+		if( ! isDeltaFuncPDFBJetPy ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPy.get(), maxPDFBJetPy, meanPDFBJetPy, sigmaPDFBJetPy, rnd, NBJetPyRMS_) : 0.;
+		   par[FPARAM_BJet2Py_TOPTOPLEPLEP] = *PyBJet2/(1.-gv);
+		} else par[FPARAM_BJet2Py_TOPTOPLEPLEP] = *PyBJet2;
+		
+		if( ! isDeltaFuncPDFBJetPz ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPz.get(), maxPDFBJetPz, meanPDFBJetPz, sigmaPDFBJetPz, rnd, NBJetPzRMS_) : 0.;
+		   par[FPARAM_BJet2Pz_TOPTOPLEPLEP] = *PzBJet2/(1.-gv);
+		} else par[FPARAM_BJet2Pz_TOPTOPLEPLEP] = *PzBJet2;
+		
+		par[FPARAM_BJet2Pt_TOPTOPLEPLEP] = sqrt(par[FPARAM_BJet2Px_TOPTOPLEPLEP]*par[FPARAM_BJet2Px_TOPTOPLEPLEP] + par[FPARAM_BJet2Py_TOPTOPLEPLEP]*par[FPARAM_BJet2Py_TOPTOPLEPLEP]);
+		par[FPARAM_BJet2Eta_TOPTOPLEPLEP] = getEta(par[FPARAM_BJet2Pt_TOPTOPLEPLEP], par[FPARAM_BJet2Pz_TOPTOPLEPLEP]);
+		par[FPARAM_BJet2Phi_TOPTOPLEPLEP] = atan2(par[FPARAM_BJet2Py_TOPTOPLEPLEP], par[FPARAM_BJet2Px_TOPTOPLEPLEP]);
+		par[FPARAM_BJet2E_TOPTOPLEPLEP] = sqrt((*MassBJet2)*(*MassBJet2) + par[FPARAM_BJet2Px_TOPTOPLEPLEP]*par[FPARAM_BJet2Px_TOPTOPLEPLEP] + par[FPARAM_BJet2Py_TOPTOPLEPLEP]*par[FPARAM_BJet2Py_TOPTOPLEPLEP] + par[FPARAM_BJet2Pz_TOPTOPLEPLEP]*par[FPARAM_BJet2Pz_TOPTOPLEPLEP]);
 	  } while( (par[FPARAM_BJet2E_TOPTOPLEPLEP]*par[FPARAM_BJet2E_TOPTOPLEPLEP]-par[FPARAM_BJet2Px_TOPTOPLEPLEP]*par[FPARAM_BJet2Px_TOPTOPLEPLEP]-par[FPARAM_BJet2Py_TOPTOPLEPLEP]*par[FPARAM_BJet2Py_TOPTOPLEPLEP]-par[FPARAM_BJet2Pz_TOPTOPLEPLEP]*par[FPARAM_BJet2Pz_TOPTOPLEPLEP]) < thres );
+	}
+	else {
+	   do
+	     {
+		if( ! isDeltaFuncPDFBJetPt ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPt.get(), maxPDFBJetPt, meanPDFBJetPt, sigmaPDFBJetPt, rnd, NBJetPtRMS_) : 0.;
+		   par[FPARAM_BJet2Pt_TOPTOPLEPLEP] = *PtBJet2/(1.-gv);
+		} else par[FPARAM_BJet2Pt_TOPTOPLEPLEP] = *PtBJet2;
+		
+		if( ! isDeltaFuncPDFBJetEta ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetEta.get(), maxPDFBJetEta, meanPDFBJetEta, sigmaPDFBJetEta, rnd, NBJetEtaRMS_) : 0.;
+		   par[FPARAM_BJet2Eta_TOPTOPLEPLEP] = *EtaBJet2/(1.-gv);
+		} else par[FPARAM_BJet2Eta_TOPTOPLEPLEP] = *EtaBJet2;
+		
+		if( ! isDeltaFuncPDFBJetPhi ) {
+		   double gv = (doToys) ? getProbGaus(hPDFBJetPhi.get(), maxPDFBJetPhi, meanPDFBJetPhi, sigmaPDFBJetPhi, rnd, NBJetPhiRMS_) : 0.;
+		   par[FPARAM_BJet2Phi_TOPTOPLEPLEP] = *PhiBJet2/(1.-gv);
+		} else par[FPARAM_BJet2Phi_TOPTOPLEPLEP] = *PhiBJet2;		
+		
+		par[FPARAM_BJet2Px_TOPTOPLEPLEP] = par[FPARAM_BJet2Pt_TOPTOPLEPLEP]*cos(par[FPARAM_BJet2Phi_TOPTOPLEPLEP]);
+		par[FPARAM_BJet2Py_TOPTOPLEPLEP] = par[FPARAM_BJet2Pt_TOPTOPLEPLEP]*sin(par[FPARAM_BJet2Phi_TOPTOPLEPLEP]);
+		par[FPARAM_BJet2Pz_TOPTOPLEPLEP] = par[FPARAM_BJet2Pt_TOPTOPLEPLEP]*sinh(par[FPARAM_BJet2Eta_TOPTOPLEPLEP]);
+		par[FPARAM_BJet2E_TOPTOPLEPLEP] = sqrt((*MassBJet2)*(*MassBJet2) + par[FPARAM_BJet2Px_TOPTOPLEPLEP]*par[FPARAM_BJet2Px_TOPTOPLEPLEP] + par[FPARAM_BJet2Py_TOPTOPLEPLEP]*par[FPARAM_BJet2Py_TOPTOPLEPLEP] + par[FPARAM_BJet2Pz_TOPTOPLEPLEP]*par[FPARAM_BJet2Pz_TOPTOPLEPLEP]);
+	  } while( (par[FPARAM_BJet2E_TOPTOPLEPLEP]*par[FPARAM_BJet2E_TOPTOPLEPLEP]-par[FPARAM_BJet2Px_TOPTOPLEPLEP]*par[FPARAM_BJet2Px_TOPTOPLEPLEP]-par[FPARAM_BJet2Py_TOPTOPLEPLEP]*par[FPARAM_BJet2Py_TOPTOPLEPLEP]-par[FPARAM_BJet2Pz_TOPTOPLEPLEP]*par[FPARAM_BJet2Pz_TOPTOPLEPLEP]) < thres );	   
+	}
 	
 	if( IncludePhotons_ )
 	  {
-	     do
-	       {
-		  double gv = (doToys) ? getProbGaus(hPDFPhotonPx.get(), maxPDFPhotonPx, meanPDFPhotonPx, sigmaPDFPhotonPx, rnd, NPhotonPxRMS_) : 0.;
-		  par[FPARAM_PhotonPx_TOPTOPLEPLEP] = *PxPhoton/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFPhotonPy.get(), maxPDFPhotonPy, meanPDFPhotonPy, sigmaPDFPhotonPy, rnd, NPhotonPyRMS_) : 0.;
-		  par[FPARAM_PhotonPy_TOPTOPLEPLEP] = *PyPhoton/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFPhotonPz.get(), maxPDFPhotonPz, meanPDFPhotonPz, sigmaPDFPhotonPz, rnd, NPhotonPzRMS_) : 0.;
-		  par[FPARAM_PhotonPz_TOPTOPLEPLEP] = *PzPhoton/(1.-gv);
-		  par[FPARAM_PhotonE_TOPTOPLEPLEP] = sqrt(par[FPARAM_PhotonPx_TOPTOPLEPLEP]*par[FPARAM_PhotonPx_TOPTOPLEPLEP] + par[FPARAM_PhotonPy_TOPTOPLEPLEP]*par[FPARAM_PhotonPy_TOPTOPLEPLEP] + par[FPARAM_PhotonPz_TOPTOPLEPLEP]*par[FPARAM_PhotonPz_TOPTOPLEPLEP]);
+	     if( *usePDFPhotonPxPyPz ) {		
+		do
+		  {
+		     if( ! isDeltaFuncPDFPhotonPx ) {
+			double gv = (doToys) ? getProbGaus(hPDFPhotonPx.get(), maxPDFPhotonPx, meanPDFPhotonPx, sigmaPDFPhotonPx, rnd, NPhotonPxRMS_) : 0.;
+			par[FPARAM_PhotonPx_TOPTOPLEPLEP] = *PxPhoton/(1.-gv);
+		     } else par[FPARAM_PhotonPx_TOPTOPLEPLEP] = *PxPhoton;
+		     
+		     if( ! isDeltaFuncPDFPhotonPy ) {
+			double gv = (doToys) ? getProbGaus(hPDFPhotonPy.get(), maxPDFPhotonPy, meanPDFPhotonPy, sigmaPDFPhotonPy, rnd, NPhotonPyRMS_) : 0.;
+			par[FPARAM_PhotonPy_TOPTOPLEPLEP] = *PyPhoton/(1.-gv);
+		     } else par[FPARAM_PhotonPy_TOPTOPLEPLEP] = *PyPhoton;
+		     
+		     if( ! isDeltaFuncPDFPhotonPz ) {
+			double gv = (doToys) ? getProbGaus(hPDFPhotonPz.get(), maxPDFPhotonPz, meanPDFPhotonPz, sigmaPDFPhotonPz, rnd, NPhotonPzRMS_) : 0.;
+			par[FPARAM_PhotonPz_TOPTOPLEPLEP] = *PzPhoton/(1.-gv);
+		     } else par[FPARAM_PhotonPz_TOPTOPLEPLEP] = *PzPhoton;
+		     
+		     par[FPARAM_PhotonPt_TOPTOPLEPLEP] = sqrt(par[FPARAM_PhotonPx_TOPTOPLEPLEP]*par[FPARAM_PhotonPx_TOPTOPLEPLEP] + par[FPARAM_PhotonPy_TOPTOPLEPLEP]*par[FPARAM_PhotonPy_TOPTOPLEPLEP]);
+		     par[FPARAM_PhotonEta_TOPTOPLEPLEP] = getEta(par[FPARAM_PhotonPt_TOPTOPLEPLEP], par[FPARAM_PhotonPz_TOPTOPLEPLEP]);
+		     par[FPARAM_PhotonPhi_TOPTOPLEPLEP] = atan2(par[FPARAM_PhotonPy_TOPTOPLEPLEP], par[FPARAM_PhotonPx_TOPTOPLEPLEP]);
+		     par[FPARAM_PhotonE_TOPTOPLEPLEP] = sqrt(par[FPARAM_PhotonPx_TOPTOPLEPLEP]*par[FPARAM_PhotonPx_TOPTOPLEPLEP] + par[FPARAM_PhotonPy_TOPTOPLEPLEP]*par[FPARAM_PhotonPy_TOPTOPLEPLEP] + par[FPARAM_PhotonPz_TOPTOPLEPLEP]*par[FPARAM_PhotonPz_TOPTOPLEPLEP]);
 	       } while( (par[FPARAM_PhotonE_TOPTOPLEPLEP]*par[FPARAM_PhotonE_TOPTOPLEPLEP]-par[FPARAM_PhotonPx_TOPTOPLEPLEP]*par[FPARAM_PhotonPx_TOPTOPLEPLEP]-par[FPARAM_PhotonPy_TOPTOPLEPLEP]*par[FPARAM_PhotonPy_TOPTOPLEPLEP]-par[FPARAM_PhotonPz_TOPTOPLEPLEP]*par[FPARAM_PhotonPz_TOPTOPLEPLEP]) < thres );
+	     }
+	     else {
+		do
+		  {
+		     if( ! isDeltaFuncPDFPhotonPt ) {
+			double gv = (doToys) ? getProbGaus(hPDFPhotonPt.get(), maxPDFPhotonPt, meanPDFPhotonPt, sigmaPDFPhotonPt, rnd, NPhotonPtRMS_) : 0.;
+			par[FPARAM_PhotonPt_TOPTOPLEPLEP] = *PtPhoton/(1.-gv);
+		     } else par[FPARAM_PhotonPt_TOPTOPLEPLEP] = *PtPhoton;
+		     
+		     if( ! isDeltaFuncPDFPhotonEta ) {
+			double gv = (doToys) ? getProbGaus(hPDFPhotonEta.get(), maxPDFPhotonEta, meanPDFPhotonEta, sigmaPDFPhotonEta, rnd, NPhotonEtaRMS_) : 0.;
+			par[FPARAM_PhotonEta_TOPTOPLEPLEP] = *EtaPhoton/(1.-gv);
+		     } else par[FPARAM_PhotonEta_TOPTOPLEPLEP] = *EtaPhoton;
+		     
+		     if( ! isDeltaFuncPDFPhotonPhi ) {
+			double gv = (doToys) ? getProbGaus(hPDFPhotonPhi.get(), maxPDFPhotonPhi, meanPDFPhotonPhi, sigmaPDFPhotonPhi, rnd, NPhotonPhiRMS_) : 0.;
+			par[FPARAM_PhotonPhi_TOPTOPLEPLEP] = *PhiPhoton/(1.-gv);
+		     } else par[FPARAM_PhotonPhi_TOPTOPLEPLEP] = *PhiPhoton;
+		     
+		     par[FPARAM_PhotonPx_TOPTOPLEPLEP] = par[FPARAM_PhotonPt_TOPTOPLEPLEP]*cos(par[FPARAM_PhotonPhi_TOPTOPLEPLEP]);
+		     par[FPARAM_PhotonPy_TOPTOPLEPLEP] = par[FPARAM_PhotonPt_TOPTOPLEPLEP]*sin(par[FPARAM_PhotonPhi_TOPTOPLEPLEP]);
+		     par[FPARAM_PhotonPz_TOPTOPLEPLEP] = par[FPARAM_PhotonPt_TOPTOPLEPLEP]*sinh(par[FPARAM_PhotonEta_TOPTOPLEPLEP]);
+		     par[FPARAM_PhotonE_TOPTOPLEPLEP] = sqrt(par[FPARAM_PhotonPx_TOPTOPLEPLEP]*par[FPARAM_PhotonPx_TOPTOPLEPLEP] + par[FPARAM_PhotonPy_TOPTOPLEPLEP]*par[FPARAM_PhotonPy_TOPTOPLEPLEP] + par[FPARAM_PhotonPz_TOPTOPLEPLEP]*par[FPARAM_PhotonPz_TOPTOPLEPLEP]);
+	       } while( (par[FPARAM_PhotonE_TOPTOPLEPLEP]*par[FPARAM_PhotonE_TOPTOPLEPLEP]-par[FPARAM_PhotonPx_TOPTOPLEPLEP]*par[FPARAM_PhotonPx_TOPTOPLEPLEP]-par[FPARAM_PhotonPy_TOPTOPLEPLEP]*par[FPARAM_PhotonPy_TOPTOPLEPLEP]-par[FPARAM_PhotonPz_TOPTOPLEPLEP]*par[FPARAM_PhotonPz_TOPTOPLEPLEP]) < thres );		
+	     }	     
 	  }	
 
 	  {
-	     double gv = (doToys) ? getProbGaus(hPDFMetPx.get(), maxPDFMetPx, meanPDFMetPx, sigmaPDFMetPx, rnd, NMetRMS_) : 0.;
-	     par[FPARAM_EtRealX_TOPTOPLEPLEP] = *EtMissX/(1.-gv);
-	     gv = (doToys) ? getProbGaus(hPDFMetPy.get(), maxPDFMetPy, meanPDFMetPy, sigmaPDFMetPy, rnd, NMetRMS_) : 0.;
-	     par[FPARAM_EtRealY_TOPTOPLEPLEP] = *EtMissY/(1.-gv);
+	     if( ! isDeltaFuncPDFMetPx ) {		  
+		double gv = (doToys) ? getProbGaus(hPDFMetPx.get(), maxPDFMetPx, meanPDFMetPx, sigmaPDFMetPx, rnd, NMetRMS_) : 0.;
+		par[FPARAM_EtRealX_TOPTOPLEPLEP] = *EtMissX/(1.-gv);
+	     } else par[FPARAM_EtRealX_TOPTOPLEPLEP] = *EtMissX;
+	     
+	     if( ! isDeltaFuncPDFMetPy ) {		  
+		double gv = (doToys) ? getProbGaus(hPDFMetPy.get(), maxPDFMetPy, meanPDFMetPy, sigmaPDFMetPy, rnd, NMetRMS_) : 0.;
+		par[FPARAM_EtRealY_TOPTOPLEPLEP] = *EtMissY/(1.-gv);
+	     } else par[FPARAM_EtRealY_TOPTOPLEPLEP] = *EtMissY;	     
 	  }
 	
 	par[FPARAM_mW1_TOPTOPLEPLEP] = (doToys) ? getProbGaus(hPDFTopWMass.get(), maxPDFTopWMass, meanPDFTopWMass, sigmaPDFTopWMass, rnd, 2) : WMass1;
@@ -1415,56 +1679,208 @@ void KINFIT::TopTopLepLep::calcNuGrid(std::vector<FRESULT> &vp)
 
 	if( *LabelLepton1 == 0 )
 	  {
-	     do
-	       {
-		  double gv = (doToys) ? getProbGaus(hPDFElecPx.get(), maxPDFElecPx, meanPDFElecPx, sigmaPDFElecPx, rnd, NElecPxRMS_) : 0.;
-		  par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = *PxLepton1/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFElecPy.get(), maxPDFElecPy, meanPDFElecPy, sigmaPDFElecPy, rnd, NElecPyRMS_) : 0.;
-		  par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = *PyLepton1/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFElecPz.get(), maxPDFElecPz, meanPDFElecPz, sigmaPDFElecPz, rnd, NElecPzRMS_) : 0.;
-		  par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = *PzLepton1/(1.-gv);
-		  par[FPARAM_Lepton1E_TOPTOPLEPLEP] = sqrt((*MassLepton1)*(*MassLepton1) + par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP] + par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP] + par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]);
-	       } while( (par[FPARAM_Lepton1E_TOPTOPLEPLEP]*par[FPARAM_Lepton1E_TOPTOPLEPLEP]-par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) < thres );
+	     if( *usePDFLeptonPxPyPz ) {
+		do
+		  {
+		     if( ! isDeltaFuncPDFElecPx ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFElecPx.get(), maxPDFElecPx, meanPDFElecPx, sigmaPDFElecPx, rnd, NElecPxRMS_) : 0.;
+			par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = *PxLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = *PxLepton1;		     
+		     
+		     if( ! isDeltaFuncPDFElecPy ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFElecPy.get(), maxPDFElecPy, meanPDFElecPy, sigmaPDFElecPy, rnd, NElecPyRMS_) : 0.;
+			par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = *PyLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = *PyLepton1;		     
+		     
+		     if( ! isDeltaFuncPDFElecPz ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFElecPz.get(), maxPDFElecPz, meanPDFElecPz, sigmaPDFElecPz, rnd, NElecPzRMS_) : 0.;
+			par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = *PzLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = *PzLepton1;
+		     
+		     par[FPARAM_Lepton1Pt_TOPTOPLEPLEP] = sqrt(par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP] + par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = getEta(par[FPARAM_Lepton1Pt_TOPTOPLEPLEP], par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = atan2(par[FPARAM_Lepton1Py_TOPTOPLEPLEP], par[FPARAM_Lepton1Px_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1E_TOPTOPLEPLEP] = sqrt((*MassLepton1)*(*MassLepton1) + par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP] + par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP] + par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]);
+		  } while( (par[FPARAM_Lepton1E_TOPTOPLEPLEP]*par[FPARAM_Lepton1E_TOPTOPLEPLEP]-par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) < thres );
+	     }
+	     else {
+		do
+		  {
+		     if( ! isDeltaFuncPDFElecPt ) {
+			double gv = (doToys) ? getProbGaus(hPDFElecPt.get(), maxPDFElecPt, meanPDFElecPt, sigmaPDFElecPt, rnd, NElecPtRMS_) : 0.;
+			par[FPARAM_Lepton1Pt_TOPTOPLEPLEP] = *PtLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Pt_TOPTOPLEPLEP] = *PtLepton1;		     
+		     
+		     if( ! isDeltaFuncPDFElecEta ) {
+			double gv = (doToys) ? getProbGaus(hPDFElecEta.get(), maxPDFElecEta, meanPDFElecEta, sigmaPDFElecEta, rnd, NElecEtaRMS_) : 0.;
+			par[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = *EtaLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = *EtaLepton1;		     
+		     
+		     if( ! isDeltaFuncPDFElecPhi ) {
+			double gv = (doToys) ? getProbGaus(hPDFElecPhi.get(), maxPDFElecPhi, meanPDFElecPhi, sigmaPDFElecPhi, rnd, NElecPhiRMS_) : 0.;
+			par[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = *PhiLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = *PhiLepton1;
+		     
+		     par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*cos(par[FPARAM_Lepton1Phi_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*sin(par[FPARAM_Lepton1Phi_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*sinh(par[FPARAM_Lepton1Eta_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1E_TOPTOPLEPLEP] = sqrt((*MassLepton1)*(*MassLepton1) + par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP] + par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP] + par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]);
+		  } while( (par[FPARAM_Lepton1E_TOPTOPLEPLEP]*par[FPARAM_Lepton1E_TOPTOPLEPLEP]-par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) < thres );		
+	     }
 	  }
 	else
 	  {
-	     do
-	       {
-		  double gv = (doToys) ? getProbGaus(hPDFMuonPx.get(), maxPDFMuonPx, meanPDFMuonPx, sigmaPDFMuonPx, rnd, NMuonPxRMS_) : 0.;
-		  par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = *PxLepton1/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFMuonPy.get(), maxPDFMuonPy, meanPDFMuonPy, sigmaPDFMuonPy, rnd, NMuonPyRMS_) : 0.;
-		  par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = *PyLepton1/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFMuonPz.get(), maxPDFMuonPz, meanPDFMuonPz, sigmaPDFMuonPz, rnd, NMuonPzRMS_) : 0.;
-		  par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = *PzLepton1/(1.-gv);
-		  par[FPARAM_Lepton1E_TOPTOPLEPLEP] = sqrt((*MassLepton1)*(*MassLepton1) + par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP] + par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP] + par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]);
-	       } while( (par[FPARAM_Lepton1E_TOPTOPLEPLEP]*par[FPARAM_Lepton1E_TOPTOPLEPLEP]-par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) < thres );
+	     if( *usePDFLeptonPxPyPz ) {
+		do
+		  {
+		     if( ! isDeltaFuncPDFMuonPx ) {
+			double gv = (doToys) ? getProbGaus(hPDFMuonPx.get(), maxPDFMuonPx, meanPDFMuonPx, sigmaPDFMuonPx, rnd, NMuonPxRMS_) : 0.;
+			par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = *PxLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = *PxLepton1;		     
+		     
+		     if( ! isDeltaFuncPDFMuonPy ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFMuonPy.get(), maxPDFMuonPy, meanPDFMuonPy, sigmaPDFMuonPy, rnd, NMuonPyRMS_) : 0.;
+			par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = *PyLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = *PyLepton1;		     
+		     
+		     if( ! isDeltaFuncPDFMuonPz ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFMuonPz.get(), maxPDFMuonPz, meanPDFMuonPz, sigmaPDFMuonPz, rnd, NMuonPzRMS_) : 0.;
+			par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = *PzLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = *PzLepton1;
+		     
+		     par[FPARAM_Lepton1Pt_TOPTOPLEPLEP] = sqrt(par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP] + par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = getEta(par[FPARAM_Lepton1Pt_TOPTOPLEPLEP], par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = atan2(par[FPARAM_Lepton1Py_TOPTOPLEPLEP], par[FPARAM_Lepton1Px_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1E_TOPTOPLEPLEP] = sqrt((*MassLepton1)*(*MassLepton1) + par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP] + par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP] + par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]);
+		  } while( (par[FPARAM_Lepton1E_TOPTOPLEPLEP]*par[FPARAM_Lepton1E_TOPTOPLEPLEP]-par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) < thres );
+	     }
+	     else {
+		do
+		  {
+		     if( ! isDeltaFuncPDFMuonPt ) {
+			double gv = (doToys) ? getProbGaus(hPDFMuonPt.get(), maxPDFMuonPt, meanPDFMuonPt, sigmaPDFMuonPt, rnd, NMuonPtRMS_) : 0.;
+			par[FPARAM_Lepton1Pt_TOPTOPLEPLEP] = *PtLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Pt_TOPTOPLEPLEP] = *PtLepton1;		     
+		     
+		     if( ! isDeltaFuncPDFMuonEta ) {
+			double gv = (doToys) ? getProbGaus(hPDFMuonEta.get(), maxPDFMuonEta, meanPDFMuonEta, sigmaPDFMuonEta, rnd, NMuonEtaRMS_) : 0.;
+			par[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = *EtaLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Eta_TOPTOPLEPLEP] = *EtaLepton1;		     
+		     
+		     if( ! isDeltaFuncPDFMuonPhi ) {
+			double gv = (doToys) ? getProbGaus(hPDFMuonPhi.get(), maxPDFMuonPhi, meanPDFMuonPhi, sigmaPDFMuonPhi, rnd, NMuonPhiRMS_) : 0.;
+			par[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = *PhiLepton1/(1.-gv);
+		     } else par[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = *PhiLepton1;
+		     
+		     par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*cos(par[FPARAM_Lepton1Phi_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*sin(par[FPARAM_Lepton1Phi_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*sinh(par[FPARAM_Lepton1Eta_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton1E_TOPTOPLEPLEP] = sqrt((*MassLepton1)*(*MassLepton1) + par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP] + par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP] + par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]);
+		  } while( (par[FPARAM_Lepton1E_TOPTOPLEPLEP]*par[FPARAM_Lepton1E_TOPTOPLEPLEP]-par[FPARAM_Lepton1Px_TOPTOPLEPLEP]*par[FPARAM_Lepton1Px_TOPTOPLEPLEP]-par[FPARAM_Lepton1Py_TOPTOPLEPLEP]*par[FPARAM_Lepton1Py_TOPTOPLEPLEP]-par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton1Pz_TOPTOPLEPLEP]) < thres );
+	     }
 	  }
 
 	if( *LabelLepton2 == 0 )
 	  {
-	     do
-	       {
-		  double gv = (doToys) ? getProbGaus(hPDFElecPx.get(), maxPDFElecPx, meanPDFElecPx, sigmaPDFElecPx, rnd, NElecPxRMS_) : 0.;
-		  par[FPARAM_Lepton2Px_TOPTOPLEPLEP] = *PxLepton2/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFElecPy.get(), maxPDFElecPy, meanPDFElecPy, sigmaPDFElecPy, rnd, NElecPyRMS_) : 0.;
-		  par[FPARAM_Lepton2Py_TOPTOPLEPLEP] = *PyLepton2/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFElecPz.get(), maxPDFElecPz, meanPDFElecPz, sigmaPDFElecPz, rnd, NElecPzRMS_) : 0.;
-		  par[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = *PzLepton2/(1.-gv);
-		  par[FPARAM_Lepton2E_TOPTOPLEPLEP] = sqrt((*MassLepton2)*(*MassLepton2) + par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP] + par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP] + par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]);
-	       } while( (par[FPARAM_Lepton2E_TOPTOPLEPLEP]*par[FPARAM_Lepton2E_TOPTOPLEPLEP]-par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) < thres );
+	     if( *usePDFLeptonPxPyPz ) {
+		do
+		  {
+		     if( ! isDeltaFuncPDFElecPx ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFElecPx.get(), maxPDFElecPx, meanPDFElecPx, sigmaPDFElecPx, rnd, NElecPxRMS_) : 0.;
+			par[FPARAM_Lepton2Px_TOPTOPLEPLEP] = *PxLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Px_TOPTOPLEPLEP] = *PxLepton2;		     
+		     
+		     if( ! isDeltaFuncPDFElecPy ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFElecPy.get(), maxPDFElecPy, meanPDFElecPy, sigmaPDFElecPy, rnd, NElecPyRMS_) : 0.;
+			par[FPARAM_Lepton2Py_TOPTOPLEPLEP] = *PyLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Py_TOPTOPLEPLEP] = *PyLepton2;		     
+		     
+		     if( ! isDeltaFuncPDFElecPz ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFElecPz.get(), maxPDFElecPz, meanPDFElecPz, sigmaPDFElecPz, rnd, NElecPzRMS_) : 0.;
+			par[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = *PzLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = *PzLepton2;
+		     
+		     par[FPARAM_Lepton2Pt_TOPTOPLEPLEP] = sqrt(par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP] + par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = getEta(par[FPARAM_Lepton2Pt_TOPTOPLEPLEP], par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = atan2(par[FPARAM_Lepton2Py_TOPTOPLEPLEP], par[FPARAM_Lepton2Px_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2E_TOPTOPLEPLEP] = sqrt((*MassLepton2)*(*MassLepton2) + par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP] + par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP] + par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]);
+		  } while( (par[FPARAM_Lepton2E_TOPTOPLEPLEP]*par[FPARAM_Lepton2E_TOPTOPLEPLEP]-par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) < thres );
+	     }
+	     else {
+		do
+		  {
+		     if( ! isDeltaFuncPDFElecPt ) {
+			double gv = (doToys) ? getProbGaus(hPDFElecPt.get(), maxPDFElecPt, meanPDFElecPt, sigmaPDFElecPt, rnd, NElecPtRMS_) : 0.;
+			par[FPARAM_Lepton2Pt_TOPTOPLEPLEP] = *PtLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Pt_TOPTOPLEPLEP] = *PtLepton2;		     
+		     
+		     if( ! isDeltaFuncPDFElecEta ) {
+			double gv = (doToys) ? getProbGaus(hPDFElecEta.get(), maxPDFElecEta, meanPDFElecEta, sigmaPDFElecEta, rnd, NElecEtaRMS_) : 0.;
+			par[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = *EtaLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = *EtaLepton2;		     
+		     
+		     if( ! isDeltaFuncPDFElecPhi ) {
+			double gv = (doToys) ? getProbGaus(hPDFElecPhi.get(), maxPDFElecPhi, meanPDFElecPhi, sigmaPDFElecPhi, rnd, NElecPhiRMS_) : 0.;
+			par[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = *PhiLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = *PhiLepton2;
+		     
+		     par[FPARAM_Lepton2Px_TOPTOPLEPLEP] = par[FPARAM_Lepton2Pt_TOPTOPLEPLEP]*cos(par[FPARAM_Lepton2Phi_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2Py_TOPTOPLEPLEP] = par[FPARAM_Lepton2Pt_TOPTOPLEPLEP]*sin(par[FPARAM_Lepton2Phi_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = par[FPARAM_Lepton2Pt_TOPTOPLEPLEP]*sinh(par[FPARAM_Lepton2Eta_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2E_TOPTOPLEPLEP] = sqrt((*MassLepton2)*(*MassLepton2) + par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP] + par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP] + par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]);
+		  } while( (par[FPARAM_Lepton2E_TOPTOPLEPLEP]*par[FPARAM_Lepton2E_TOPTOPLEPLEP]-par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) < thres );		
+	     }
 	  }
 	else
 	  {
-	     do
-	       {		  
-		  double gv = (doToys) ? getProbGaus(hPDFMuonPx.get(), maxPDFMuonPx, meanPDFMuonPx, sigmaPDFMuonPx, rnd, NMuonPxRMS_) : 0.;
-		  par[FPARAM_Lepton2Px_TOPTOPLEPLEP] = *PxLepton2/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFMuonPy.get(), maxPDFMuonPy, meanPDFMuonPy, sigmaPDFMuonPy, rnd, NMuonPyRMS_) : 0.;
-		  par[FPARAM_Lepton2Py_TOPTOPLEPLEP] = *PyLepton2/(1.-gv);
-		  gv = (doToys) ? getProbGaus(hPDFMuonPz.get(), maxPDFMuonPz, meanPDFMuonPz, sigmaPDFMuonPz, rnd, NMuonPzRMS_) : 0.;
-		  par[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = *PzLepton2/(1.-gv);
-		  par[FPARAM_Lepton2E_TOPTOPLEPLEP] = sqrt((*MassLepton2)*(*MassLepton2) + par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP] + par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP] + par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]);
-	       } while( (par[FPARAM_Lepton2E_TOPTOPLEPLEP]*par[FPARAM_Lepton2E_TOPTOPLEPLEP]-par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) < thres );
+	     if( *usePDFLeptonPxPyPz ) {
+		do
+		  {
+		     if( ! isDeltaFuncPDFMuonPx ) {
+			double gv = (doToys) ? getProbGaus(hPDFMuonPx.get(), maxPDFMuonPx, meanPDFMuonPx, sigmaPDFMuonPx, rnd, NMuonPxRMS_) : 0.;
+			par[FPARAM_Lepton2Px_TOPTOPLEPLEP] = *PxLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Px_TOPTOPLEPLEP] = *PxLepton2;		     
+		     
+		     if( ! isDeltaFuncPDFMuonPy ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFMuonPy.get(), maxPDFMuonPy, meanPDFMuonPy, sigmaPDFMuonPy, rnd, NMuonPyRMS_) : 0.;
+			par[FPARAM_Lepton2Py_TOPTOPLEPLEP] = *PyLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Py_TOPTOPLEPLEP] = *PyLepton2;		     
+		     
+		     if( ! isDeltaFuncPDFMuonPz ) {			  
+			double gv = (doToys) ? getProbGaus(hPDFMuonPz.get(), maxPDFMuonPz, meanPDFMuonPz, sigmaPDFMuonPz, rnd, NMuonPzRMS_) : 0.;
+			par[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = *PzLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = *PzLepton2;
+		     
+		     par[FPARAM_Lepton2Pt_TOPTOPLEPLEP] = sqrt(par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP] + par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = getEta(par[FPARAM_Lepton2Pt_TOPTOPLEPLEP], par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = atan2(par[FPARAM_Lepton2Py_TOPTOPLEPLEP], par[FPARAM_Lepton2Px_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2E_TOPTOPLEPLEP] = sqrt((*MassLepton2)*(*MassLepton2) + par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP] + par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP] + par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]);
+		  } while( (par[FPARAM_Lepton2E_TOPTOPLEPLEP]*par[FPARAM_Lepton2E_TOPTOPLEPLEP]-par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) < thres );
+	     }
+	     else {
+		do
+		  {
+		     if( ! isDeltaFuncPDFMuonPt ) {
+			double gv = (doToys) ? getProbGaus(hPDFMuonPt.get(), maxPDFMuonPt, meanPDFMuonPt, sigmaPDFMuonPt, rnd, NMuonPtRMS_) : 0.;
+			par[FPARAM_Lepton2Pt_TOPTOPLEPLEP] = *PtLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Pt_TOPTOPLEPLEP] = *PtLepton2;		     
+		     
+		     if( ! isDeltaFuncPDFMuonEta ) {
+			double gv = (doToys) ? getProbGaus(hPDFMuonEta.get(), maxPDFMuonEta, meanPDFMuonEta, sigmaPDFMuonEta, rnd, NMuonEtaRMS_) : 0.;
+			par[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = *EtaLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Eta_TOPTOPLEPLEP] = *EtaLepton2;		     
+		     
+		     if( ! isDeltaFuncPDFMuonPhi ) {
+			double gv = (doToys) ? getProbGaus(hPDFMuonPhi.get(), maxPDFMuonPhi, meanPDFMuonPhi, sigmaPDFMuonPhi, rnd, NMuonPhiRMS_) : 0.;
+			par[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = *PhiLepton2/(1.-gv);
+		     } else par[FPARAM_Lepton2Phi_TOPTOPLEPLEP] = *PhiLepton2;
+		     
+		     par[FPARAM_Lepton2Px_TOPTOPLEPLEP] = par[FPARAM_Lepton2Pt_TOPTOPLEPLEP]*cos(par[FPARAM_Lepton2Phi_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2Py_TOPTOPLEPLEP] = par[FPARAM_Lepton2Pt_TOPTOPLEPLEP]*sin(par[FPARAM_Lepton2Phi_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2Pz_TOPTOPLEPLEP] = par[FPARAM_Lepton2Pt_TOPTOPLEPLEP]*sinh(par[FPARAM_Lepton2Eta_TOPTOPLEPLEP]);
+		     par[FPARAM_Lepton2E_TOPTOPLEPLEP] = sqrt((*MassLepton2)*(*MassLepton2) + par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP] + par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP] + par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]);
+		  } while( (par[FPARAM_Lepton2E_TOPTOPLEPLEP]*par[FPARAM_Lepton2E_TOPTOPLEPLEP]-par[FPARAM_Lepton2Px_TOPTOPLEPLEP]*par[FPARAM_Lepton2Px_TOPTOPLEPLEP]-par[FPARAM_Lepton2Py_TOPTOPLEPLEP]*par[FPARAM_Lepton2Py_TOPTOPLEPLEP]-par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]*par[FPARAM_Lepton2Pz_TOPTOPLEPLEP]) < thres );
+	     }
 	  }
 
 	if( doToys )
@@ -1501,11 +1917,11 @@ void KINFIT::TopTopLepLep::calcNuGrid(std::vector<FRESULT> &vp)
 
 		  chi2t.clear();
 
-		  double lh = func(*PxLepton1, *PyLepton1, *PzLepton1, *ELepton1, *LabelLepton1,
-				   *PxLepton2, *PyLepton2, *PzLepton2, *ELepton2, *LabelLepton2,
-				   *PxBJet1, *PyBJet1, *PzBJet1, *EBJet1,
-				   *PxBJet2, *PyBJet2, *PzBJet2, *EBJet2,
-				   *PxPhoton, *PyPhoton, *PzPhoton, *EPhoton,
+		  double lh = func(*PxLepton1, *PyLepton1, *PzLepton1, *PtLepton1, *EtaLepton1, *PhiLepton1, *ELepton1, *LabelLepton1,
+				   *PxLepton2, *PyLepton2, *PzLepton2, *PtLepton2, *EtaLepton2, *PhiLepton2, *ELepton2, *LabelLepton2,
+				   *PxBJet1, *PyBJet1, *PzBJet1, *PtBJet1, *EtaBJet1, *PhiBJet1, *EBJet1,
+				   *PxBJet2, *PyBJet2, *PzBJet2, *PtBJet2, *EtaBJet2, *PhiBJet2, *EBJet2,
+				   *PxPhoton, *PyPhoton, *PzPhoton, *PtPhoton, *EtaPhoton, *PhiPhoton, *EPhoton,
 				   *PhotonOrigin,
 				   chi2t, par);
 
