@@ -178,64 +178,66 @@ std::shared_ptr<TF1> KINFIT::kfit::hPDFPhotonPhi;
 std::string KINFIT::kfit::FPARAM_NAME[NPARMAX];
 std::string KINFIT::kfit::PDF_NAME[PDF_N];
 
-bool KINFIT::kfit::isDeltaFuncPDFTopWMass;
-bool KINFIT::kfit::isDeltaFuncPDFTopMass;
-bool KINFIT::kfit::isDeltaFuncPDFTopWHadMass;
-bool KINFIT::kfit::isDeltaFuncPDFTopHadMass;
-bool KINFIT::kfit::isDeltaFuncPDFMetPx;
-bool KINFIT::kfit::isDeltaFuncPDFMetPy;
-bool KINFIT::kfit::isDeltaFuncPDFBJetPx;
-bool KINFIT::kfit::isDeltaFuncPDFBJetPy;
-bool KINFIT::kfit::isDeltaFuncPDFBJetPz;
-bool KINFIT::kfit::isDeltaFuncPDFBJetPt;
-bool KINFIT::kfit::isDeltaFuncPDFBJetEta;
-bool KINFIT::kfit::isDeltaFuncPDFBJetPhi;
-bool KINFIT::kfit::isDeltaFuncPDFNonBJetPx;
-bool KINFIT::kfit::isDeltaFuncPDFNonBJetPy;
-bool KINFIT::kfit::isDeltaFuncPDFNonBJetPz;
-bool KINFIT::kfit::isDeltaFuncPDFNonBJetPt;
-bool KINFIT::kfit::isDeltaFuncPDFNonBJetEta;
-bool KINFIT::kfit::isDeltaFuncPDFNonBJetPhi;
-bool KINFIT::kfit::isDeltaFuncPDFElecPx;
-bool KINFIT::kfit::isDeltaFuncPDFElecPy;
-bool KINFIT::kfit::isDeltaFuncPDFElecPz;
-bool KINFIT::kfit::isDeltaFuncPDFElecPt;
-bool KINFIT::kfit::isDeltaFuncPDFElecEta;
-bool KINFIT::kfit::isDeltaFuncPDFElecPhi;
-bool KINFIT::kfit::isDeltaFuncPDFMuonPx;
-bool KINFIT::kfit::isDeltaFuncPDFMuonPy;
-bool KINFIT::kfit::isDeltaFuncPDFMuonPz;
-bool KINFIT::kfit::isDeltaFuncPDFMuonPt;
-bool KINFIT::kfit::isDeltaFuncPDFMuonEta;
-bool KINFIT::kfit::isDeltaFuncPDFMuonPhi;
-bool KINFIT::kfit::isDeltaFuncPDFPhotonPx;
-bool KINFIT::kfit::isDeltaFuncPDFPhotonPy;
-bool KINFIT::kfit::isDeltaFuncPDFPhotonPz;
-bool KINFIT::kfit::isDeltaFuncPDFPhotonPt;
-bool KINFIT::kfit::isDeltaFuncPDFPhotonEta;
-bool KINFIT::kfit::isDeltaFuncPDFPhotonPhi;
+bool KINFIT::kfit::isDeltaFuncPDFTopWMass = false;
+bool KINFIT::kfit::isDeltaFuncPDFTopMass = false;
+bool KINFIT::kfit::isDeltaFuncPDFTopWHadMass = false;
+bool KINFIT::kfit::isDeltaFuncPDFTopHadMass = false;
+bool KINFIT::kfit::isDeltaFuncPDFMetPx = false;
+bool KINFIT::kfit::isDeltaFuncPDFMetPy = false;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPx = false;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPy = false;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPz = false;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPt = false;
+bool KINFIT::kfit::isDeltaFuncPDFBJetEta = false;
+bool KINFIT::kfit::isDeltaFuncPDFBJetPhi = false;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPx = false;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPy = false;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPz = false;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPt = false;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetEta = false;
+bool KINFIT::kfit::isDeltaFuncPDFNonBJetPhi = false;
+bool KINFIT::kfit::isDeltaFuncPDFElecPx = false;
+bool KINFIT::kfit::isDeltaFuncPDFElecPy = false;
+bool KINFIT::kfit::isDeltaFuncPDFElecPz = false;
+bool KINFIT::kfit::isDeltaFuncPDFElecPt = false;
+bool KINFIT::kfit::isDeltaFuncPDFElecEta = false;
+bool KINFIT::kfit::isDeltaFuncPDFElecPhi = false;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPx = false;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPy = false;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPz = false;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPt = false;
+bool KINFIT::kfit::isDeltaFuncPDFMuonEta = false;
+bool KINFIT::kfit::isDeltaFuncPDFMuonPhi = false;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPx = false;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPy = false;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPz = false;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPt = false;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonEta = false;
+bool KINFIT::kfit::isDeltaFuncPDFPhotonPhi = false;
+
+float sDummy = 0.01;
 
 float KINFIT::kfit::maxPDFTopWMass;
 float KINFIT::kfit::meanPDFTopWMass;
-float KINFIT::kfit::sigmaPDFTopWMass;
+float KINFIT::kfit::sigmaPDFTopWMass = sDummy;
 double KINFIT::kfit::xminPDFTopWMass;
 double KINFIT::kfit::xmaxPDFTopWMass;
 
 float KINFIT::kfit::maxPDFTopMass;
 float KINFIT::kfit::meanPDFTopMass;
-float KINFIT::kfit::sigmaPDFTopMass;
+float KINFIT::kfit::sigmaPDFTopMass = sDummy;
 double KINFIT::kfit::xminPDFTopMass;
 double KINFIT::kfit::xmaxPDFTopMass;
 
 float KINFIT::kfit::maxPDFTopWHadMass;
 float KINFIT::kfit::meanPDFTopWHadMass;
-float KINFIT::kfit::sigmaPDFTopWHadMass;
+float KINFIT::kfit::sigmaPDFTopWHadMass = sDummy;
 double KINFIT::kfit::xminPDFTopWHadMass;
 double KINFIT::kfit::xmaxPDFTopWHadMass;
 
 float KINFIT::kfit::maxPDFTopHadMass;
 float KINFIT::kfit::meanPDFTopHadMass;
-float KINFIT::kfit::sigmaPDFTopHadMass;
+float KINFIT::kfit::sigmaPDFTopHadMass = sDummy;
 double KINFIT::kfit::xminPDFTopHadMass;
 double KINFIT::kfit::xmaxPDFTopHadMass;
 
@@ -247,193 +249,193 @@ double KINFIT::kfit::xmaxPDFTopHadMass;
 
 float KINFIT::kfit::maxPDFBJetPx;
 float KINFIT::kfit::meanPDFBJetPx;
-float KINFIT::kfit::sigmaPDFBJetPx;
+float KINFIT::kfit::sigmaPDFBJetPx = sDummy;
 double KINFIT::kfit::xminPDFBJetPx;
 double KINFIT::kfit::xmaxPDFBJetPx;
 
 float KINFIT::kfit::maxPDFBJetPy;
 float KINFIT::kfit::meanPDFBJetPy;
-float KINFIT::kfit::sigmaPDFBJetPy;
+float KINFIT::kfit::sigmaPDFBJetPy = sDummy;
 double KINFIT::kfit::xminPDFBJetPy;
 double KINFIT::kfit::xmaxPDFBJetPy;
 
 float KINFIT::kfit::maxPDFBJetPz;
 float KINFIT::kfit::meanPDFBJetPz;
-float KINFIT::kfit::sigmaPDFBJetPz;
+float KINFIT::kfit::sigmaPDFBJetPz = sDummy;
 double KINFIT::kfit::xminPDFBJetPz;
 double KINFIT::kfit::xmaxPDFBJetPz;
 
 float KINFIT::kfit::maxPDFBJetPt;
 float KINFIT::kfit::meanPDFBJetPt;
-float KINFIT::kfit::sigmaPDFBJetPt;
+float KINFIT::kfit::sigmaPDFBJetPt = sDummy;
 double KINFIT::kfit::xminPDFBJetPt;
 double KINFIT::kfit::xmaxPDFBJetPt;
 
 float KINFIT::kfit::maxPDFBJetEta;
 float KINFIT::kfit::meanPDFBJetEta;
-float KINFIT::kfit::sigmaPDFBJetEta;
+float KINFIT::kfit::sigmaPDFBJetEta = sDummy;
 double KINFIT::kfit::xminPDFBJetEta;
 double KINFIT::kfit::xmaxPDFBJetEta;
 
 float KINFIT::kfit::maxPDFBJetPhi;
 float KINFIT::kfit::meanPDFBJetPhi;
-float KINFIT::kfit::sigmaPDFBJetPhi;
+float KINFIT::kfit::sigmaPDFBJetPhi = sDummy;
 double KINFIT::kfit::xminPDFBJetPhi;
 double KINFIT::kfit::xmaxPDFBJetPhi;
 
 float KINFIT::kfit::maxPDFMetPx;
 float KINFIT::kfit::meanPDFMetPx;
-float KINFIT::kfit::sigmaPDFMetPx;
+float KINFIT::kfit::sigmaPDFMetPx = sDummy;
 double KINFIT::kfit::xminPDFMetPx;
 double KINFIT::kfit::xmaxPDFMetPx;
 
 float KINFIT::kfit::maxPDFMetPy;
 float KINFIT::kfit::meanPDFMetPy;
-float KINFIT::kfit::sigmaPDFMetPy;
+float KINFIT::kfit::sigmaPDFMetPy = sDummy;
 double KINFIT::kfit::xminPDFMetPy;
 double KINFIT::kfit::xmaxPDFMetPy;
 
 float KINFIT::kfit::maxPDFElecPx;
 float KINFIT::kfit::meanPDFElecPx;
-float KINFIT::kfit::sigmaPDFElecPx;
+float KINFIT::kfit::sigmaPDFElecPx = sDummy;
 double KINFIT::kfit::xminPDFElecPx;
 double KINFIT::kfit::xmaxPDFElecPx;
 
 float KINFIT::kfit::maxPDFElecPy;
 float KINFIT::kfit::meanPDFElecPy;
-float KINFIT::kfit::sigmaPDFElecPy;
+float KINFIT::kfit::sigmaPDFElecPy = sDummy;
 double KINFIT::kfit::xminPDFElecPy;
 double KINFIT::kfit::xmaxPDFElecPy;
 
 float KINFIT::kfit::maxPDFElecPz;
 float KINFIT::kfit::meanPDFElecPz;
-float KINFIT::kfit::sigmaPDFElecPz;
+float KINFIT::kfit::sigmaPDFElecPz = sDummy;
 double KINFIT::kfit::xminPDFElecPz;
 double KINFIT::kfit::xmaxPDFElecPz;
 
 float KINFIT::kfit::maxPDFElecPt;
 float KINFIT::kfit::meanPDFElecPt;
-float KINFIT::kfit::sigmaPDFElecPt;
+float KINFIT::kfit::sigmaPDFElecPt = sDummy;
 double KINFIT::kfit::xminPDFElecPt;
 double KINFIT::kfit::xmaxPDFElecPt;
 
 float KINFIT::kfit::maxPDFElecEta;
 float KINFIT::kfit::meanPDFElecEta;
-float KINFIT::kfit::sigmaPDFElecEta;
+float KINFIT::kfit::sigmaPDFElecEta = sDummy;
 double KINFIT::kfit::xminPDFElecEta;
 double KINFIT::kfit::xmaxPDFElecEta;
 
 float KINFIT::kfit::maxPDFElecPhi;
 float KINFIT::kfit::meanPDFElecPhi;
-float KINFIT::kfit::sigmaPDFElecPhi;
+float KINFIT::kfit::sigmaPDFElecPhi = sDummy;
 double KINFIT::kfit::xminPDFElecPhi;
 double KINFIT::kfit::xmaxPDFElecPhi;
 
 float KINFIT::kfit::maxPDFMuonPx;
 float KINFIT::kfit::meanPDFMuonPx;
-float KINFIT::kfit::sigmaPDFMuonPx;
+float KINFIT::kfit::sigmaPDFMuonPx = sDummy;
 double KINFIT::kfit::xminPDFMuonPx;
 double KINFIT::kfit::xmaxPDFMuonPx;
 
 float KINFIT::kfit::maxPDFMuonPy;
 float KINFIT::kfit::meanPDFMuonPy;
-float KINFIT::kfit::sigmaPDFMuonPy;
+float KINFIT::kfit::sigmaPDFMuonPy = sDummy;
 double KINFIT::kfit::xminPDFMuonPy;
 double KINFIT::kfit::xmaxPDFMuonPy;
 
 float KINFIT::kfit::maxPDFMuonPz;
 float KINFIT::kfit::meanPDFMuonPz;
-float KINFIT::kfit::sigmaPDFMuonPz;
+float KINFIT::kfit::sigmaPDFMuonPz = sDummy;
 double KINFIT::kfit::xminPDFMuonPz;
 double KINFIT::kfit::xmaxPDFMuonPz;
 
 float KINFIT::kfit::maxPDFMuonPt;
 float KINFIT::kfit::meanPDFMuonPt;
-float KINFIT::kfit::sigmaPDFMuonPt;
+float KINFIT::kfit::sigmaPDFMuonPt = sDummy;
 double KINFIT::kfit::xminPDFMuonPt;
 double KINFIT::kfit::xmaxPDFMuonPt;
 
 float KINFIT::kfit::maxPDFMuonEta;
 float KINFIT::kfit::meanPDFMuonEta;
-float KINFIT::kfit::sigmaPDFMuonEta;
+float KINFIT::kfit::sigmaPDFMuonEta = sDummy;
 double KINFIT::kfit::xminPDFMuonEta;
 double KINFIT::kfit::xmaxPDFMuonEta;
 
 float KINFIT::kfit::maxPDFMuonPhi;
 float KINFIT::kfit::meanPDFMuonPhi;
-float KINFIT::kfit::sigmaPDFMuonPhi;
+float KINFIT::kfit::sigmaPDFMuonPhi = sDummy;
 double KINFIT::kfit::xminPDFMuonPhi;
 double KINFIT::kfit::xmaxPDFMuonPhi;
 
 float KINFIT::kfit::maxPDFNonBJetPx;
 float KINFIT::kfit::meanPDFNonBJetPx;
-float KINFIT::kfit::sigmaPDFNonBJetPx;
+float KINFIT::kfit::sigmaPDFNonBJetPx = sDummy;
 double KINFIT::kfit::xminPDFNonBJetPx;
 double KINFIT::kfit::xmaxPDFNonBJetPx;
 
 float KINFIT::kfit::maxPDFNonBJetPy;
 float KINFIT::kfit::meanPDFNonBJetPy;
-float KINFIT::kfit::sigmaPDFNonBJetPy;
+float KINFIT::kfit::sigmaPDFNonBJetPy = sDummy;
 double KINFIT::kfit::xminPDFNonBJetPy;
 double KINFIT::kfit::xmaxPDFNonBJetPy;
 
 float KINFIT::kfit::maxPDFNonBJetPz;
 float KINFIT::kfit::meanPDFNonBJetPz;
-float KINFIT::kfit::sigmaPDFNonBJetPz;
+float KINFIT::kfit::sigmaPDFNonBJetPz = sDummy;
 double KINFIT::kfit::xminPDFNonBJetPz;
 double KINFIT::kfit::xmaxPDFNonBJetPz;
 
 float KINFIT::kfit::maxPDFNonBJetPt;
 float KINFIT::kfit::meanPDFNonBJetPt;
-float KINFIT::kfit::sigmaPDFNonBJetPt;
+float KINFIT::kfit::sigmaPDFNonBJetPt = sDummy;
 double KINFIT::kfit::xminPDFNonBJetPt;
 double KINFIT::kfit::xmaxPDFNonBJetPt;
 
 float KINFIT::kfit::maxPDFNonBJetEta;
 float KINFIT::kfit::meanPDFNonBJetEta;
-float KINFIT::kfit::sigmaPDFNonBJetEta;
+float KINFIT::kfit::sigmaPDFNonBJetEta = sDummy;
 double KINFIT::kfit::xminPDFNonBJetEta;
 double KINFIT::kfit::xmaxPDFNonBJetEta;
 
 float KINFIT::kfit::maxPDFNonBJetPhi;
 float KINFIT::kfit::meanPDFNonBJetPhi;
-float KINFIT::kfit::sigmaPDFNonBJetPhi;
+float KINFIT::kfit::sigmaPDFNonBJetPhi = sDummy;
 double KINFIT::kfit::xminPDFNonBJetPhi;
 double KINFIT::kfit::xmaxPDFNonBJetPhi;
 
 float KINFIT::kfit::maxPDFPhotonPx;
 float KINFIT::kfit::meanPDFPhotonPx;
-float KINFIT::kfit::sigmaPDFPhotonPx;
+float KINFIT::kfit::sigmaPDFPhotonPx = sDummy;
 double KINFIT::kfit::xminPDFPhotonPx;
 double KINFIT::kfit::xmaxPDFPhotonPx;
 
 float KINFIT::kfit::maxPDFPhotonPy;
 float KINFIT::kfit::meanPDFPhotonPy;
-float KINFIT::kfit::sigmaPDFPhotonPy;
+float KINFIT::kfit::sigmaPDFPhotonPy = sDummy;
 double KINFIT::kfit::xminPDFPhotonPy;
 double KINFIT::kfit::xmaxPDFPhotonPy;
 
 float KINFIT::kfit::maxPDFPhotonPz;
 float KINFIT::kfit::meanPDFPhotonPz;
-float KINFIT::kfit::sigmaPDFPhotonPz;
+float KINFIT::kfit::sigmaPDFPhotonPz = sDummy;
 double KINFIT::kfit::xminPDFPhotonPz;
 double KINFIT::kfit::xmaxPDFPhotonPz;
 
 float KINFIT::kfit::maxPDFPhotonPt;
 float KINFIT::kfit::meanPDFPhotonPt;
-float KINFIT::kfit::sigmaPDFPhotonPt;
+float KINFIT::kfit::sigmaPDFPhotonPt = sDummy;
 double KINFIT::kfit::xminPDFPhotonPt;
 double KINFIT::kfit::xmaxPDFPhotonPt;
 
 float KINFIT::kfit::maxPDFPhotonEta;
 float KINFIT::kfit::meanPDFPhotonEta;
-float KINFIT::kfit::sigmaPDFPhotonEta;
+float KINFIT::kfit::sigmaPDFPhotonEta = sDummy;
 double KINFIT::kfit::xminPDFPhotonEta;
 double KINFIT::kfit::xmaxPDFPhotonEta;
 
 float KINFIT::kfit::maxPDFPhotonPhi;
 float KINFIT::kfit::meanPDFPhotonPhi;
-float KINFIT::kfit::sigmaPDFPhotonPhi;
+float KINFIT::kfit::sigmaPDFPhotonPhi = sDummy;
 double KINFIT::kfit::xminPDFPhotonPhi;
 double KINFIT::kfit::xmaxPDFPhotonPhi;
 
@@ -761,7 +763,7 @@ void KINFIT::kfit::Init(HYPO hypo)
 	PDF_NAME[PDF_PhotonPt]     = "PDFPhotonPt";
 	PDF_NAME[PDF_PhotonEta]    = "PDFPhotonEta";
 	PDF_NAME[PDF_PhotonPhi]    = "PDFPhotonPhi";
-	
+
 	/// Fix all parameters except one neutrino (px, py) and two W boson masses
 	
 	(*IsParFixed)[FPARAM_Etx_TOPTOPLEPLEP] = false;
@@ -811,7 +813,7 @@ void KINFIT::kfit::Init(HYPO hypo)
 	(*IsParFixed)[FPARAM_PhotonEta_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_PhotonPhi_TOPTOPLEPLEP]  = true;
 	(*IsParFixed)[FPARAM_PhotonE_TOPTOPLEPLEP]   = true; /// Must always be fixed
-	
+
 	/// Check that transfer functions are present in the input file
 	
 	bool foundPDFTopWMass = (! isDeltaFuncPDFTopWMass) ? checkPDF(hPDFTopWMass.get(), PDF_NAME[PDF_TopWMass]) : true; foundPDF.get()->insert({PDF_TopWMass, foundPDFTopWMass});

@@ -14,8 +14,8 @@
 #include <time.h>
 
 /// Global variables
-const int NTERMMAX = 30; ///< Maximum number of NLL terms
-const int NPARMAX = 30;   ///< Maximum number of fit parameters
+const int NTERMMAX = 100; ///< Maximum number of NLL terms
+const int NPARMAX = 100;   ///< Maximum number of fit parameters
 extern const int NNUMAX;
 extern int FPARAM_N;
 

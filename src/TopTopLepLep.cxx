@@ -436,7 +436,7 @@ void KINFIT::TopTopLepLep::TopTopLepLepRun()
 
 				 /// Produce a grid with valid solutions (first-layer minimization)
 				 calcNuGrid(vp);
-		       
+
 				 NGeneric_[NPerm_] = vp.size();
 		       
 				 /// Sort according to NLL
@@ -925,7 +925,7 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    mW2Abs = sqrt(mW2Abs);
 
    float mW1Prob = (! isDeltaFuncPDFTopWMass) ? getProb(hPDFTopWMass.get(), mW1Abs, maxPDFTopWMass, xminPDFTopWMass, xmaxPDFTopWMass) : 1.0;
-   float mW2Prob = (! isDeltaFuncPDFTopWMass) ? getProb(hPDFTopWMass.get(), mW2Abs, maxPDFTopWMass, xminPDFTopWMass, xmaxPDFTopWMass) : 1.0;
+   float mW2Prob = (! isDeltaFuncPDFTopWMass) ? getProb(hPDFTopWMass.get(), mW2Abs, maxPDFTopWMass, xminPDFTopWMass, xmaxPDFTopWMass) : 1.0;   
 
    float mTop1Prob = (! isDeltaFuncPDFTopMass) ? getProb(hPDFTopMass.get(), mtop1Abs, maxPDFTopMass, xminPDFTopMass, xmaxPDFTopMass) : 1.0;
    float mTop2Prob = (! isDeltaFuncPDFTopMass) ? getProb(hPDFTopMass.get(), mtop2Abs, maxPDFTopMass, xminPDFTopMass, xmaxPDFTopMass) : 1.0;
@@ -1022,7 +1022,7 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    chi2t[NLL_PhotonPt_TOPTOPLEPLEP] = (PhotonPtProb > minProb) ? PhotonPtProb : minProb;
    chi2t[NLL_PhotonEta_TOPTOPLEPLEP] = (PhotonEtaProb > minProb) ? PhotonEtaProb : minProb;
    chi2t[NLL_PhotonPhi_TOPTOPLEPLEP] = (PhotonPhiProb > minProb) ? PhotonPhiProb : minProb;
-   
+
 //   chi2t[NLL_TopTopMass_TOPTOPLEPLEP] = (mTopTopProb > minProb) ? mTopTopProb : minProb;
    
    double lh = 1.0;
@@ -1031,7 +1031,7 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    lh *= chi2t[NLL_W2_TOPTOPLEPLEP];
    lh *= chi2t[NLL_Top1_TOPTOPLEPLEP];
    lh *= chi2t[NLL_Top2_TOPTOPLEPLEP];
-
+   
    /// Include additional terms only if is corresponding parameter is free
    if(! (*IsParFixed)[FPARAM_EtRealX_TOPTOPLEPLEP]) lh *= chi2t[NLL_EtMissX_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_EtRealY_TOPTOPLEPLEP]) lh *= chi2t[NLL_EtMissY_TOPTOPLEPLEP];
@@ -1065,7 +1065,7 @@ double KINFIT::TopTopLepLep::func(float PxLepton1, float PyLepton1, float PzLept
    if(! (*IsParFixed)[FPARAM_PhotonPt_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonPt_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_PhotonEta_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonEta_TOPTOPLEPLEP];
    if(! (*IsParFixed)[FPARAM_PhotonPhi_TOPTOPLEPLEP]) lh *= chi2t[NLL_PhotonPhi_TOPTOPLEPLEP];
-   
+
 //   if( AddTopTopMassToNLL_ ) lh *= chi2t[NLL_TopTopMass_TOPTOPLEPLEP];
 
    val += -2.*log(lh);
@@ -1408,7 +1408,7 @@ void KINFIT::TopTopLepLep::fit(double *par, std::vector<FRESULT> &vpp)
    gMinuit->mnparm(FPARAM_EtRealY_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_EtRealY_TOPTOPLEPLEP], par[FPARAM_EtRealY_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_EtRealY_TOPTOPLEPLEP], (*ParMax)[FPARAM_EtRealY_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_mW1_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_mW1_TOPTOPLEPLEP], par[FPARAM_mW1_TOPTOPLEPLEP], 1E-2, (*ParMin)[FPARAM_mW1_TOPTOPLEPLEP], (*ParMax)[FPARAM_mW1_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_mW2_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_mW2_TOPTOPLEPLEP], par[FPARAM_mW2_TOPTOPLEPLEP], 1E-2, (*ParMin)[FPARAM_mW2_TOPTOPLEPLEP], (*ParMax)[FPARAM_mW2_TOPTOPLEPLEP], ierflg);
-
+   
    gMinuit->mnparm(FPARAM_BJet1Px_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1Px_TOPTOPLEPLEP], par[FPARAM_BJet1Px_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1Px_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1Px_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_BJet1Py_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1Py_TOPTOPLEPLEP], par[FPARAM_BJet1Py_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1Py_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1Py_TOPTOPLEPLEP], ierflg);
    gMinuit->mnparm(FPARAM_BJet1Pz_TOPTOPLEPLEP, FPARAM_NAME[FPARAM_BJet1Pz_TOPTOPLEPLEP], par[FPARAM_BJet1Pz_TOPTOPLEPLEP], 1E-1, (*ParMin)[FPARAM_BJet1Pz_TOPTOPLEPLEP], (*ParMax)[FPARAM_BJet1Pz_TOPTOPLEPLEP], ierflg);
@@ -1465,7 +1465,7 @@ void KINFIT::TopTopLepLep::fit(double *par, std::vector<FRESULT> &vpp)
      {	
 	gMinuit->GetParameter(ip, par[ip], perr[ip]);
 	fres.par[ip] = par[ip];
-     }   
+     }
 
    for( int ic=0;ic<(*ChiTerm).size();ic++ )
      {	
@@ -1720,7 +1720,7 @@ void KINFIT::TopTopLepLep::calcNuGrid(std::vector<FRESULT> &vp)
 			double gv = (doToys) ? getProbGaus(hPDFElecPhi.get(), maxPDFElecPhi, meanPDFElecPhi, sigmaPDFElecPhi, rnd, NElecPhiRMS_) : 0.;
 			par[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = *PhiLepton1/(1.-gv);
 		     } else par[FPARAM_Lepton1Phi_TOPTOPLEPLEP] = *PhiLepton1;
-		     
+
 		     par[FPARAM_Lepton1Px_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*cos(par[FPARAM_Lepton1Phi_TOPTOPLEPLEP]);
 		     par[FPARAM_Lepton1Py_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*sin(par[FPARAM_Lepton1Phi_TOPTOPLEPLEP]);
 		     par[FPARAM_Lepton1Pz_TOPTOPLEPLEP] = par[FPARAM_Lepton1Pt_TOPTOPLEPLEP]*sinh(par[FPARAM_Lepton1Eta_TOPTOPLEPLEP]);
