@@ -1348,7 +1348,7 @@ void KINFIT::TopTopLepHad::fcn(int &npar, double *gin, double &f, double *par, i
 		    *PxPhoton, *PyPhoton, *PzPhoton, *PtPhoton, *EtaPhoton, *PhiPhoton, *EPhoton,
 		    *PhotonOrigin,
 		    chi2t, par);
-
+   
    /// converged
    if( iflag == 3 )
      {
@@ -1631,6 +1631,56 @@ void KINFIT::TopTopLepHad::calcNuGrid(std::vector<FRESULT> &vp)
 	     {
 		if( ! isDeltaFuncPDFNonBJetPt ) {
 		   double gv = (doToys) ? getProbGaus(hPDFNonBJetPt.get(), maxPDFNonBJetPt, meanPDFNonBJetPt, sigmaPDFNonBJetPt, rnd, NNonBJetPtRMS_) : 0.;
+		   par[FPARAM_NonBJet1Pt_TOPTOPLEPHAD] = *PtNonBJet1/(1.-gv);
+		} else par[FPARAM_NonBJet1Pt_TOPTOPLEPHAD] = *PtNonBJet1;
+		
+		if( ! isDeltaFuncPDFNonBJetEta ) {		       
+		   double gv = (doToys) ? getProbGaus(hPDFNonBJetEta.get(), maxPDFNonBJetEta, meanPDFNonBJetEta, sigmaPDFNonBJetEta, rnd, NNonBJetEtaRMS_) : 0.;
+		   par[FPARAM_NonBJet1Eta_TOPTOPLEPHAD] = *EtaNonBJet1/(1.-gv);
+		} else par[FPARAM_NonBJet1Eta_TOPTOPLEPHAD] = *EtaNonBJet1;
+		  
+		if( ! isDeltaFuncPDFNonBJetPhi ) {
+		   double gv = (doToys) ? getProbGaus(hPDFNonBJetPhi.get(), maxPDFNonBJetPhi, meanPDFNonBJetPhi, sigmaPDFNonBJetPhi, rnd, NNonBJetPhiRMS_) : 0.;
+		   par[FPARAM_NonBJet1Phi_TOPTOPLEPHAD] = *PhiNonBJet1/(1.-gv);
+		} else par[FPARAM_NonBJet1Phi_TOPTOPLEPHAD] = *PhiNonBJet1;
+		
+		par[FPARAM_NonBJet1Px_TOPTOPLEPHAD] = par[FPARAM_NonBJet1Pt_TOPTOPLEPHAD]*cos(par[FPARAM_NonBJet1Phi_TOPTOPLEPHAD]);
+		par[FPARAM_NonBJet1Py_TOPTOPLEPHAD] = par[FPARAM_NonBJet1Pt_TOPTOPLEPHAD]*sin(par[FPARAM_NonBJet1Phi_TOPTOPLEPHAD]);
+		par[FPARAM_NonBJet1Pz_TOPTOPLEPHAD] = par[FPARAM_NonBJet1Pt_TOPTOPLEPHAD]*sinh(par[FPARAM_NonBJet1Eta_TOPTOPLEPHAD]);
+		par[FPARAM_NonBJet1E_TOPTOPLEPHAD] = sqrt((*MassNonBJet1)*(*MassNonBJet1) + par[FPARAM_NonBJet1Px_TOPTOPLEPHAD]*par[FPARAM_NonBJet1Px_TOPTOPLEPHAD] + par[FPARAM_NonBJet1Py_TOPTOPLEPHAD]*par[FPARAM_NonBJet1Py_TOPTOPLEPHAD] + par[FPARAM_NonBJet1Pz_TOPTOPLEPHAD]*par[FPARAM_NonBJet1Pz_TOPTOPLEPHAD]);
+	     } while( (par[FPARAM_NonBJet1E_TOPTOPLEPHAD]*par[FPARAM_NonBJet1E_TOPTOPLEPHAD]-par[FPARAM_NonBJet1Px_TOPTOPLEPHAD]*par[FPARAM_NonBJet1Px_TOPTOPLEPHAD]-par[FPARAM_NonBJet1Py_TOPTOPLEPHAD]*par[FPARAM_NonBJet1Py_TOPTOPLEPHAD]-par[FPARAM_NonBJet1Pz_TOPTOPLEPHAD]*par[FPARAM_NonBJet1Pz_TOPTOPLEPHAD]) < thres );
+	}
+
+	if( *usePDFNonBJetPxPyPz )
+	  {
+	     do
+	       {
+		  if( ! isDeltaFuncPDFNonBJetPx ) {
+		     double gv = (doToys) ? getProbGaus(hPDFNonBJetPx.get(), maxPDFNonBJetPx, meanPDFNonBJetPx, sigmaPDFNonBJetPx, rnd, NNonBJetPxRMS_) : 0.;
+		     par[FPARAM_NonBJet2Px_TOPTOPLEPHAD] = *PxNonBJet2/(1.-gv);
+		  } else par[FPARAM_NonBJet2Px_TOPTOPLEPHAD] = *PxNonBJet2;
+
+		  if( ! isDeltaFuncPDFNonBJetPy ) {
+		     double gv = (doToys) ? getProbGaus(hPDFNonBJetPy.get(), maxPDFNonBJetPy, meanPDFNonBJetPy, sigmaPDFNonBJetPy, rnd, NNonBJetPyRMS_) : 0.;
+		     par[FPARAM_NonBJet2Py_TOPTOPLEPHAD] = *PyNonBJet2/(1.-gv);
+		  } else par[FPARAM_NonBJet2Py_TOPTOPLEPHAD] = *PyNonBJet2;		  
+		  
+		  if( ! isDeltaFuncPDFNonBJetPz ) {
+		     double gv = (doToys) ? getProbGaus(hPDFNonBJetPz.get(), maxPDFNonBJetPz, meanPDFNonBJetPz, sigmaPDFNonBJetPz, rnd, NNonBJetPzRMS_) : 0.;
+		     par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD] = *PzNonBJet2/(1.-gv);
+		  } else par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD] = *PzNonBJet2;
+		  
+		  par[FPARAM_NonBJet2Pt_TOPTOPLEPHAD] = sqrt(par[FPARAM_NonBJet2Px_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Px_TOPTOPLEPHAD] + par[FPARAM_NonBJet2Py_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Py_TOPTOPLEPHAD]);
+		  par[FPARAM_NonBJet2Eta_TOPTOPLEPHAD] = getEta(par[FPARAM_NonBJet2Pt_TOPTOPLEPHAD], par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]);
+		  par[FPARAM_NonBJet2Phi_TOPTOPLEPHAD] = atan2(par[FPARAM_NonBJet2Py_TOPTOPLEPHAD], par[FPARAM_NonBJet2Px_TOPTOPLEPHAD]);
+		  par[FPARAM_NonBJet2E_TOPTOPLEPHAD] = sqrt((*MassNonBJet2)*(*MassNonBJet2) + par[FPARAM_NonBJet2Px_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Px_TOPTOPLEPHAD] + par[FPARAM_NonBJet2Py_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Py_TOPTOPLEPHAD] + par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]);
+	       } while( (par[FPARAM_NonBJet2E_TOPTOPLEPHAD]*par[FPARAM_NonBJet2E_TOPTOPLEPHAD]-par[FPARAM_NonBJet2Px_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Px_TOPTOPLEPHAD]-par[FPARAM_NonBJet2Py_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Py_TOPTOPLEPHAD]-par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]) < thres );
+	  }
+	else {
+	   do
+	     {
+		if( ! isDeltaFuncPDFNonBJetPt ) {
+		   double gv = (doToys) ? getProbGaus(hPDFNonBJetPt.get(), maxPDFNonBJetPt, meanPDFNonBJetPt, sigmaPDFNonBJetPt, rnd, NNonBJetPtRMS_) : 0.;
 		   par[FPARAM_NonBJet2Pt_TOPTOPLEPHAD] = *PtNonBJet2/(1.-gv);
 		} else par[FPARAM_NonBJet2Pt_TOPTOPLEPHAD] = *PtNonBJet2;
 		
@@ -1642,7 +1692,7 @@ void KINFIT::TopTopLepHad::calcNuGrid(std::vector<FRESULT> &vp)
 		if( ! isDeltaFuncPDFNonBJetPhi ) {
 		   double gv = (doToys) ? getProbGaus(hPDFNonBJetPhi.get(), maxPDFNonBJetPhi, meanPDFNonBJetPhi, sigmaPDFNonBJetPhi, rnd, NNonBJetPhiRMS_) : 0.;
 		   par[FPARAM_NonBJet2Phi_TOPTOPLEPHAD] = *PhiNonBJet2/(1.-gv);
-		} else par[FPARAM_NonBJet2Phi_TOPTOPLEPHAD] = *PhiNonBJet2;		  
+		} else par[FPARAM_NonBJet2Phi_TOPTOPLEPHAD] = *PhiNonBJet2;
 		
 		par[FPARAM_NonBJet2Px_TOPTOPLEPHAD] = par[FPARAM_NonBJet2Pt_TOPTOPLEPHAD]*cos(par[FPARAM_NonBJet2Phi_TOPTOPLEPHAD]);
 		par[FPARAM_NonBJet2Py_TOPTOPLEPHAD] = par[FPARAM_NonBJet2Pt_TOPTOPLEPHAD]*sin(par[FPARAM_NonBJet2Phi_TOPTOPLEPHAD]);
@@ -1650,7 +1700,7 @@ void KINFIT::TopTopLepHad::calcNuGrid(std::vector<FRESULT> &vp)
 		par[FPARAM_NonBJet2E_TOPTOPLEPHAD] = sqrt((*MassNonBJet2)*(*MassNonBJet2) + par[FPARAM_NonBJet2Px_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Px_TOPTOPLEPHAD] + par[FPARAM_NonBJet2Py_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Py_TOPTOPLEPHAD] + par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]);
 	     } while( (par[FPARAM_NonBJet2E_TOPTOPLEPHAD]*par[FPARAM_NonBJet2E_TOPTOPLEPHAD]-par[FPARAM_NonBJet2Px_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Px_TOPTOPLEPHAD]-par[FPARAM_NonBJet2Py_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Py_TOPTOPLEPHAD]-par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]*par[FPARAM_NonBJet2Pz_TOPTOPLEPHAD]) < thres );
 	}
-
+	
 	if( IncludePhotons_ )
 	  {
 	     if( *usePDFPhotonPxPyPz ) {		  
