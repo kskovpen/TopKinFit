@@ -92,8 +92,14 @@ kf->SetMet(Pt, Eta, Phi, E);
 kf->SetPhoton(Pt, Eta, Phi, E);
 ```
 
-## Fit options
+## Run options
 
+Run the kinematic fit:
+  
+```c++
+kf->Run();
+```
+  
 Set the number of toys in the generic minimization algorithm:
 
 ```c++
@@ -123,4 +129,12 @@ Only retain the variations that correspond to the minimized log-likelihood value
 ```c++
 kf->SetLHMaxGeneric(20.);
 kf->SetLHMaxMinuit(0.01);
+```
+
+## Output
+  
+Get the minimized log-likelihood value for a specific permutation. Permutations are sorted according to the minimized likelihood value, and the first permutation (index = 0) in the list therefore corresponds to the best fit result.
+  
+```c++
+kf->GetDisc(int);
 ```
