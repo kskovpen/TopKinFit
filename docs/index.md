@@ -133,8 +133,16 @@ kf->SetLHMaxMinuit(0.01);
 
 ## Output
   
-Get the minimized log-likelihood value for a specific permutation. Permutations are sorted according to the minimized likelihood value, and the first permutation (index = 0) in the list therefore corresponds to the best fit result.
+Get the minimized log-likelihood value for a specific permutation. Permutations are sorted according to the minimized likelihood value, and the first permutation (N = 0) in the list therefore corresponds to the best fit result.
   
 ```c++
-kf->GetDisc(int);
+kf->GetDisc(int N);
+```
+
+Get neutrino momenta for the Nth permutation. The second argument corresponds to the index of neutrino (0 for TOPLEP and TOPTOPLEPHAD, 0 or 1 for TOPTOPLEPLEP).
+
+```c++
+kf->GetNuPx(int N, int i);
+kf->GetNuPy(int N, int i);
+kf->GetNuPz(int N, int i);
 ```
