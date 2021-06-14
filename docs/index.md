@@ -131,7 +131,7 @@ kf->SetLHMaxGeneric(20.);
 kf->SetLHMaxMinuit(0.01);
 ```
 
-## Output
+## Output results
   
 Get the minimized log-likelihood value for a specific permutation. Permutations are sorted according to the minimized likelihood value, and the first permutation (N = 0) in the list therefore corresponds to the best fit result.
   
@@ -139,6 +139,12 @@ Get the minimized log-likelihood value for a specific permutation. Permutations 
 kf->GetDisc(int N);
 ```
 
+Get the number of permutations in event:
+
+```c++
+kf->GetNPerm();
+```
+  
 Get object's momenta for the Nth permutation. The second argument corresponds to the object's index (0 for TOPLEP and TOPTOPLEPHAD, 0 or 1 for TOPTOPLEPLEP).
 
 ```c++
@@ -157,24 +163,53 @@ kf->GetTopP(int N, int i);
 kf->GetTopE(int N, int i);
 kf->GetTopMass(int N, int i);
 ```
+```c++
+kf->GetWPt(int N, int i);
+kf->GetWEta(int N, int i);
+kf->GetWPhi(int N, int i);
+kf->GetWPx(int N, int i);
+kf->GetWPy(int N, int i);
+kf->GetWPz(int N, int i);
+kf->GetWP(int N, int i);
+kf->GetWE(int N, int i);
+kf->GetWMass(int N, int i);
+```
+```c++
+kf->GetDrTopTop(int N);
+kf->GetMTopTop(int N);
+kf->GetPtTopTop(int N);
+kf->GetPTopTop(int N);
+kf->GetEtaTopTop(int N);
+kf->GetPhiTopTop(int N);
+```
 
+Get index of an object in the input collection that is matched to a specific hard-process particle. The possible options are listed below:
+
+- **ELECTRON1_TOPTOPLEPLEP**: Electron from the first top quark's W boson decay
+- **MUON1_TOPTOPLEPLEP**: Muon from the first top quark's W boson decay
+- **ELECTRON2_TOPTOPLEPLEP**: Electron from the second top quark's W boson decay
+- **MUON2_TOPTOPLEPLEP**: Muon from the second top quark's W boson decay
+- **BJET1_TOPTOPLEPLEP**: b jet from the first top quark decay
+- **BJET2_TOPTOPLEPLEP**: b jet from the second top quark decay
+  
+```c++
+kf->GetIndex(objType, int N);
+```
+  
 ## Photon origin
   
-Possible returned values are as follows.
+Possible returned values are mentioned below.
   
-As defined in enum PHOTON_ORIGIN_TOPTOPLEPLEP:
 - **PHOTON_FROM_TOP1_COMB_TOPTOPLEPLEP**: first top quark decay (from top or b quark)
 - **PHOTON_FROM_W1_COMB_TOPTOPLEPLEP**: W boson from the first top quark decay (from W boson or lepton)
 - **PHOTON_FROM_TOP2_COMB_TOPTOPLEPLEP**: second top quark decay (from top or b quark)
 - **PHOTON_FROM_W2_COMB_TOPTOPLEPLEP**: W boson from the second top quark decay (from W boson or lepton)
 
-As defined in enum PHOTON_ORIGIN_TOPTOPLEPHAD:
 - **PHOTON_FROM_TOPLEP_COMB_TOPTOPLEPHAD**: leptonic top quark decay (from top or b quark)
 - **PHOTON_FROM_WLEP_COMB_TOPTOPLEPHAD**: W boson from the leptonic top quark decay (from W boson or lepton)
 - **PHOTON_FROM_TOPHAD_COMB_TOPTOPLEPHAD**: hadronic top quark decay (from top or b quark)
 - **PHOTON_FROM_WHAD_COMB_TOPTOPLEPHAD**: W boson from the hadronic top quark decay (from W boson or quarks)
   
-As defined in enum PHOTON_ORIGIN_TOPLEP:
 - **PHOTON_FROM_TOPLEP_COMB_TOPLEP**: top quark decay (from top or b quark)
 - **PHOTON_FROM_WLEP_COMB_TOPLEP**: W boson from the top quark decay (from W boson or lepton)
   
