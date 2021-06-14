@@ -76,4 +76,5 @@ The first argument corresponds to one of the internal definitions of TFs. The po
 - **PhotonPt**: TF, pT of photon
 - **PhotonEta**: TF, eta of photon
 - **PhotonPhi**: TF, phi of photon
+
 In the case of lepton, jet and photon objects, the TFs can be specified either for (Px, Py, Pz) or (Pt, Eta, Phi).
