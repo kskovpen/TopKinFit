@@ -1,6 +1,6 @@
 ## About
 
-The implemented algorithm represents a kinematic fit that reconstructs neutrino momentum in events with top quark decays.
+The TopPhit implementation is a kinematic fit that reconstructs the neutrino momentum in top quark decays. The algorithm can be applied to various event topologies, including top quark pair production, as well as singly-produced top quarks. If specified, the photon radiation from the hard-process particles is included in the kinematic fit.
 
 ## Installation
 
@@ -39,7 +39,7 @@ The transfer functions (**TFs**) and probability distribution functions (**PDFs*
 ```c++
 kf->SetPDF([internal TF name], [input file name], [input file histogram name]);
 ```
-The first argument corresponds to one of the internal definitions of TFs. Possible choices are: 
+The first argument corresponds to one of the internal definitions of TFs. The possible choices are: 
 - **TopMass**: PDF, top quark mass distribution (for leptonic W boson decay)
 - **TopWMass**: PDF, W boson mass distribution (for leptonic decay)
 - **TopHadMass**: PDF, top quark mass distribution (for hadronic W boson decay)
@@ -49,15 +49,31 @@ The first argument corresponds to one of the internal definitions of TFs. Possib
 - **BJetPx**: TF, x component of b jet momentum
 - **BJetPy**: TF, y component of b jet momentum
 - **BJetPz**: TF, z component of b jet momentum
+- **BJetPt**: TF, pT of b jet
+- **BJetEta**: TF, eta of b jet
+- **BJetPhi**: TF, phi of b jet
 - **NonBJetPx**: TF, x component of non-b jet momentum
 - **NonBJetPy**: TF, y component of non-b jet momentum
 - **NonBJetPz**: TF, z component of non-b jet momentum
+- **NonBJetPt**: TF, pT of non-b jet
+- **NonBJetEta**: TF, eta of non-b jet
+- **NonBJetPhi**: TF, phi of non-b jet
 - **ElecPx**: TF, x component of electron momentum
 - **ElecPy**: TF, y component of electron momentum
 - **ElecPz**: TF, z component of electron momentum
+- **ElecPt**: TF, pT of electron
+- **ElecEta**: TF, eta of electron
+- **ElecPhi**: TF, phi of electon
 - **MuonPx**: TF, x component of muon momentum
 - **MuonPy**: TF, y component of muon momentum
 - **MuonPz**: TF, z component of muon momentum
+- **MuonPt**: TF, pT of muon
+- **MuonEta**: TF, eta of muon
+- **MuonPhi**: TF, phi of muon
 - **PhotonPx**: TF, x component of photon momentum
 - **PhotonPy**: TF, y component of photon momentum
 - **PhotonPz**: TF, z component of photon momentum
+- **PhotonPt**: TF, pT of photon
+- **PhotonEta**: TF, eta of photon
+- **PhotonPhi**: TF, phi of photon
+In the case of lepton, jet and photon objects, the TFs can be specified either for (Px, Py, Pz) or (Pt, Eta, Phi).
