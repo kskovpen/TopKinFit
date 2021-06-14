@@ -81,25 +81,32 @@ In the case of lepton, jet and photon objects, the TFs can be specified either f
 
 ## Fit options
 
-Set the number of toys (default = 10000) in generic minimization algorithm:
+Set the number of toys in the generic minimization algorithm:
 
 ```c++
-kf->SetNToy([number of toys]);
+kf->SetNToy(10000);
 ```
-Set the maximum number of toys (default = 50) to retain from generic minimization:
+Set the maximum number of toys to retain from generic minimization:
 
 ```c++
-kf->SetNGrid([number of toys]);
-```
-
-Boolean flag to run MINUIT fits (default = true for TOPTOPLEPLEP, default = false for TOPLEP and TOPTOPLEPHAD).
-
-```c++
-kf->DoFit([true/false]);
+kf->SetNGrid(50);
 ```
 
-Set the maximum number of MINUIT fits (default = 50). By default, this option is only relevant for TOPTOPLEPLEP. If DoFit() is set to True, the MINUIT fits can also be included in the TOPLEP and TOPTOPLEPHAD hypotheses evaluation.
+Run MINUIT fits (default = true for TOPTOPLEPLEP, default = false for TOPLEP and TOPTOPLEPHAD).
 
 ```c++
-kf->SetNFitMax([number of fits]);
+kf->DoFit(boolean);
+```
+
+Set the maximum number of MINUIT fits. By default, this option is only relevant for TOPTOPLEPLEP. If DoFit() is set to True, the MINUIT fits can also be included in the TOPLEP and TOPTOPLEPHAD hypotheses evaluation.
+
+```c++
+kf->SetNFitMax(50);
+```
+
+Only retain the variations that correspond to the minimized log-likelihood value below the specified cut-off in generic minimization and fits.
+
+```c++
+kf->SetLHMaxGeneric(20.);
+kf->SetLHMaxMinuit(0.01);
 ```
