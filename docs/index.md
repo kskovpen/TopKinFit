@@ -147,9 +147,15 @@ kf->GetNuPy(int N, int i);
 kf->GetNuPz(int N, int i);
 ```
 ```c++
-kf->GetNuPx(int N, int i);
-kf->GetNuPy(int N, int i);
-kf->GetNuPz(int N, int i);
+kf->GetTopPt(int N, int i);
+kf->GetTopEta(int N, int i);
+kf->GetTopPhi(int N, int i);
+kf->GetTopPx(int N, int i);
+kf->GetTopPy(int N, int i);
+kf->GetTopPz(int N, int i);
+kf->GetTopP(int N, int i);
+kf->GetTopE(int N, int i);
+kf->GetTopMass(int N, int i);
 ```
 
 ## Photon origin
@@ -161,7 +167,17 @@ As defined in enum PHOTON_ORIGIN_TOPTOPLEPLEP:
 - **PHOTON_FROM_W1_COMB_TOPTOPLEPLEP**: W boson from the first top quark decay (from W boson or lepton)
 - **PHOTON_FROM_TOP2_COMB_TOPTOPLEPLEP**: second top quark decay (from top or b quark)
 - **PHOTON_FROM_W2_COMB_TOPTOPLEPLEP**: W boson from the second top quark decay (from W boson or lepton)
- 
+
+As defined in enum PHOTON_ORIGIN_TOPTOPLEPHAD:
+- **PHOTON_FROM_TOPLEP_COMB_TOPTOPLEPHAD**: leptonic top quark decay (from top or b quark)
+- **PHOTON_FROM_WLEP_COMB_TOPTOPLEPHAD**: W boson from the leptonic top quark decay (from W boson or lepton)
+- **PHOTON_FROM_TOPHAD_COMB_TOPTOPLEPHAD**: hadronic top quark decay (from top or b quark)
+- **PHOTON_FROM_WHAD_COMB_TOPTOPLEPHAD**: W boson from the hadronic top quark decay (from W boson or quarks)
+  
+As defined in enum PHOTON_ORIGIN_TOPLEP:
+- **PHOTON_FROM_TOPLEP_COMB_TOPLEP**: top quark decay (from top or b quark)
+- **PHOTON_FROM_WLEP_COMB_TOPLEP**: W boson from the top quark decay (from W boson or lepton)
+  
 ```c++
 kf->GetPhotonOrigin(int i);
 ```
