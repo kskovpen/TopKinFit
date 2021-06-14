@@ -79,6 +79,19 @@ The first argument corresponds to one of the internal definitions of TFs. The po
 
 In the case of lepton, jet and photon objects, the TFs can be specified either for (Px, Py, Pz) or (Pt, Eta, Phi).
 
+## Input data
+
+Specify input collections. Each input variable corresponds to std::vector<float>. Floats are used in case of missing ET. If SetPhoton() method is called, photons are included in the kinematic fit with corresponding permutations.
+
+```c++
+kf->SetBJet(Pt, Eta, Phi, E);
+kf->SetNonBJet(Pt, Eta, Phi, E);
+kf->SetElectron(Pt, Eta, Phi, E);
+kf->SetMuon(Pt, Eta, Phi, E);
+kf->SetMet(Pt, Eta, Phi, E);
+kf->SetPhoton(Pt, Eta, Phi, E);
+```
+
 ## Fit options
 
 Set the number of toys in the generic minimization algorithm:
@@ -86,6 +99,7 @@ Set the number of toys in the generic minimization algorithm:
 ```c++
 kf->SetNToy(10000);
 ```
+
 Set the maximum number of toys to retain from generic minimization:
 
 ```c++
