@@ -109,7 +109,7 @@ kf->SetNGrid(50);
 Run MINUIT fits (default = true for TOPTOPLEPLEP, default = false for TOPLEP and TOPTOPLEPHAD).
 
 ```c++
-kf->DoFit(boolean);
+kf->DoFit(true or false);
 ```
 
 Set the maximum number of MINUIT fits. By default, this option is only relevant for TOPTOPLEPLEP. If DoFit() is set to True, the MINUIT fits can also be included in the TOPLEP and TOPTOPLEPHAD hypotheses evaluation.
