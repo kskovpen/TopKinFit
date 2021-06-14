@@ -98,7 +98,7 @@ Boolean flag to run MINUIT fits (default = true for TOPTOPLEPLEP, default = fals
 kf->DoFit([true/false]);
 ```
 
-Set the maximum number of MINUIT fits (default = 50). By default, this option is only relevant for TOPTOPLEPLEP. If doFits is set to True, the MINUIT fits can be included in TOPLEP and TOPTOPLEPHAD hypotheses evaluation.
+Set the maximum number of MINUIT fits (default = 50). By default, this option is only relevant for TOPTOPLEPLEP. If DoFit() is set to True, the MINUIT fits can also be included in the TOPLEP and TOPTOPLEPHAD hypotheses evaluation.
 
 ```c++
 kf->SetNFitMax([number of fits]);
