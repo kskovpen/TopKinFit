@@ -78,3 +78,28 @@ The first argument corresponds to one of the internal definitions of TFs. The po
 - **PhotonPhi**: TF, phi of photon
 
 In the case of lepton, jet and photon objects, the TFs can be specified either for (Px, Py, Pz) or (Pt, Eta, Phi).
+
+## Fit options
+
+Set the number of toys (default = 10000) in generic minimization algorithm:
+
+```c++
+kf->SetNToy([number of toys]);
+```
+Set the maximum number of toys (default = 50) to retain from generic minimization:
+
+```c++
+kf->SetNGrid([number of toys]);
+```
+
+Boolean flag to run MINUIT fits (default = true for TOPTOPLEPLEP, default = false for TOPLEP and TOPTOPLEPHAD).
+
+```c++
+kf->DoFit([true/false]);
+```
+
+Set the maximum number of MINUIT fits (default = 50). By default, this option is only relevant for TOPTOPLEPLEP. If doFits is set to True, the MINUIT fits can be included in TOPLEP and TOPTOPLEPHAD hypotheses evaluation.
+
+```c++
+kf->SetNFitMax[number of fits]);
+```
