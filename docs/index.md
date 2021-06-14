@@ -139,10 +139,29 @@ Get the minimized log-likelihood value for a specific permutation. Permutations 
 kf->GetDisc(int N);
 ```
 
-Get neutrino momenta for the Nth permutation. The second argument corresponds to the index of neutrino (0 for TOPLEP and TOPTOPLEPHAD, 0 or 1 for TOPTOPLEPLEP).
+Get object's momenta for the Nth permutation. The second argument corresponds to the object's index (0 for TOPLEP and TOPTOPLEPHAD, 0 or 1 for TOPTOPLEPLEP).
 
 ```c++
 kf->GetNuPx(int N, int i);
 kf->GetNuPy(int N, int i);
 kf->GetNuPz(int N, int i);
+```
+```c++
+kf->GetNuPx(int N, int i);
+kf->GetNuPy(int N, int i);
+kf->GetNuPz(int N, int i);
+```
+
+## Photon origin
+  
+Possible returned values are as follows.
+  
+As defined in enum PHOTON_ORIGIN_TOPTOPLEPLEP:
+- **PHOTON_FROM_TOP1_COMB_TOPTOPLEPLEP**: first top quark decay (from top or b quark)
+- **PHOTON_FROM_W1_COMB_TOPTOPLEPLEP**: W boson from the first top quark decay (from W boson or lepton)
+- **PHOTON_FROM_TOP2_COMB_TOPTOPLEPLEP**: second top quark decay (from top or b quark)
+- **PHOTON_FROM_W2_COMB_TOPTOPLEPLEP**: W boson from the second top quark decay (from W boson or lepton)
+ 
+```c++
+kf->GetPhotonOrigin(int i);
 ```
