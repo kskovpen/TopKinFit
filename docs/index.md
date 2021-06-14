@@ -54,27 +54,27 @@ The first argument corresponds to one of the internal definitions of TFs. The po
 - **BJetPhi**: TF, phi of b jet
 - **NonBJetPx**: TF, x component of non-b jet momentum
 - **NonBJetPy**: TF, y component of non-b jet momentum
-- **NonBJetPz**: TF z component of non-b jet momentum
-- **NonBJetPt**: TF pT of non-b jet
-- **NonBJetEta**: TF eta of non-b jet
-- **NonBJetPhi**: TF phi of non-b jet
-- **ElecPx**: TF x component of electron momentum
-- **ElecPy**: TF y component of electron momentum
-- **ElecPz**: TF z component of electron momentum
-- **ElecPt**: TF pT of electron
-- **ElecEta**: TF eta of electron
-- **ElecPhi**: TF phi of electon
-- **MuonPx**: TF x component of muon momentum
-- **MuonPy**: TF y component of muon momentum
-- **MuonPz**: TF z component of muon momentum
-- **MuonPt**: TF pT of muon
-- **MuonEta**: TF eta of muon
-- **MuonPhi**: TF phi of muon
-- **PhotonPx**: TF x component of photon momentum
-- **PhotonPy**: TF y component of photon momentum
-- **PhotonPz**: TF z component of photon momentum
-- **PhotonPt**: TF pT of photon
-- **PhotonEta**: TF eta of photon
-- **PhotonPhi**: TF phi of photon
+- **NonBJetPz**: TF, z component of non-b jet momentum
+- **NonBJetPt**: TF, pT of non-b jet
+- **NonBJetEta**: TF, eta of non-b jet
+- **NonBJetPhi**: TF, phi of non-b jet
+- **ElecPx**: TF, x component of electron momentum
+- **ElecPy**: TF, y component of electron momentum
+- **ElecPz**: TF, z component of electron momentum
+- **ElecPt**: TF, pT of electron
+- **ElecEta**: TF, eta of electron
+- **ElecPhi**: TF, phi of electon
+- **MuonPx**: TF, x component of muon momentum
+- **MuonPy**: TF, y component of muon momentum
+- **MuonPz**: TF, z component of muon momentum
+- **MuonPt**: TF, pT of muon
+- **MuonEta**: TF, eta of muon
+- **MuonPhi**: TF, phi of muon
+- **PhotonPx**: TF, x component of photon momentum
+- **PhotonPy**: TF, y component of photon momentum
+- **PhotonPz**: TF, z component of photon momentum
+- **PhotonPt**: TF, pT of photon
+- **PhotonEta**: TF, eta of photon
+- **PhotonPhi**: TF, phi of photon
 
 In the case of lepton, jet and photon objects, the TFs can be specified either for (Px, Py, Pz) or (Pt, Eta, Phi).
