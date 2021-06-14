@@ -5,8 +5,8 @@ The TopPhit implementation is a kinematic fit that reconstructs the neutrino mom
 ## Installation
 
 ```
-git clone https://github.com/kskovpen/TopKinFit
-cd TopKinFit
+git clone https://github.com/kskovpen/TopPhit
+cd TopPhit
 make
 ./buildPyLib.sh
 ```
@@ -191,6 +191,20 @@ Get index of an object in the input collection that is matched to a specific har
 - **MUON2_TOPTOPLEPLEP**: Muon from the second top quark's W boson decay
 - **BJET1_TOPTOPLEPLEP**: b jet from the first top quark decay
 - **BJET2_TOPTOPLEPLEP**: b jet from the second top quark decay
+- **PHOTON_TOPTOPLEPLEP**: radiated photon
+  
+- **ELECTRON_TOPTOPLEPHAD**: Electron from the leptonic top quark's W boson decay
+- **MUON_TOPTOPLEPHAD**: Muon from the leptonic top quark's W boson decay
+- **BJETLEP_TOPTOPLEPHAD**: b jet from the leptonic top quark decay
+- **BJETHAD_TOPTOPLEPHAD**: b jet from the hadronic top quark decay
+- **NONBJET1_TOPTOPLEPHAD**: first non b jet from the hadronic top quark decay
+- **NONBJET2_TOPTOPLEPHAD**: second non b jet from the hadronic top quark decay
+- **PHOTON_TOPTOPLEPHAD**: radiated photon
+  
+- **ELECTRON_TOPLEP**: Electron from the top quark's W boson decay
+- **MUON_TOPLEP**: Muon from the top quark's W boson decay
+- **BJETLEP_TOPLEP**: b jet from the top quark decay
+- **PHOTON_TOPLEP**: radiated photon
   
 ```c++
 kf->GetIndex(objType, int N);
